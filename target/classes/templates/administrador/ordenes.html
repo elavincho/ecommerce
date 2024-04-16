@@ -22,14 +22,17 @@
     <body>
 
         <!-- Header -->
-        <div th:include="administrador/template_admin.html::header"></div>
+        <div th:insert="~{administrador/template_admin.html::header}"></div>
+    <br><br><br>
+    <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
+    <br>
         <!-- Page Content -->
         <div class="container">
 
 
             <!-- Page Heading/Breadcrumbs -->
             <h1 class="mt-4 mb-3">
-                Spring eCommerce <small>Ordenes</small>
+                eCommerce <small>Ordenes</small>
             </h1>
 
             <ol class="breadcrumb">
@@ -45,6 +48,8 @@
                             <table class="table">
                                 <thead>
                                     <tr>
+                                        <th scope="col">Id Cliente</th>
+                                        <th scope="col">Nombre</th>
                                         <th scope="col">No. de Orden</th>
                                         <th scope="col">Fecha Creación</th>
                                         <th scope="col">Valor</th>
@@ -53,9 +58,11 @@
                                 </thead>
                                 <tbody>
                                     <tr th:each="orden:${ordenes}">
+                                        <td th:text="${orden.usuario.id}"></td>
+                                        <td th:text="${orden.usuario.nombre}"></td>
                                         <td th:text="${orden.numero}"></td>
                                         <td th:text="${orden.fechaCreacion}"></td>
-                                        <td th:text="${orden.total}"></td>
+                                        <td th:text="'$ ' + ${orden.total}"></td>
                                         <td><a th:href="@{/administrador/detalle/{id} (id=${orden.id}) }" class="btn btn-success">Ver Detalle</a></td>
                                     </tr>
                                 </tbody>
@@ -68,7 +75,7 @@
         <!-- /.container -->
 
         <!-- Footer -->
-        <div th:include="administrador/template_admin.html::footer"></div>
+        <div th:insert="~{administrador/template_admin.html::footer}"></div>
 
         <!-- Bootstrap core JavaScript -->
         <script th:src="@{/vendor/jquery/jquery.min.js}"></script>

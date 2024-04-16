@@ -5,6 +5,7 @@
 package com.ecommerce.ecommerce.model;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 /**
  *
@@ -27,18 +28,19 @@ public class DetalleOrden {
 
     @ManyToOne
     private Producto producto;
+    
+    //@OneToMany
+    //private List<Producto> producto;
 
     public DetalleOrden() {
     }
 
-    public DetalleOrden(Integer Id, String nombre, double cantidad, double precio, double total, Orden orden, Producto producto) {
+    public DetalleOrden(Integer Id, String nombre, double cantidad, double precio, double total) {
         this.Id = Id;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
         this.total = total;
-        this.orden = orden;
-        this.producto = producto;
     }
 
     public Integer getId() {

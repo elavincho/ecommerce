@@ -44,7 +44,7 @@ public class HomeController {
     private DetalleOrdenService detalleOrdenService;
 
     // Para almacenar los detalles de la orden
-    List<DetalleOrden> detalles = new ArrayList<>();
+    List<DetalleOrden> detalles = new ArrayList<DetalleOrden>();
 
     // Datos de la orden
     Orden orden = new Orden();
@@ -76,11 +76,15 @@ public class HomeController {
 
     @PostMapping("/cart")
     public String addCart(@RequestParam Integer id, @RequestParam Integer cantidad, Model model) {
+
         DetalleOrden detalleOrden = new DetalleOrden();
+
         Producto producto = new Producto();
+
         double sumaTotal = 0;
 
         Optional<Producto> optionalProducto = productoService.get(id);
+
         logger.info("Producto agregado: {}", optionalProducto.get());
         logger.info("cantidad: {}", cantidad);
 
@@ -92,9 +96,10 @@ public class HomeController {
         detalleOrden.setTotal(producto.getPrecio() * cantidad);
         detalleOrden.setProducto(producto);
 
-        // Validar que el producto no se agregue mas de dos veces
+        //Validar que el producto no se agregue mas de dos veces
         Integer idProducto = producto.getId();
         boolean ingresado = detalles.stream().anyMatch(p -> p.getProducto().getId() == idProducto);
+
         if (!ingresado) {
             detalles.add(detalleOrden);
         }
@@ -115,9 +120,11 @@ public class HomeController {
         List<DetalleOrden> ordenNueva = new ArrayList<DetalleOrden>();
 
         for (DetalleOrden detalleOrden : detalles) {
+
             if (detalleOrden.getProducto().getId() != id) {
                 ordenNueva.add(detalleOrden);
             }
+
         }
 
         // poner la nueva lista con los productos restantes
@@ -173,6 +180,7 @@ public class HomeController {
         for (DetalleOrden dt : detalles) {
             dt.setOrden(orden);
             detalleOrdenService.save(dt);
+
         }
 
         // Limpiar lista y orden

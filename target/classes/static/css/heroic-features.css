@@ -1,10 +1,5 @@
-/*!
- * Start Bootstrap - Heroic Features (https://startbootstrap.com/templates/heroic-features)
- * Copyright 2013-2020 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-heroic-features/blob/master/LICENSE)
- */
 body {
-  padding-top: 56px;
+    padding-top: 56px;
 }
 
 .w55 {
@@ -13,6 +8,14 @@ body {
 
 .w25 {
     width: 25px;
+}
+
+.w150 {
+    width: 150px;
+}
+
+.w100 {
+    width: 100%;
 }
 
 .centrado {
@@ -24,3 +27,69 @@ body {
 .white {
     color: white;
 }
+
+/* header */
+
+.width-ico {
+    width: 35px;
+}
+
+.contenedor-header {
+    display: flex;
+    /* background-color: rgb(41, 40, 40); */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    top: 0px;
+}
+
+.contenedor-header a {
+    text-decoration: none;
+    color: white;
+}
+
+/* .contenedor-header a :hover {
+    background-color: darkgrey;
+} */
+
+.header-logo {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    text-align: center;
+}
+
+.header-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    margin-left: 20px;
+}
+
+.header-menu a {
+    padding: 20px;
+    text-align: center;
+}
+
+.header-user {
+    display: flex;
+    flex-wrap: wrap;
+    color: black;
+    justify-content: right;
+    margin-right: 30px;
+}
+
+.header-user a {
+    color: white;
+    text-decoration: none;
+}
+
+/* fin header */
+
+/* tarjeta producto */
+.tarjeta-producto a {
+    text-decoration: none;
+    color: black;
+}
+
+/* fin tarjeta producto */

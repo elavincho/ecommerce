@@ -1,43 +1,42 @@
-<!-- Navigation -->
-<div th:fragment = "header">
+<div th:fragment="header">
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" th:href="@{/administrador}">eCommerce</a>
 
-            <form class="form-inline my-2 my-lg-0" method="post"
-                  action="#">
-                <input class="form-control mr-sm-2" type="search"
-                       placeholder="Buscar" aria-label="Search" name="nombre"
-                       autocomplete="off">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-            </form>
+        <div class="contenedor-header">
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <!-- Menu Hamburguesa -->
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#"
-                            id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"> ADMIN </a>
-                        <div class="dropdown-menu"
-                             aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" th:href="@{/productos}">Productos</a> 
-                            <a class="dropdown-item" th:href="@{/administrador/usuarios}">Usuarios</a> 
-                            <a class="dropdown-item" th:href="@{/administrador/ordenes}">Ordenes</a> 
-                            <a class="dropdown-item" th:href="@{/usuario/cerrar}">Salir</a>
-                        </div>
-                    </li>
-                    
-                </ul>
+            <div class="header-logo">
+                <a th:href="@{/administrador}">
+                    <img class="width-ico" th:src="@{/img/casa-blanco.png}" alt="casa">
+                    <h6>eCommerce</h6>
+                </a>
             </div>
-             <!-- Fin Menu Hamburguesa -->
+
+            <div class="header-menu">
+                <a th:href="@{/productos}">
+                    <img class="width-ico" th:src="@{/img/entrega-pedido.png}" alt="productos">
+                    <h6>Productos</h6>
+                </a>
+                <a th:href="@{/administrador/usuarios}">
+                    <img class="width-ico" th:src="@{/img/users.png}" alt="usuarios">
+                    <h6>Usuarios</h6>
+                </a>
+                <a th:href="@{/administrador/ordenes}">
+                    <img class="width-ico" th:src="@{/img/ordenes.png}" alt="orden">
+                    <h6>Ordenes</h6>
+                </a>
+                <a th:href="@{/usuario/cerrar}">
+                    <img class="width-ico" th:src="@{/img/power-white.png}" alt="salir">
+                    <h6>Salir</h6>
+                </a>
+            </div>
         </div>
     </nav>
+</div>
+
+<div th:fragment="header-usuario">
+    <div class="header-user">
+        <h6>Administrador</h6>
+    </div>
 </div>
 
 
@@ -49,5 +48,3 @@
         </div>
     </footer>
 </div>
-
-
