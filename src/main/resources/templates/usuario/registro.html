@@ -24,24 +24,23 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" th:href="@{/}">ecommerce</a>
 
+        <div class="contenedor-header">
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/usuario/login}">Login</a>
-                    </li>
-                </ul>
+            <div class="header-logo">
+                <a th:href="@{/}">
+                    <img class="width-ico" th:src="@{/img/casa-blanco.png}" alt="casa">
+                    <h6>eCommerce</h6>
+                </a>
+            </div>
+
+            <div class="header-menu">
+                <a th:href="@{/usuario/login}">
+                    <img class="w55" th:src="@{/img/login.png}" alt="login">
+                </a>
             </div>
         </div>
     </nav>
-
     <br><br><br>
 
     <!-- Page Content -->
@@ -146,7 +145,7 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    <div th:include="usuario/template_usuario.html::footer"></div>
+    <div th:insert="~{usuario/template_usuario.html::footer}"></div>
 
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>

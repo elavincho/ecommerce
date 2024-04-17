@@ -75,7 +75,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/acceder")
-    public String acceder(Usuario usuario, HttpSession session) {
+    public String acceder(Usuario usuario, HttpSession session, Model model) {
 
         logger.info("Accesos : {}", usuario);
 
@@ -86,13 +86,18 @@ public class UsuarioController {
         if (user.isPresent()) {
             session.setAttribute("idusuario", user.get().getId());
             if (user.get().getTipo().equals("ADMIN")) {
+
                 return "redirect:/administrador";
             } else {
-                return "redirect:/";
+
+              return "redirect:/";
             }
         } else {
             logger.info("Usuario no exsite");
         }
+
+        // Mostramos el usuario
+        // model.addAttribute("usuarios", usuario);
         return "redirect:/";
     }
 

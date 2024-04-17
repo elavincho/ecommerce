@@ -18,6 +18,10 @@ body {
     width: 100%;
 }
 
+.w45 {
+    width: 45px;
+}
+
 .centrado {
     display: flex;
     justify-content: center;
@@ -40,7 +44,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-    top: 0px;
+    /* top: 0px; */
 }
 
 .contenedor-header a {
