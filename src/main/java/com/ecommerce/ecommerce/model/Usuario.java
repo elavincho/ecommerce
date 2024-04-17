@@ -19,12 +19,20 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
     private String nombre;
+    private String apellido;
+    private String documento;
     private String usarname;
     private String email;
+    private String provincia;
+    private String localidad;
     private String direccion;
+    private String altura;
+    private String piso;
+    private String depto;
     private String telefono;
     private String tipo;
     private String password;
+    private String foto;
 
     @OneToMany(mappedBy = "usuario")
     private List<Producto> productos;
@@ -35,15 +43,23 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Integer Id, String nombre, String usarname, String email, String direccion, String telefono, String tipo, String password) {
+    public Usuario(Integer Id, String nombre, String apellido, String documento, String usarname, String email, String provincia, String localidad, String direccion, String altura, String piso, String depto, String telefono, String tipo, String password, String foto) {
         this.Id = Id;
         this.nombre = nombre;
+        this.apellido = apellido;
+        this.documento = documento;
         this.usarname = usarname;
         this.email = email;
+        this.provincia = provincia;
+        this.localidad = localidad;
         this.direccion = direccion;
+        this.altura = altura;
+        this.piso = piso;
+        this.depto = depto;
         this.telefono = telefono;
         this.tipo = tipo;
         this.password = password;
+        this.foto = foto;
     }
 
     public Integer getId() {
@@ -62,6 +78,22 @@ public class Usuario {
         this.nombre = nombre;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
+
     public String getUsarname() {
         return usarname;
     }
@@ -78,12 +110,36 @@ public class Usuario {
         this.email = email;
     }
 
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
+
+    public String getLocalidad() {
+        return localidad;
+    }
+
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
+    }
+
     public String getDireccion() {
         return direccion;
     }
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public String getAltura() {
+        return altura;
+    }
+
+    public void setAltura(String altura) {
+        this.altura = altura;
     }
 
     public String getTelefono() {
@@ -110,6 +166,14 @@ public class Usuario {
         this.password = password;
     }
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
     public List<Producto> getProductos() {
         return productos;
     }
@@ -126,9 +190,25 @@ public class Usuario {
         this.ordenes = ordenes;
     }
 
+    public String getPiso() {
+        return piso;
+    }
+
+    public void setPiso(String piso) {
+        this.piso = piso;
+    }
+
+    public String getDepto() {
+        return depto;
+    }
+
+    public void setDepto(String depto) {
+        this.depto = depto;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "Id=" + Id + ", nombre=" + nombre + ", usarname=" + usarname + ", email=" + email + ", direccion=" + direccion + ", telefono=" + telefono + ", tipo=" + tipo + ", password=" + password + '}';
+        return "Usuario{" + "Id=" + Id + ", nombre=" + nombre + ", apellido=" + apellido + ", documento=" + documento + ", usarname=" + usarname + ", email=" + email + ", provincia=" + provincia + ", localidad=" + localidad + ", direccion=" + direccion + ", altura=" + altura + ", piso=" + piso + ", depto=" + depto + ", telefono=" + telefono + ", tipo=" + tipo + ", password=" + password + ", foto=" + foto + '}';
     }
 
 }

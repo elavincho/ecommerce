@@ -7,8 +7,11 @@ package com.ecommerce.ecommerce.controller;
 import com.ecommerce.ecommerce.model.Orden;
 import com.ecommerce.ecommerce.model.Usuario;
 import com.ecommerce.ecommerce.service.OrdenService;
+import com.ecommerce.ecommerce.service.UploadFileService;
 import com.ecommerce.ecommerce.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import org.slf4j.*;
@@ -19,6 +22,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -36,18 +41,28 @@ public class UsuarioController {
     @Autowired
     public OrdenService ordenService;
 
-    //  /usuario/registro
+    @Autowired
+    private UploadFileService upload;
+
+    // /usuario/registro
     @GetMapping("/registro")
     public String create() {
         return "usuario/registro";
     }
 
     @PostMapping("/save")
-    public String save(Usuario usuario) {
+    public String save(Usuario usuario, @RequestParam("img") MultipartFile file) throws IOException {
 
         logger.info("Usuario Registro: {}", usuario);
 
         usuario.setTipo("USER");
+
+        // imagen
+        if (usuario.getId() == null) { // cuando se crea un usuario
+            String nombreFoto = upload.saveImage(file);
+            usuario.setFoto(nombreFoto);
+        }
+
         usuarioService.save(usuario);
 
         return "redirect:/";
@@ -65,9 +80,9 @@ public class UsuarioController {
         logger.info("Accesos : {}", usuario);
 
         Optional<Usuario> user = usuarioService.findByEmail(usuario.getEmail());
-        //logger.info("Usuario de la bd: {}", user.get());
+        // logger.info("Usuario de la bd: {}", user.get());
 
-        //validacion momentanea
+        // validacion momentanea
         if (user.isPresent()) {
             session.setAttribute("idusuario", user.get().getId());
             if (user.get().getTipo().equals("ADMIN")) {
@@ -103,7 +118,7 @@ public class UsuarioController {
 
         model.addAttribute("detalles", orden.get().getDetalle());
 
-        //sesion
+        // sesion
         model.addAttribute("sesion", session.getAttribute("idusuario"));
 
         return "usuario/detallecompra";
