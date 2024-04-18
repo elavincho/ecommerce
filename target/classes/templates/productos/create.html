@@ -26,9 +26,10 @@
     <br><br><br>
     <div th:insert="administrador/template_admin.html::header-usuario"></div>
 
+    <div th:insert="~{usuario/template_usersession.html::header-username}"></div>
+
     <!-- Page Content -->
     <div class="container">
-
 
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">
@@ -94,7 +95,6 @@
         </form>
 
     </div>
-    <!-- /.container -->
 
     <!-- Footer -->
     <div th:insert="administrador/template_admin.html::footer"></div>

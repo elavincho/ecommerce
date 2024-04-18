@@ -39,25 +39,36 @@ public class ProductoController {
     private UsuarioService usuarioService;
 
     @GetMapping("")
-    public String show(Model model) {
+    public String show(Model model, HttpSession session) {
 
         model.addAttribute("productos", productoService.findAll());
+
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
+
         return "productos/show";
     }
 
     @GetMapping("/create")
-    public String create() {
+    public String create(Model model, HttpSession session) {
+
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
+
         return "productos/create";
     }
 
     @PostMapping("/save")
-    public String save(Producto producto, @RequestParam("img") MultipartFile file, HttpSession session)
+    public String save(Model model, Producto producto, @RequestParam("img") MultipartFile file, HttpSession session)
             throws IOException {
         LOGGER.info("Este es el objeto producto {}", producto);
 
         Usuario u = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
 
         producto.setUsuario(u);
+
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
 
         // imagen
         if (producto.getId() == null) { // cuando se crea un producto
@@ -70,7 +81,7 @@ public class ProductoController {
     }
 
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+    public String edit(@PathVariable Integer id, Model model, HttpSession session) {
 
         Producto producto = new Producto();
         Optional<Producto> optionalProducto = productoService.get(id);
@@ -79,11 +90,16 @@ public class ProductoController {
         LOGGER.info("Producto buscado: {}, producto");
 
         model.addAttribute("producto", producto);
+
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
+
         return "productos/edit";
     }
 
     @PostMapping("/update")
-    public String update(Producto producto, @RequestParam("img") MultipartFile file) throws IOException {
+    public String update(Model model, Producto producto, @RequestParam("img") MultipartFile file, HttpSession session)
+            throws IOException {
 
         Producto p = new Producto();
         p = productoService.get(producto.getId()).get();
@@ -105,6 +121,10 @@ public class ProductoController {
         producto.setUsuario(p.getUsuario());
 
         productoService.update(producto);
+
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
+
         return "redirect:/productos";
     }
 
@@ -120,6 +140,7 @@ public class ProductoController {
         }
 
         productoService.delete(id);
+
         return "redirect:/productos";
     }
 
