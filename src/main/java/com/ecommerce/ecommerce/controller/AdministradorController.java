@@ -6,9 +6,13 @@ package com.ecommerce.ecommerce.controller;
 
 import com.ecommerce.ecommerce.model.Orden;
 import com.ecommerce.ecommerce.model.Producto;
+//import com.ecommerce.ecommerce.model.Usuario;
 import com.ecommerce.ecommerce.service.OrdenService;
 import com.ecommerce.ecommerce.service.ProductoService;
 import com.ecommerce.ecommerce.service.UsuarioService;
+
+//import jakarta.servlet.http.HttpSession;
+
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -76,4 +80,13 @@ public class AdministradorController {
         
     }
 
+    // @GetMapping("/usersession")
+    // public String usersession(Model model, HttpSession session) {
+
+    //     Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
+       
+    //     model.addAttribute("usuario", usuario);
+
+    //     return "usuario/template_usersession";
+    // }
 }

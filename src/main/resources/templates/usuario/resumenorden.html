@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-
 <head>
 
     <meta charset="utf-8">
@@ -10,7 +9,6 @@
     <meta name="author" content="">
 
     <title>Spring eCommerce</title>
-
 
     <!-- Bootstrap core CSS -->
     <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
@@ -26,6 +24,7 @@
 
     <div th:insert="~{usuario/template_usuario.html::header-user}" th:unless="${sesion==null}"></div>
     <br><br><br>
+    <div th:insert="~{usuario/template_usersession.html::header-username}" th:unless="${sesion==null}"></div>
 
     <!-- Page Content -->
     <div class="container">
@@ -47,15 +46,19 @@
                     <div class="col-lg-9">
                         <div class="card-body">
                             <h5 class="card-title">
-                                DATOS ORDEN
+                                DATOS DE LA ORDEN
                             </h5>
-                            <h6 th:text=" 'Nombre: ' + ${usuario.nombre}"></h6>
+                            <h6 th:text=" 'Nombre: ' + ${usuario.nombre} + ' ' + ${usuario.apellido}"></h6>
+                            <h6
+                                th:text=" 'Dirección: ' + ${usuario.direccion} + ' ' + ${usuario.altura} + ' - ' + ${usuario.localidad}">
+                            </h6>
+                            <h6 th:text=" 'Teléfono: ' + ${usuario.telefono}"></h6>
                             <h6 th:text=" 'email: ' + ${usuario.email}"></h6>
-                            <h6 th:text=" 'Dirección: ' + ${usuario.direccion}"></h6>
-
+                            <br>
                             <h5 class="card-title">
                                 PRODUCTOS
                             </h5>
+
                             <div class="alert alert-light" role="alert">
                                 <table class="table">
                                     <thead>
@@ -70,21 +73,20 @@
                                     </thead>
                                     <tbody>
                                         <tr th:each="dorden:${cart}">
-                                            <td><img class="w55" th:src="@{/images/{img} (img=${dorden.producto.imagen})}" alt="img"></td>
+                                            <td><img class="w55"
+                                                    th:src="@{/images/{img} (img=${dorden.producto.imagen})}" alt="img">
+                                            </td>
                                             <td th:text="${dorden.nombre}"></td>
                                             <td th:text="${dorden.producto.descripcion}"></td>
                                             <td th:text="${dorden.precio}"></td>
                                             <td th:text="${dorden.cantidad}"></td>
                                             <td th:text="${dorden.total}"></td>
-
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
                     </div>
-
 
                     <div class="col-lg-3">
                         <h2 class="card-title">Resumen Orden</h2>

@@ -88,6 +88,23 @@ body {
     text-decoration: none;
 }
 
+.usersession {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    margin-right: 30px;
+}
+
+.usersession img {
+    border-radius: 100%;
+}
+
+.usersession a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
+
 /* fin header */
 
 /* tarjeta producto */

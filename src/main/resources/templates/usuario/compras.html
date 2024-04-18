@@ -25,10 +25,10 @@
 
     <div th:insert="~{usuario/template_usuario.html::header-user}" th:unless="${sesion==null}"></div>
     <br><br><br>
+    <div th:insert="~{usuario/template_usersession.html::header-username}" th:unless="${sesion==null}"></div>
 
     <!-- Page Content -->
     <div class="container">
-
 
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">
@@ -69,7 +69,6 @@
             </div>
         </div>
     </div>
-    <!-- /.container -->
 
     <!-- Footer -->
     <div th:insert="~{usuario/template_usuario.html::footer}"></div>

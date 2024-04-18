@@ -54,11 +54,15 @@ public class HomeController {
 
         logger.info("Sesion del usuario: {}", session.getAttribute("idusuario"));
 
+        logger.info("Todos los datos del usuario: {}", session.getAttribute("usersession"));
+
         model.addAttribute("productos", productoService.findAll());
 
         // sesion
         model.addAttribute("sesion", session.getAttribute("idusuario"));
-       
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
+
         return "usuario/home";
     }
 
@@ -67,6 +71,8 @@ public class HomeController {
 
         // sesion
         model.addAttribute("sesion", session.getAttribute("idusuario"));
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
 
         logger.info("Id producto enviado como parametro {}", id);
         Producto producto = new Producto();
@@ -85,6 +91,8 @@ public class HomeController {
 
         // sesion
         model.addAttribute("sesion", session.getAttribute("idusuario"));
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
 
         logger.info("Sesion del usuario: {}", session.getAttribute("idusuario"));
 
@@ -130,7 +138,8 @@ public class HomeController {
 
         // sesion
         model.addAttribute("sesion", session.getAttribute("idusuario"));
-
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
 
         logger.info("Sesion del usuario: {}", session.getAttribute("idusuario"));
 
@@ -165,6 +174,9 @@ public class HomeController {
 
         // sesion
         model.addAttribute("sesion", session.getAttribute("idusuario"));
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
+
         return "/usuario/carrito";
     }
 
@@ -173,6 +185,8 @@ public class HomeController {
 
         // sesion
         model.addAttribute("sesion", session.getAttribute("idusuario"));
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
 
         Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
 
@@ -180,6 +194,7 @@ public class HomeController {
         model.addAttribute("orden", orden);
 
         model.addAttribute("usuario", usuario);
+
         return "usuario/resumenorden";
     }
 
@@ -187,7 +202,9 @@ public class HomeController {
     public String saveOrder(Model model, HttpSession session) {
 
         // sesion
-        model.addAttribute("sesion", session.getAttribute("idusuario"));
+        model.addAttribute("sesion", session.getAttribute("idusuario").toString());
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
 
         Date fechaCreacion = new Date();
         orden.setFechaCreacion(fechaCreacion);

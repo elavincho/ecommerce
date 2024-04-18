@@ -80,24 +80,30 @@ public class UsuarioController {
         logger.info("Accesos : {}", usuario);
 
         Optional<Usuario> user = usuarioService.findByEmail(usuario.getEmail());
-        // logger.info("Usuario de la bd: {}", user.get());
+        //logger.info("Usuario de la bd: {}", user.get());
 
         // validacion momentanea
         if (user.isPresent()) {
+
+            //Obtenemos el id del usuario para usarlo en cualquier lugar de la app
             session.setAttribute("idusuario", user.get().getId());
+
+            // Obtenemos todos los datos del usuario para usarlo en cualquier lugar de la app
+            session.setAttribute("usersession", user.get());
+
             if (user.get().getTipo().equals("ADMIN")) {
 
                 return "redirect:/administrador";
-            } else {
+            } else if (user.get().getTipo().equals("USER")) {
 
-              return "redirect:/";
+                return "redirect:/";
             }
         } else {
             logger.info("Usuario no exsite");
+
+            //crear un html o una alerta de que el usuario no existe
         }
 
-        // Mostramos el usuario
-        // model.addAttribute("usuarios", usuario);
         return "redirect:/";
     }
 
@@ -105,6 +111,8 @@ public class UsuarioController {
     public String obtenerCompras(Model model, HttpSession session) {
 
         model.addAttribute("sesion", session.getAttribute("idusuario"));
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
 
         Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
         List<Orden> ordenes = ordenService.findByUsuario(usuario);
@@ -125,6 +133,8 @@ public class UsuarioController {
 
         // sesion
         model.addAttribute("sesion", session.getAttribute("idusuario"));
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
 
         return "usuario/detallecompra";
     }

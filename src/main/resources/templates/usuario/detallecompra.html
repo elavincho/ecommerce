@@ -10,7 +10,6 @@
 
     <title>eCommerce</title>
 
-
     <!-- Bootstrap core CSS -->
     <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
@@ -25,11 +24,10 @@
 
     <div th:insert="~{usuario/template_usuario.html::header-user}" th:unless="${sesion==null}"></div>
     <br><br><br>
-
+    <div th:insert="~{usuario/template_usersession.html::header-username}" th:unless="${sesion==null}"></div>
 
     <!-- Page Content -->
     <div class="container">
-
 
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">
@@ -59,7 +57,8 @@
                             </thead>
                             <tbody>
                                 <tr th:each="detalle:${detalles}">
-                                    <td><img class="w55" th:src="@{/images/{img} (img=${detalle.producto.imagen})}" alt="img"></td>
+                                    <td><img class="w55" th:src="@{/images/{img} (img=${detalle.producto.imagen})}"
+                                            alt="img"></td>
                                     <td th:text="${detalle.cantidad}"></td>
                                     <td th:text="${detalle.nombre}"></td>
                                     <td th:text="${detalle.precio}"></td>
@@ -72,7 +71,6 @@
             </div>
         </div>
     </div>
-    <!-- /.container -->
 
     <!-- Footer -->
     <div th:insert="~{usuario/template_usuario.html::footer}"></div>

@@ -8,8 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Spring eCommerce</title>
-
+    <title>eCommerce</title>
 
     <!-- Bootstrap core CSS -->
     <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
@@ -26,9 +25,10 @@
 
     <div th:insert="~{usuario/template_usuario.html::header-user}" th:unless="${sesion==null}"></div>
     <br><br><br>
+    <div th:insert="~{usuario/template_usersession.html::header-username}" th:unless="${sesion==null}"></div>
+
     <!-- Page Content -->
     <div class="container">
-
 
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">
@@ -58,7 +58,8 @@
                             </thead>
                             <tbody>
                                 <tr th:each="dorden:${cart}">
-                                    <td><img class="w55" th:src="@{/images/{img} (img=${dorden.producto.imagen})}" alt="img"></td>
+                                    <td><img class="w55" th:src="@{/images/{img} (img=${dorden.producto.imagen})}"
+                                            alt="img"></td>
                                     <td th:text="${dorden.nombre}"></td>
                                     <td th:text="${dorden.precio}"></td>
                                     <td th:text="${dorden.cantidad}"></td>
