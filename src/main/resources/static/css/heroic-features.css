@@ -96,7 +96,7 @@ body {
 }
 
 .usersession img {
-    border-radius: 100%;
+    border-radius: 25%;
 }
 
 .usersession a {
@@ -109,6 +109,11 @@ body {
 
 /* tarjeta producto */
 .tarjeta-producto a {
+    text-decoration: none;
+    color: black;
+}
+
+.deco-none a {
     text-decoration: none;
     color: black;
 }

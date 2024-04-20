@@ -23,15 +23,17 @@
   <!-- Header -->
   <div th:insert="~{administrador/template_admin.html::header}"></div>
   <br><br><br>
+  
+  <div th:insert="~{usuario/template_usersession.html::header-username}"></div>
+
   <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
 
-  <div th:insert="~{usuario/template_usersession.html::header-username}"></div>
   <!-- Page Content -->
   <div class="container">
 
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">
-      eCommerce <small>Detalles Orden</small>
+      eCommerce <small>Detalle Orden</small>
     </h1>
 
     <ol class="breadcrumb">
@@ -72,13 +74,12 @@
       </div>
       <div class="row w100 centrado">
         <div>
-          <a class="btn btn-warning" th:href="@{/administrador/ordenes}">Salir</a>
+          <a class="btn btn-warning" th:href="@{/administrador/ordenes}">Volver</a>
         </div>
       </div>
       <br>
     </div>
   </div>
-  <!-- /.container -->
 
   <!-- Footer -->
   <div th:insert="~{administrador/template_admin.html::footer}"></div>

@@ -22,11 +22,13 @@
 <body>
 
     <!-- Header -->
-    <div th:insert="administrador/template_admin.html::header"></div>
+    <div th:insert="~{administrador/template_admin.html::header}"></div>
     <br><br><br>
-    <div th:insert="administrador/template_admin.html::header-usuario"></div>
 
     <div th:insert="~{usuario/template_usersession.html::header-username}"></div>
+
+    <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
+
 
     <!-- Page Content -->
     <div class="container">
@@ -103,7 +105,7 @@
     </div>
 
     <!-- Footer -->
-    <div th:insert="administrador/template_admin.html::footer"></div>
+    <div th:insert="~{administrador/template_admin.html::footer}"></div>
 
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>

@@ -21,12 +21,14 @@
 <body>
 
     <!-- Header -->
-    <div th:insert="administrador/template_admin.html::header"></div>
+    <div th:insert="~{administrador/template_admin.html::header}"></div>
     <br><br><br>
-    <div th:insert="administrador/template_admin.html::header-usuario"></div>
-    
+
     <div th:insert="~{usuario/template_usersession.html::header-username}"></div>
-    
+
+    <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
+
+
     <!-- Page Content -->
     <div class="container">
 
@@ -62,7 +64,9 @@
                     <td th:text="${usuario.email}"></td>
                     <td th:text="${usuario.provincia}"></td>
                     <td th:text="${usuario.localidad}"></td>
-                    <td th:text="${usuario.direccion} + ' ' + ${usuario.altura} + ' ' + ${usuario.piso} + ' ' + ${usuario.depto}"></td>
+                    <td
+                        th:text="${usuario.direccion} + ' ' + ${usuario.altura} + ' ' + ${usuario.piso} + ' ' + ${usuario.depto}">
+                    </td>
                     <td th:text="${usuario.telefono}"></td>
                 </tr>
             </tbody>
@@ -71,7 +75,7 @@
     </div>
 
     <!-- Footer -->
-    <div th:include="administrador/template_admin.html::footer"></div>
+    <div th:insert="~{administrador/template_admin.html::footer}"></div>
 
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>

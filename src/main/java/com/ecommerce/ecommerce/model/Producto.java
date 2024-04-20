@@ -5,6 +5,7 @@
 package com.ecommerce.ecommerce.model;
 
 import jakarta.persistence.*;
+import java.util.Locale;
 
 /**
  *
@@ -21,6 +22,7 @@ public class Producto {
     private String descripcion;
     private String imagen;
     private double precio;
+    private String precioFormateado = String.format(Locale.ROOT, "%,.0f", precio); //El precio con separador de miles y sin decimales
     private int cantidad;
 
     @ManyToOne
@@ -29,15 +31,7 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(Integer Id, String nombre, String descripcion, String imagen, double precio, int cantidad, Usuario usuario) {
-        this.Id = Id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.imagen = imagen;
-        this.precio = precio;
-        this.cantidad = cantidad;
-        this.usuario = usuario;
-    }
+
 
     public Integer getId() {
         return Id;
@@ -77,6 +71,14 @@ public class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public String getPrecioFormateado() {
+        return precioFormateado;
+    }
+
+    public void setPrecioFormateado(String precioFormateado) {
+        this.precioFormateado = precioFormateado;
     }
 
     public int getCantidad() {

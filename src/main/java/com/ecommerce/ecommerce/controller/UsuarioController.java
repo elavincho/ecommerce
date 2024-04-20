@@ -131,6 +131,9 @@ public class UsuarioController {
 
         model.addAttribute("detalles", orden.get().getDetalle());
 
+        //Le pasamos la orden para obtener el total de la compra
+        model.addAttribute("ordencompra", orden.get());
+
         // sesion
         model.addAttribute("sesion", session.getAttribute("idusuario"));
         // Con esto obtenemos todos los datos del usuario

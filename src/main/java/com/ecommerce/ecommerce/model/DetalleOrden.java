@@ -28,9 +28,6 @@ public class DetalleOrden {
     @ManyToOne
     private Producto producto;
     
-    //@OneToMany
-    //private List<Producto> producto;
-
     public DetalleOrden() {
     }
 
