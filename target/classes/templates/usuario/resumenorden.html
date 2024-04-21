@@ -43,20 +43,20 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-lg-9">
+                    <div class="col-lg-12">
                         <div class="card-body">
                             <h5 class="card-title">
-                                DATOS DE LA ORDEN
+                                Datos del Cliente
                             </h5>
                             <h6 th:text=" 'Nombre: ' + ${usuario.nombre} + ' ' + ${usuario.apellido}"></h6>
                             <h6
-                                th:text=" 'Dirección: ' + ${usuario.direccion} + ' ' + ${usuario.altura} + ' - ' + ${usuario.localidad}">
+                                th:text=" 'Dirección: ' + ${usuario.direccion} + ' ' + ${usuario.altura} + ', Piso: ' + ${usuario.piso} + ', Depto: ' + ${usuario.depto} + ' - ' + ${usuario.localidad}">
                             </h6>
                             <h6 th:text=" 'Teléfono: ' + ${usuario.telefono}"></h6>
                             <h6 th:text=" 'email: ' + ${usuario.email}"></h6>
                             <br>
                             <h5 class="card-title">
-                                PRODUCTOS
+                                Productos
                             </h5>
 
                             <div class="alert alert-light" role="alert">
@@ -78,9 +78,9 @@
                                             </td>
                                             <td th:text="${dorden.nombre}"></td>
                                             <td th:text="${dorden.producto.descripcion}"></td>
-                                            <td th:text="${dorden.precio}"></td>
+                                            <td th:text="'$' + ${dorden.precio}"></td>
                                             <td th:text="${dorden.cantidad}"></td>
-                                            <td th:text="${dorden.total}"></td>
+                                            <td th:text="'$' + ${dorden.total}"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -88,14 +88,16 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3">
-                        <h2 class="card-title">Resumen Orden</h2>
+                    <div class="col-lg-4 center">
+                        <h3 class="card-title">Total a Pagar:</h3>
 
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <h5 th:text=" 'Total: $ ' + ${orden.total}"></h5>
+                                <h5 th:text="'$' + ${orden.total}"></h5>
                             </li>
-                            <a th:href="@{/saveOrder}" class="btn btn-dark">Generar</a>
+                            <br>
+                            <!-- <a th:href="@{/saveOrder}" class="btn btn-dark">Completar Compra</a> -->
+                            <a th:onclick="compraExitosa()" class="btn btn-success">Completar Compra</a>
                         </ul>
                     </div>
                 </div>
@@ -109,6 +111,14 @@
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script th:src="@{js/script.js}"></script>
 
 </body>
 

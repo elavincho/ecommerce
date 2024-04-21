@@ -5,7 +5,6 @@
 package com.ecommerce.ecommerce.model;
 
 import jakarta.persistence.*;
-import java.util.Locale;
 
 /**
  *
@@ -21,8 +20,7 @@ public class Producto {
     private String nombre;
     private String descripcion;
     private String imagen;
-    private double precio;
-    private String precioFormateado = String.format(Locale.ROOT, "%,.0f", precio); //El precio con separador de miles y sin decimales
+    private int precio;
     private int cantidad;
 
     @ManyToOne
@@ -31,7 +29,14 @@ public class Producto {
     public Producto() {
     }
 
-
+    public Producto(Integer Id, String nombre, String descripcion, String imagen, int precio, int cantidad) {
+        this.Id = Id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }
 
     public Integer getId() {
         return Id;
@@ -65,20 +70,13 @@ public class Producto {
         this.imagen = imagen;
     }
 
-    public double getPrecio() {
+    public int getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(int precio) {
+
         this.precio = precio;
-    }
-
-    public String getPrecioFormateado() {
-        return precioFormateado;
-    }
-
-    public void setPrecioFormateado(String precioFormateado) {
-        this.precioFormateado = precioFormateado;
     }
 
     public int getCantidad() {
@@ -99,7 +97,8 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "Producto{" + "Id=" + Id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen + ", precio=" + precio + ", cantidad=" + cantidad + '}';
+        return "Producto{" + "Id=" + Id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen
+                + ", precio=" + precio + ", cantidad=" + cantidad + '}';
     }
 
 }

@@ -96,6 +96,11 @@ public class HomeController {
 
         logger.info("Sesion del usuario: {}", session.getAttribute("idusuario"));
 
+        //Si el cliente intenta agregar un producto al carrito y no esta logueado
+        if (session.getAttribute("idusuario") == null) {
+            return "redirect:/usuario/login";
+        }
+
         DetalleOrden detalleOrden = new DetalleOrden();
 
         Producto producto = new Producto();

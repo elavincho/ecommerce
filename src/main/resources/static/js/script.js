@@ -25,3 +25,29 @@ function eliminar(id) {
    
   });
 }
+
+
+
+function compraExitosa() {
+
+  swal({
+    title: "¡Compra Exitosa!",
+    text: "Tu compra fue realizada con exito.",
+    icon: "success",
+    timer: 2000,
+    showConfirmButton: false
+  }).then((ok) => {
+    if (ok) {
+      $.ajax({
+        url: "/saveOrder",
+        success: function (res) {
+          console.log(res);
+          location.href="/";
+        },
+      });
+     
+    } 
+   
+  });
+
+}

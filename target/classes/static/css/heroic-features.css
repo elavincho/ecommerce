@@ -28,8 +28,20 @@ body {
     align-items: center;
 }
 
+.center {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 .white {
     color: white;
+}
+
+.btn-white {
+    /* text-decoration: none; */
+    color: white;
+    text-decoration-color: white;
 }
 
 /* header */
@@ -51,10 +63,6 @@ body {
     text-decoration: none;
     color: white;
 }
-
-/* .contenedor-header a :hover {
-    background-color: darkgrey;
-} */
 
 .header-logo {
     display: flex;
@@ -104,6 +112,12 @@ body {
     text-align: center;
     color: black;
 }
+
+.background {
+    /* background-color: rgba(44, 42, 42); */
+    background-color: white;
+}
+
 
 /* fin header */
 

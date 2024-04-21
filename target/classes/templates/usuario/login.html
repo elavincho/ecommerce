@@ -54,8 +54,6 @@
             </div>
         </div>
 
-        <br>
-
         <form th:action="@{/usuario/acceder}" method="post">
             <div class="form-group">
                 <label for="email"> Email: </label>
@@ -64,15 +62,11 @@
 
             </div>
 
-            <br>
-
             <div class="form-group">
                 <label for="pwd"> Contraseña:</label>
                 <input type="password" class="form-control" id="password" name="password"
                     placeholder="Ingrese su contraseña" required>
             </div>
-
-            <br>
 
             <div class="form-group">
                 <div class="col-sm-2">
@@ -81,9 +75,22 @@
                 </div>
             </div>
         </form>
-        <br><br><br>
-    </div>
+        <br>
+        <div class="card mb-3 center deco-none">
+            <div class="row no-gutters">
+                <div class="col-md-8">
+                    <div class="card-body">
 
+                        <a th:href="@{/usuario/registro}">
+                            <h6>Si no estas registrado hace click aquí</h6>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
     <!-- Footer -->
     <div th:insert="~{usuario/template_usuario.html::footer}"></div>
 

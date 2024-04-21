@@ -14,6 +14,9 @@
     <!-- Bootstrap core CSS -->
     <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <!-- Custom styles for this template -->
     <link th:href="@{css/heroic-features.css}" rel="stylesheet">
 
@@ -31,9 +34,22 @@
     <div class="container">
 
         <!-- Jumbotron Header -->
-        <header class="jumbotron my-4">
-            <h1 class="display-3">Bienvenido al eCommerce</h1>
-            <p class="lead">Tu tienda de productos en Línea</p>
+        <header class="jumbotron my-4 background">
+          
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="2500">
+                        <img class="d-block w-100" th:src="@{/img/promo.jpg}" alt="1">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2500">
+                        <img class="d-block w-100" th:src="@{/img/promo2.jpg}" alt="2">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2500">
+                        <img class="d-block w-100" th:src="@{/img/promo3.jpg}" alt="3">
+                    </div>
+                </div>
+            </div>
+
         </header>
 
         <!-- Page Features -->
@@ -45,17 +61,13 @@
                         <div class="card-body">
                             <h5 class="card-text" th:text="${producto.nombre}"></h5>
                             <p class="card-text" th:text="${producto.descripcion}"></p>
-                            <h4 class="card-text" th:text="${producto.precio}"></h4>
+                            <h4 class="card-text" th:text="'$ ' + ${producto.precio}"></h4>
                         </div>
                     </div>
-
-                    
                 </a>
             </div>
         </div>
     </div>
-
-    
 
     <!-- Footer -->
     <div th:insert="~{administrador/template_admin.html::footer}"></div>
@@ -63,6 +75,8 @@
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js}" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
 

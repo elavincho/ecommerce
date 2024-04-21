@@ -61,9 +61,9 @@
                                     <td><img class="w55" th:src="@{/images/{img} (img=${dorden.producto.imagen})}"
                                             alt="img"></td>
                                     <td th:text="${dorden.nombre}"></td>
-                                    <td th:text="${dorden.precio}"></td>
+                                    <td th:text="'$' +${dorden.precio}"></td>
                                     <td th:text="${dorden.cantidad}"></td>
-                                    <td th:text="${dorden.total}"></td>
+                                    <td th:text="'$' + ${dorden.total}"></td>
                                     <td><a th:href="@{/delete/cart/{id} (id=${dorden.producto.id}) }"
                                             class="btn btn-danger">Quitar</a></td>
                                 </tr>
@@ -71,14 +71,17 @@
                         </table>
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 center">
                         <h2 class="card-title">SUBTOTAL</h2>
 
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <h5 th:text="'$ '+${orden.total}"></h5>
+                                <h5 th:text="'$'+${orden.total}"></h5>
                             </li>
-                            <a th:href="@{/order}" class="btn btn-dark">Ver Orden</a>
+                            <br>
+                            <a th:href="@{/order}" class="btn btn-dark">Comprar</a>
+                            <br>
+                            <a th:href="@{/}" class="btn btn-dark">Agregar Productos</a>
                         </ul>
                     </div>
 
