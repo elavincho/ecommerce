@@ -23,8 +23,8 @@
     <div th:insert="~{usuario/template_usuario.html::header}" th:if="${sesion==null}"></div>
 
     <div th:insert="~{usuario/template_usuario.html::header-user}" th:unless="${sesion==null}"></div>
-    <br><br><br>
-    <div th:insert="~{usuario/template_usersession.html::header-username}" th:unless="${sesion==null}"></div>
+    <br>
+    <!-- <div th:insert="~{usuario/template_usersession.html::header-username}" th:unless="${sesion==null}"></div> -->
 
     <!-- Page Content -->
     <div class="container">

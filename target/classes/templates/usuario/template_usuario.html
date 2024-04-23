@@ -31,36 +31,51 @@
 <!-- Header usuario logueado -->
 <div th:fragment="header-user">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="header-personalizado">
 
         <div class="contenedor-header">
 
             <div class="header-logo">
                 <a th:href="@{/}">
                     <img class="width-ico" th:src="@{/img/casa-blanco.png}" alt="casa">
-                    <h6>eCommerce</h6>
+                    <p>eCommerce</p>
                 </a>
             </div>
 
-            <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
-                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="nombre"
-                    autocomplete="off">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-            </form>
-
             <div class="header-menu">
+
+                <div class="dropdown">
+                    <button class="btn btn-dark" style="background-color: black; color: white;" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img class="width-ico" th:src="@{/img/lupa.png}" alt="lupa">
+                        <p>Buscar</p>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos"
+                                aria-label="Search" name="nombre" autocomplete="off">
+                        </form>
+                    </ul>
+                </div>
+                
                 <a th:href="@{/usuario/compras}">
                     <img class="width-ico" th:src="@{/img/compras.png}" alt="productos">
-                    <h6>Mis Compras</h6>
+                    <p>Mis Compras</p>
                 </a>
                 <a th:href="@{/getCart}">
                     <img class="width-ico" th:src="@{/img/carrito.png}" alt="usuarios">
-                    <h6>Carrito</h6>
+                    <p>Carrito</p>
                 </a>
                 <a th:href="@{/usuario/cerrar}">
                     <img class="width-ico" th:src="@{/img/power-white.png}" alt="salir">
-                    <h6>Salir</h6>
+                    <p>Salir</p>
                 </a>
+                <div class="usersession " th:fragment="header-username">
+                    <a href="">
+                        <img class="w25" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
+                        <p th:text="${usuario.nombre}" style="color: white;"></p>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>

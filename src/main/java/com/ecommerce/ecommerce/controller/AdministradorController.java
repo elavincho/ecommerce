@@ -13,6 +13,8 @@ import com.ecommerce.ecommerce.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,15 +82,20 @@ public class AdministradorController {
 
         logger.info("Id de la orden: {}", id);
 
-        Orden orden = ordenService.findById(id).get();
+        // Orden orden = ordenService.findById(id).get();
+        // model.addAttribute("detalles", orden.getDetalle());
 
-        model.addAttribute("detalles", orden.getDetalle());
+        // Le pasamos los datos de la orden para obtener los datos del cliente
+        Optional<Orden> orden = ordenService.findById(id);
+        model.addAttribute("detalles", orden.get().getDetalle());
+
+        // Le pasamos la orden para obtener el total de la compra
+        model.addAttribute("ordencompra", orden.get());
 
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
 
         return "administrador/detalleorden";
-
     }
 
 }

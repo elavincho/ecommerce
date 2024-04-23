@@ -1,33 +1,40 @@
 <div th:fragment="header">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="header-personalizado">
 
         <div class="contenedor-header">
 
             <div class="header-logo">
                 <a th:href="@{/administrador}">
                     <img class="width-ico" th:src="@{/img/casa-blanco.png}" alt="casa">
-                    <h6>eCommerce</h6>
+                    <p>eCommerce</p>
                 </a>
             </div>
 
             <div class="header-menu">
                 <a th:href="@{/productos}">
                     <img class="width-ico" th:src="@{/img/entrega-pedido.png}" alt="productos">
-                    <h6>Productos</h6>
+                    <p>Productos</p>
                 </a>
                 <a th:href="@{/administrador/usuarios}">
                     <img class="width-ico" th:src="@{/img/users.png}" alt="usuarios">
-                    <h6>Usuarios</h6>
+                    <p>Usuarios</p>
                 </a>
                 <a th:href="@{/administrador/ordenes}">
                     <img class="width-ico" th:src="@{/img/ordenes.png}" alt="orden">
-                    <h6>Ordenes</h6>
+                    <p>Ordenes</p>
                 </a>
                 <a th:href="@{/usuario/cerrar}">
                     <img class="width-ico" th:src="@{/img/power-white.png}" alt="salir">
-                    <h6>Salir</h6>
+                    <p>Salir</p>
                 </a>
+                <div class="usersession" th:fragment="header-username">
+                    <a href="">
+                        <img class="w25" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
+                        <p th:text="${usuario.nombre}" style="color: white;"></p>
+                        <!-- <p style="color: white;">Admin</p> -->
+                    </a>
+                </div>
             </div>
         </div>
     </nav>

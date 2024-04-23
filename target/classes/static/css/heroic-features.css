@@ -1,3 +1,10 @@
+* {
+    /* Esto hace que todas las cajas sean iguales */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     padding-top: 56px;
 }
@@ -20,6 +27,18 @@ body {
 
 .w45 {
     width: 45px;
+}
+
+.w35 {
+    width: 35px;
+}
+
+.w30 {
+    width: 30px;
+}
+
+.mr30 {
+    margin-right: 30px;
 }
 
 .centrado {
@@ -47,7 +66,7 @@ body {
 /* header */
 
 .width-ico {
-    width: 35px;
+    width: 25px;
 }
 
 .contenedor-header {
@@ -64,23 +83,40 @@ body {
     color: white;
 }
 
+.header-personalizado {
+    background-color: black;
+    display: flow-root;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
 .header-logo {
     display: flex;
     flex-wrap: wrap;
-    margin: 20px;
+    margin: 5px;
     text-align: center;
+    margin-left: 15px;
+}
+
+.header-logo p {
+    font-size: 10px;
 }
 
 .header-menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: end;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .header-menu a {
-    padding: 20px;
+    padding: 5px;
     text-align: center;
+}
+
+.header-menu p {
+    font-size: 10px;
 }
 
 .header-user {
@@ -88,7 +124,7 @@ body {
     flex-wrap: wrap;
     color: black;
     justify-content: right;
-    margin-right: 30px;
+    margin-right: 15px;
 }
 
 .header-user a {
@@ -100,11 +136,12 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: right;
-    margin-right: 30px;
+    margin-right: 15px;
+    color: white;
 }
 
 .usersession img {
-    border-radius: 25%;
+    border-radius: 15%;
 }
 
 .usersession a {
@@ -112,12 +149,6 @@ body {
     text-align: center;
     color: black;
 }
-
-.background {
-    /* background-color: rgba(44, 42, 42); */
-    background-color: white;
-}
-
 
 /* fin header */
 
@@ -133,3 +164,34 @@ body {
 }
 
 /* fin tarjeta producto */
+
+
+/* Menu Scroll */
+
+.menu-scroll {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    margin: 2%;
+}
+
+.img-menu-scroll {
+    border: solid 1px;
+    color: rgb(93, 93, 93);
+    padding: 3px;
+    border-radius: 5%;
+    max-width: 75px;
+    margin: 2px;
+}
+
+.menu-scroll a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu-scroll h4 {
+    text-align: center;
+}
+
+/* Fin Menu Circulo */
