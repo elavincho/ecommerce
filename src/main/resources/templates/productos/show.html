@@ -24,61 +24,72 @@
     <!-- Header -->
     <div th:insert="~{administrador/template_admin.html::header}"></div>
     <br>
-
-    <!-- <div th:insert="~{usuario/template_usersession.html::header-username}"></div> -->
-
     <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
 
-    <!-- Page Content -->
+    <!-- Contenido de la Página -->
     <div class="container">
 
-        <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">eCommerce <small>Productos</small></h1>
-
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a th:href="@{/administrador}">Home</a></li>
-            <li class="breadcrumb-item active">Ver Productos</li>
-        </ol>
-        <div class="centrado">
-            <a class="btn btn-success" th:href="@{productos/create}"> Crear Producto</a>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="mt-4 mb-3 center">Administración<small> de Productos</small></h1>
+                        <div class="centrado">
+                            <a class="btn btn-success" th:href="@{productos/create}"> Alta Producto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <h2>Productos</h2>
-
-        <div class="overflow-x-scroll">
-            <div class="menu-scroll">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Imagen</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Inventario</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Acción</th>
-                            <th scope="col">Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="producto:${productos}">
-                            <td><img class="w55" th:src="@{/images/{img} (img=${producto.imagen})}" alt=""></td>
-                            <td th:text="${producto.nombre}"></td>
-                            <td th:text="${producto.descripcion}"></td>
-                            <td th:text="${producto.cantidad}"></td>
-                            <td th:text="${producto.precio}"></td>
-                            <td>
-                                <a class="btn btn-warning" th:href="@{/productos/edit/{id} (id=${producto.id}) }">
-                                    <img class="w25" th:src="@{/img/actualizar.png}" alt="salir">
-                                </a>
-                            </td>
-                            <td>
-                                <a th:onclick="eliminar([[${producto.id}]])" class="btn btn-danger">
-                                    <img class="w25" th:src="@{/img/eliminar.png}" alt="salir">
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="overflow-x-scroll">
+                            <div class="menu-scroll">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Ubic</th>
+                                            <th scope="col">Cant</th>
+                                            <th scope="col">Imagen</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Categ</th>
+                                            <th scope="col">Descripción</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Acción</th>
+                                            <th scope="col">Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="producto:${productos}">
+                                            <td th:text="${producto.ubicacion}"></td>
+                                            <td th:text="${producto.cantidad}"></td>
+                                            <td><img class="w55" th:src="@{/images/{img} (img=${producto.imagen})}"
+                                                    alt=""></td>
+                                            <td th:text="${producto.nombre}"></td>
+                                            <td th:text="${producto.categoria}"></td>
+                                            <td th:text="${producto.descripcion}"></td>
+                                            <td th:text="${producto.precio}"></td>
+                                            <td>
+                                                <a class="btn btn-warning"
+                                                    th:href="@{/productos/edit/{id} (id=${producto.id}) }">
+                                                    <img class="w25" th:src="@{/img/actualizar.png}" alt="salir">
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a th:onclick="eliminar([[${producto.id}]])" class="btn btn-danger">
+                                                    <img class="w25" th:src="@{/img/eliminar.png}" alt="salir">
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

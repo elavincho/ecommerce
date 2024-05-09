@@ -30,68 +30,76 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">
+        <!-- <h1 class="mt-4 mb-3">
             eCommerce <small>Resumen de la orden</small>
-        </h1>
+        </h1> -->
 
-        <ol class="breadcrumb">
+        <!-- <ol class="breadcrumb">
             <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
             <li class="breadcrumb-item active">Orden</li>
-        </ol>
+        </ol> -->
 
         <!-- Blog Post -->
         <div class="card mb-4">
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                Datos del Cliente
-                            </h5>
-                            <h6 th:text=" 'Nombre: ' + ${usuario.nombre} + ' ' + ${usuario.apellido}"></h6>
-                            <h6
-                                th:text=" 'Dirección: ' + ${usuario.direccion} + ' ' + ${usuario.altura} + ', Piso: ' + ${usuario.piso} + ', Depto: ' + ${usuario.depto} + ' - ' + ${usuario.localidad}">
-                            </h6>
-                            <h6 th:text=" 'Teléfono: ' + ${usuario.telefono}"></h6>
-                            <h6 th:text=" 'email: ' + ${usuario.email}"></h6>
-                            <br>
-                            <h5 class="card-title">
-                                Productos
-                            </h5>
+                        <div class="membrete">
+                            <span>
+                                <h3>Orden de Compra</h3>
+                                <h6>eCommerce Inc.</h6>
+                                <h6>Buenos Aires - Argentina</h6>
+                            </span>
+                            <span>
+                                <h3 class="logo-membrete">eCommerce Inc</h3>
+                                <h6>Tienda Online</h6>
+                            </span>
+                        </div>
+                        <hr>
+                        <h5 class="card-title">Datos del Cliente</h5>
+                        <hr>
+                        <h6 th:text=" 'Nombre: ' + ${usuario.nombre} + ' ' + ${usuario.apellido}"></h6>
+                        <h6
+                            th:text=" 'Dirección: ' + ${usuario.direccion} + ' ' + ${usuario.altura} + ', Piso: ' + ${usuario.piso} + ', Depto: ' + ${usuario.depto} + ' - ' + ${usuario.localidad}">
+                        </h6>
+                        <h6 th:text=" 'Teléfono: ' + ${usuario.telefono}"></h6>
+                        <h6 th:text=" 'email: ' + ${usuario.email}"></h6>
+                        <hr>
 
-                            <div class="alert alert-light" role="alert">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Imagen</th>
-                                            <th scope="col">Producto</th>
-                                            <th scope="col">Descripción</th>
-                                            <th scope="col">Precio</th>
-                                            <th scope="col">Cantidad</th>
-                                            <th scope="col">Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="dorden:${cart}">
-                                            <td><img class="w55"
-                                                    th:src="@{/images/{img} (img=${dorden.producto.imagen})}" alt="img">
-                                            </td>
-                                            <td th:text="${dorden.nombre}"></td>
-                                            <td th:text="${dorden.producto.descripcion}"></td>
-                                            <td th:text="'$' + ${dorden.precio}"></td>
-                                            <td th:text="${dorden.cantidad}"></td>
-                                            <td th:text="'$' + ${dorden.total}"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="alert alert-light" role="alert">
+                            <h5 class="card-title black">Productos</h5>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">Producto</th>
+                                        <th scope="col">Descripción</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">Cantidad</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="dorden:${cart}">
+                                        <td><img class="w55" th:src="@{/images/{img} (img=${dorden.producto.imagen})}"
+                                                alt="img">
+                                        </td>
+                                        <td th:text="${dorden.nombre}"></td>
+                                        <td th:text="${dorden.producto.descripcion}"></td>
+                                        <td th:text="'$' + ${dorden.precio}"></td>
+                                        <td th:text="${dorden.cantidad}"></td>
+                                        <td th:text="'$' + ${dorden.total}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr>
                         </div>
                     </div>
 
                     <div class="col-lg-12 center">
-                        <h3 class="card-title">Total a Pagar:</h3>
                         <ul class="list-group">
-                            <li class="list-group-item">
+                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                <h5 class="card-title">Total a Pagar:</h5>
                                 <h5 th:text="'$' + ${orden.total}"></h5>
                             </li>
                         </ul>
@@ -101,7 +109,7 @@
             </div>
             <div class="row w100 centrado">
                 <!-- <a th:href="@{/saveOrder}" class="btn btn-dark">Completar Compra</a> -->
-                <a th:onclick="compraExitosa()" class="btn btn-dark" style="color: white;">Completar Compra</a>
+                <a th:onclick="compraExitosa()" class="btn btn-dark" style="color: white;">Confirmar Compra</a>
             </div>
             <br>
         </div>

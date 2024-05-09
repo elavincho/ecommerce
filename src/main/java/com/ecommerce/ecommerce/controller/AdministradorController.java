@@ -4,10 +4,13 @@
  */
 package com.ecommerce.ecommerce.controller;
 
+import com.ecommerce.ecommerce.model.Empresa;
 import com.ecommerce.ecommerce.model.Orden;
 import com.ecommerce.ecommerce.model.Producto;
+import com.ecommerce.ecommerce.service.EmpresaService;
 import com.ecommerce.ecommerce.service.OrdenService;
 import com.ecommerce.ecommerce.service.ProductoService;
+import com.ecommerce.ecommerce.service.PromoService;
 import com.ecommerce.ecommerce.service.UsuarioService;
 
 import jakarta.servlet.http.HttpSession;
@@ -43,14 +46,26 @@ public class AdministradorController {
     @Autowired
     private OrdenService ordenService;
 
+    @Autowired
+    private EmpresaService empresaService;
+
+    @Autowired
+    private PromoService promoService;
+
     @GetMapping("")
-    public String home(Model model, HttpSession session) {
+    public String home(Model model, HttpSession session, Empresa empresa) {
 
         List<Producto> productos = productoService.findAll();
         model.addAttribute("productos", productos);
 
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
+         // Pasamos los datos de la promo
+         model.addAttribute("promo", promoService.findAll());
 
         return "administrador/home";
     }
@@ -63,6 +78,9 @@ public class AdministradorController {
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
 
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
         return "administrador/usuarios";
     }
 
@@ -73,6 +91,9 @@ public class AdministradorController {
 
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         return "administrador/ordenes";
     }
@@ -94,6 +115,9 @@ public class AdministradorController {
 
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         return "administrador/detalleorden";
     }

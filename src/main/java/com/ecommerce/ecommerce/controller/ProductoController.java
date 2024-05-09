@@ -6,11 +6,13 @@ package com.ecommerce.ecommerce.controller;
 
 import com.ecommerce.ecommerce.model.Producto;
 import com.ecommerce.ecommerce.model.Usuario;
+import com.ecommerce.ecommerce.service.EmpresaService;
 import com.ecommerce.ecommerce.service.ProductoService;
 import com.ecommerce.ecommerce.service.UploadFileService;
 import com.ecommerce.ecommerce.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+//import java.util.List;
 import java.util.Optional;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +40,9 @@ public class ProductoController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Autowired
+    private EmpresaService empresaService;
+
     @GetMapping("")
     public String show(Model model, HttpSession session) {
 
@@ -45,6 +50,8 @@ public class ProductoController {
 
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         return "productos/show";
     }
@@ -54,10 +61,13 @@ public class ProductoController {
 
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         return "productos/create";
     }
 
+    // Para guardar un producto con una sola imagen
     @PostMapping("/save")
     public String save(Model model, Producto producto, @RequestParam("img") MultipartFile file, HttpSession session)
             throws IOException {
@@ -69,11 +79,50 @@ public class ProductoController {
 
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         // imagen
         if (producto.getId() == null) { // cuando se crea un producto
             String nombreImagen = upload.saveImage(file);
             producto.setImagen(nombreImagen);
+        }
+
+        productoService.save(producto);
+        return "redirect:/productos";
+    }
+
+    @PostMapping("/saveUploadMultiple")
+    public String saveUploadMultiple(Model model, Producto producto, @RequestParam("img") MultipartFile file,
+            @RequestParam("img2") MultipartFile file2, @RequestParam("img3") MultipartFile file3,
+            HttpSession session)
+            throws IOException {
+        LOGGER.info("Este es el objeto producto {}", producto);
+
+        Usuario u = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
+
+        producto.setUsuario(u);
+
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
+        // imagen
+
+        if (producto.getId() == null) { // cuando se crea un producto
+            String nombreImagen = upload.saveImage(file);
+            producto.setImagen(nombreImagen);
+        }
+
+        if (producto.getId() == null) { // cuando se crea un producto
+            String nombreImagen2 = upload.saveImage(file2);
+            producto.setImagen2(nombreImagen2);
+        }
+
+        if (producto.getId() == null) { // cuando se crea un producto
+            String nombreImagen3 = upload.saveImage(file3);
+            producto.setImagen3(nombreImagen3);
         }
 
         productoService.save(producto);
@@ -93,30 +142,58 @@ public class ProductoController {
 
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         return "productos/edit";
     }
 
     @PostMapping("/update")
-    public String update(Model model, Producto producto, @RequestParam("img") MultipartFile file, HttpSession session)
-            throws IOException {
+    public String update(Model model, Producto producto, @RequestParam("img") MultipartFile file,
+            @RequestParam("img2") MultipartFile file2, @RequestParam("img3") MultipartFile file3,
+            HttpSession session) throws IOException {
 
         Producto p = new Producto();
         p = productoService.get(producto.getId()).get();
+
         /* cuando editamos el producto pero no cambiamos la imagen */
         if (file.isEmpty()) {
-
             producto.setImagen(p.getImagen());
+
         } else {
 
             /* eliminar cuando no sea la imagen por defecto */
             if (!p.getImagen().equals("default.jpg")) {
                 upload.deleteImage(p.getImagen());
             }
-
             String nombreImagen = upload.saveImage(file);
             producto.setImagen(nombreImagen);
         }
+
+        if (file2.isEmpty()) {
+            producto.setImagen2(p.getImagen2());
+
+        } else {
+            /* eliminar cuando no sea la imagen por defecto */
+            if (!p.getImagen2().equals("default.jpg")) {
+                upload.deleteImage(p.getImagen2());
+            }
+            String nombreImagen2 = upload.saveImage(file2);
+            producto.setImagen2(nombreImagen2);
+        }
+
+        if (file3.isEmpty()) {
+            producto.setImagen3(p.getImagen3());
+        } else {
+            /* eliminar cuando no sea la imagen por defecto */
+            if (!p.getImagen3().equals("default.jpg")) {
+                upload.deleteImage(p.getImagen3());
+            }
+
+            String nombreImagen3 = upload.saveImage(file3);
+            producto.setImagen3(nombreImagen3);
+        }
+
         /* obtenemos el usuario del producto para que no se borre de la base de datos */
         producto.setUsuario(p.getUsuario());
 
@@ -124,6 +201,8 @@ public class ProductoController {
 
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         return "redirect:/productos";
     }

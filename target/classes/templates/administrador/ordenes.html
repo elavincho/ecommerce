@@ -8,8 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Spring eCommerce</title>
-
+    <title>eCommerce</title>
 
     <!-- Bootstrap core CSS -->
     <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet"
@@ -23,28 +22,24 @@
 </head>
 
 <body>
-
     <!-- Header -->
     <div th:insert="~{administrador/template_admin.html::header}"></div>
     <br>
-
-    <!-- <div th:insert="~{usuario/template_usersession.html::header-username}"></div> -->
 
     <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
 
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">
-            eCommerce <small>Ordenes</small>
-        </h1>
-
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a th:href="@{/administrador}">Home</a></li>
-            <li class="breadcrumb-item active">Ordenes</li>
-        </ol>
-
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h1 class="mt-4 mb-3">Ordenes<small> de Compra</small></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Blog Post -->
         <div class="card mb-4">
             <div class="card-body">
@@ -60,7 +55,9 @@
                                             <th scope="col">Cliente</th>
                                             <th scope="col">Fecha Creación</th>
                                             <th scope="col">Valor</th>
+                                            <th scope="col">Fecha Entrega</th>
                                             <th scope="col">Acción</th>
+                                            <th scope="col">Factura Proforma</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -70,8 +67,11 @@
                                             <td th:text="${orden.usuario.nombre} + ' ' + ${orden.usuario.apellido}"></td>
                                             <td th:text="${orden.fechaCreacion}"></td>
                                             <td th:text="'$ ' + ${orden.total}"></td>
+                                            <td th:text="${orden.fechaRecibida}"></td>
                                             <td><a th:href="@{/administrador/detalle/{id} (id=${orden.id}) }"
-                                                    class="btn btn-success">Ver Detalle</a></td>
+                                                class="btn btn-success" style="color: white;">Entregar</a></td>
+                                            <td><a th:href="@{/administrador/detalle/{id} (id=${orden.id}) }"
+                                                    class="btn btn-dark" style="color: white;">Detalle</a></td>
                                         </tr>
                                     </tbody>
                                 </table>

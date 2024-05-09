@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>eCommerce</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div th:insert="~{administrador/template_admin.html::header}"></div>
+    <br>
+    <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="mt-4 mb-3">Editar<small> Promo</small></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form class="form-horizontal" th:action="@{/promos/update}" method="post"
+                            enctype="multipart/form-data">
+
+                            <div class="card-body" style="border: solid 1px rgb(188, 187, 187); border-radius: 5px;">
+                                <h3>Promo Superior</h3>
+                                <hr>
+                                <!-- Obtenemos los datos de la promo -->
+                                <input type="hidden" name="id" th:value="${promo.id}">
+
+                                <div class="form-group w100 centrado">
+                                    <div>
+                                        <img class="w150" th:src="@{/images/{img} (img=${promo.promo})}" alt="">
+                                        <p th:text="${promo.promo}"></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control-file btn" id="img" name="img">
+                                    </div>
+                                </div>
+
+                                <div class="form-group w100 centrado">
+                                    <div>
+                                        <img class="w150" th:src="@{/images/{img} (img=${promo.promo2})}" alt="">
+                                        <p th:text="${promo.promo2}"></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control-file btn" id="img2" name="img2">
+                                    </div>
+                                </div>
+
+                                <div class="form-group w100 centrado">
+                                    <div>
+                                        <img class="w150" th:src="@{/images/{img} (img=${promo.promo3})}" alt="">
+                                        <p th:text="${promo.promo3}"></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control-file btn" id="img3" name="img3">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card-body" style="border: solid 1px rgb(188, 187, 187); border-radius: 5px;">
+                                <h3>Promo Central</h3>
+                                <hr>
+                                <div class="form-group w100 centrado">
+                                    <div>
+                                        <img class="w150" th:src="@{/images/{img} (img=${promo.promo4})}" alt="4">
+                                        <p th:text="${promo.promo4}"></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control-file btn" id="img4" name="img4">
+                                    </div>
+                                </div>
+
+                                <div class="form-group w100 centrado">
+                                    <div>
+                                        <img class="w150" th:src="@{/images/{img} (img=${promo.promo5})}" alt="5">
+                                        <p th:text="${promo.promo5}"></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control-file btn" id="img5" name="img5">
+                                    </div>
+                                </div>
+
+                                <div class="form-group w100 centrado">
+                                    <div>
+                                        <img class="w150" th:src="@{/images/{img} (img=${promo.promo6})}" alt="6">
+                                        <p th:text="${promo.promo6}"></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control-file btn" id="img6" name="img6">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="card-body" style="border: solid 1px rgb(188, 187, 187); border-radius: 5px;">
+                                <h3>Promo Inferior</h3>
+                                <hr>
+
+                                <div class="form-group w100 centrado">
+                                    <div>
+                                        <img class="w150" th:src="@{/images/{img} (img=${promo.promo7})}" alt="">
+                                        <p th:text="${promo.promo7}"></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control-file btn" id="img7" name="img7">
+                                    </div>
+                                </div>
+
+                                <div class="form-group w100 centrado">
+                                    <div>
+                                        <img class="w150" th:src="@{/images/{img} (img=${promo.promo8})}" alt="">
+                                        <p th:text="${promo.promo8}"></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control-file btn" id="img8" name="img8">
+                                    </div>
+                                </div>
+
+                                <div class="form-group w100 centrado">
+                                    <div>
+                                        <img class="w150" th:src="@{/images/{img} (img=${promo.promo9})}" alt="">
+                                        <p th:text="${promo.promo9}"></p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control-file btn" id="img9" name="img9">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row w100 centrado">
+                                <div>
+                                    <button type="submit" class="btn btn-success">Guardar</button>
+                                    <a class="btn btn-warning" th:href="@{/promos/show}">Cancelar</a>
+                                </div>
+                            </div>
+
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:insert="~{administrador/template_admin.html::footer}"></div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>

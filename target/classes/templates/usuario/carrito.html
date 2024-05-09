@@ -2,7 +2,6 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -15,31 +14,29 @@
 
     <!-- Custom styles for this template -->
     <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
-
 </head>
 
 <body>
-
     <!-- Header -->
     <div th:insert="~{usuario/template_usuario.html::header}" th:if="${sesion==null}"></div>
 
     <div th:insert="~{usuario/template_usuario.html::header-user}" th:unless="${sesion==null}"></div>
     <br><br><br>
-    <!-- <div th:insert="~{usuario/template_usersession.html::header-username}" th:unless="${sesion==null}"></div> -->
-
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">
-            eCommerce <small>Carrito</small>
-        </h1>
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-12">
+                    <div class="card-body nav">
+                        <img class="w55" th:src="@{/img/carrito-negro.png}" alt="carrito">
+                        <h1>eCommerce <small>Carrito</small></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-            <li class="breadcrumb-item active">Carrito</li>
-        </ol>
-
+        <br>
         <!-- Blog Post -->
         <div class="card mb-4">
             <div class="card-body">
@@ -72,21 +69,32 @@
                     </div>
 
                     <div class="col-lg-12 center">
-                        <h4 class="card-title">Total Compra:</h4>
                         <ul class="list-group">
-                            <li class="list-group-item">
+                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                <h5 class="card-title">Total Compra:</h5>
                                 <h5 th:text="'$'+${orden.total}"></h5>
                             </li>
                         </ul>
                     </div>
-                    
+                    <div class="col-lg-12 mrt">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <p class="text-indent justify">Fotos a modo ilustrativo. La venta de cualquiera de los
+                                    productos publicados está sujeta a la verificación de stock.
+                                    Los precios online para los productos publicados son válidos exclusivamente para la
+                                    compra vía internet en esta página.
+                                    Las especificaciones técnicas y descripciones están sujetas a cambios sin previo
+                                    aviso.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="row w100 centrado">
-              
-                <a th:href="@{/order}" class="btn btn-dark mr30">Comprar</a>
-                
-                <a th:href="@{/}" class="btn btn-dark">Agregar Productos</a>
+                <a th:href="@{/}" class="btn btn-dark mr30">Agregar Productos</a>
+
+                <a th:href="@{/order}" class="btn btn-dark">Comprar</a>
             </div>
             <br>
         </div>

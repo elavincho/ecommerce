@@ -27,52 +27,61 @@
     <div th:insert="~{administrador/template_admin.html::header}"></div>
     <br>
 
-    <!-- <div th:insert="~{usuario/template_usersession.html::header-username}"></div> -->
-
     <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
 
     <!-- Page Content -->
     <div class="container">
-        <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">
-            eCommerce <small>Usuarios Registrados</small>
-        </h1>
+      
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h1 class="mt-4 mb-3">Usuarios<small> Registrados</small></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-            <li class="breadcrumb-item active">Ver Usuarios</li>
-        </ol>
-        <h2>Usuarios</h2>
-        <div class="overflow-x-scroll">
-            <div class="menu-scroll">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Foto</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Documento</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Provincia</th>
-                            <th scope="col">Localidad</th>
-                            <th scope="col">Dirección</th>
-                            <th scope="col">Teléfono</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="usuario:${usuarios}">
-                            <td><img class="w55" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img"></td>
-                            <td th:text="${usuario.nombre} +' '+ ${usuario.apellido}"></td>
-                            <td th:text="${usuario.documento}"></td>
-                            <td th:text="${usuario.email}"></td>
-                            <td th:text="${usuario.provincia}"></td>
-                            <td th:text="${usuario.localidad}"></td>
-                            <td
-                                th:text="${usuario.direccion} + ' ' + ${usuario.altura} + ' ' + ${usuario.piso} + ' ' + ${usuario.depto}">
-                            </td>
-                            <td th:text="${usuario.telefono}"></td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="overflow-x-scroll">
+                            <div class="menu-scroll">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Foto</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Documento</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Provincia</th>
+                                            <th scope="col">Localidad</th>
+                                            <th scope="col">Dirección</th>
+                                            <th scope="col">Teléfono</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="usuario:${usuarios}">
+                                            <td><img class="w55" th:src="@{/images/{img} (img=${usuario.foto})}"
+                                                    alt="img"></td>
+                                            <td th:text="${usuario.nombre} +' '+ ${usuario.apellido}"></td>
+                                            <td th:text="${usuario.documento}"></td>
+                                            <td th:text="${usuario.email}"></td>
+                                            <td th:text="${usuario.provincia}"></td>
+                                            <td th:text="${usuario.localidad}"></td>
+                                            <td
+                                                th:text="${usuario.direccion} + ' ' + ${usuario.altura} + ' ' + ${usuario.piso} + ' ' + ${usuario.depto}">
+                                            </td>
+                                            <td th:text="${usuario.telefono}"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

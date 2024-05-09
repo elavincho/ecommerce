@@ -8,9 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Spring eCommerce</title>
-
-
+    <title>eCommerce</title>
     <!-- Bootstrap core CSS -->
     <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -27,21 +25,22 @@
 
     <div th:insert="~{usuario/template_usuario.html::header-user}" th:unless="${sesion==null}"></div>
     <br><br><br>
-    <!-- <div th:insert="~{usuario/template_usersession.html::header-username}" th:unless="${sesion==null}"></div> -->
 
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">
-            eCommerce <small>Mis Compras</small>
-        </h1>
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-12">
+                    <div class="card-body nav">
+                        <img class="w55" th:src="@{/img/shopping.png}" alt="carrito">
+                        <h1>eCommerce <small>Mis Compras</small></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-            <li class="breadcrumb-item active">Compras</li>
-        </ol>
-
+        <br>
         <!-- Blog Post -->
         <div class="card mb-4">
             <div class="card-body">
@@ -64,7 +63,7 @@
                                             <td th:text="${orden.fechaCreacion}"></td>
                                             <td th:text="${orden.total}"></td>
                                             <td><a th:href="@{/usuario/detalle/{id} (id=${orden.id}) }"
-                                                    class="btn btn-success">Ver Detalle</a></td>
+                                                    class="btn btn-success" style="color: white;">Ver Detalle</a></td>
                                         </tr>
                                     </tbody>
                                 </table>

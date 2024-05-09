@@ -23,8 +23,6 @@
     <!-- Header -->
     <div th:insert="~{administrador/template_admin.html::header}"></div>
     <br>
-    <!-- <div th:insert="~{usuario/template_usersession.html::header-username}"></div> -->
-
     <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
     <!-- Page Content -->
     <div class="container">
@@ -36,8 +34,7 @@
                         <div class="">
                             <img class="img-menu-scroll" th:src="@{/images/{img} (img=${producto.imagen})}"
                                 alt="img-prod">
-
-                            <p class="" th:text="${producto.nombre}"></p>
+                            <p class="" th:text="${producto.categoria}"></p>
                         </div>
                     </a>
                 </article>
@@ -47,38 +44,131 @@
         <br>
         <!-- Navbar -->
         <nav>
-            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div th:each="promo:${promo}" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="2500">
-                        <img class="d-block w-100" th:src="@{/img/promo.jpg}" alt="1">
+                        <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo})}" alt="1">
                     </div>
                     <div class="carousel-item" data-bs-interval="2500">
-                        <img class="d-block w-100" th:src="@{/img/promo2.jpg}" alt="2">
+                        <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo2})}" alt="2">
                     </div>
                     <div class="carousel-item" data-bs-interval="2500">
-                        <img class="d-block w-100" th:src="@{/img/promo3.jpg}" alt="3">
+                        <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo3})}" alt="3">
                     </div>
                 </div>
             </div>
         </nav>
+        <!-- Fin Navbar -->
         <br>
-        <!-- Page Features -->
+        <!-- Productos -->
         <div class="row text-center">
-            <div class="col-lg-3 col-md-6 mb-4 tarjeta-producto" th:each="producto: ${productos}">
-                <a th:href="@{/productos/edit/{id} (id=${producto.id}) }">
+            <div class="col-lg-3 col-md-3 mb-3 tarjeta-producto" th:each="producto: ${productos}">
+                <a th:href="@{/productos/edit/{id} (id=${producto.id}) }"
+                    th:if="${producto.ubicacion == 'Superior'}">
                     <div class="card h-100">
                         <img class="card-img-top" th:src="@{/images/{img} (img=${producto.imagen})}" alt="img-prod">
                         <div class="card-body">
-                            <h5 class="card-text" th:text="${producto.nombre}"></h5>
-                            <p class="card-text" th:text="${producto.descripcion}"></p>
-                            <h4 class="card-text" th:text="'$ ' + ${producto.precio}"></h4>
+                            <h6 class="card-text" th:text="${producto.nombre}"></h6>
+                            <!-- <p class="card-text" th:text="${producto.descripcion}"></p> -->
+                            <h5 class="card-text" th:text="'$' + ${producto.precio}"></h5>
                         </div>
                     </div>
                 </a>
             </div>
         </div>
-    </div>
+        <!-- Fin productos -->
 
+        <!-- Publicidad -->
+        <div th:each="promo:${promo}" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="2500">
+                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo4})}" alt="4">
+                </div>
+                <div class="carousel-item" data-bs-interval="2500">
+                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo5})}" alt="5">
+                </div>
+                <div class="carousel-item" data-bs-interval="2500">
+                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo6})}" alt="6">
+                </div>
+            </div>
+        </div>
+        <!-- Fin Publicidad -->
+        <br>
+        <!-- Producto con Enlace Estirado -->
+        <div class="contenedor dos-columnas enlace-estirado deco-none" th:each="producto: ${productos}">
+            <div class="d-flex position-relative cont-enl-estirado" th:if="${producto.ubicacion == 'Enl. Estirado'}">
+                <img class="flex-shrink-0 me-3 img-enl-estirado" th:src="@{/images/{img} (img=${producto.imagen})}"
+                    alt="img-prod">
+                <div class="left">
+                    <h2 class="mt-0 black" th:text="${producto.nombre}"></h2>
+                    <p class="card-text black justify" th:text="${producto.descripcion}"></p>
+                    <h5 class="card-text black" th:text="'$' + ${producto.precio}"></h5>
+                    <a th:href="@{/productos/edit/{id} (id=${producto.id}) } " class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+        <!-- Producto con Enlace Estirado -->
+       <br>
+        <!-- Producto Destacado -->
+        
+        <div class="centrado w100">
+            <div class="contenedor-destacado deco-none" th:each="producto: ${productos}"
+                th:if="${producto.ubicacion == 'Destacado'}">
+                <h3 class="center w100 white">Producto Destacado</h3>
+                <a th:href="@{/productos/edit/{id} (id=${producto.id}) }">
+                    <div class="destacado center">
+                        <img class="img-destacado" th:src="@{/images/{img} (img=${producto.imagen})}" alt="img-prod">
+                    </div>
+
+                    <h4 class="card-text white center" th:text="${producto.nombre}"></h4>
+                    <p class="card-text white center" th:text="${producto.descripcion}"></p>
+                    <h5 class="card-text white center" th:text="'$' + ${producto.precio}"></h5>
+                </a>
+            </div>
+        </div>
+
+        <!-- Fin producto Destacado -->
+
+        <!-- Productos 2 -->
+        <div class="row text-center">
+            <div class="col-lg-4 col-md-4 col-sm-4 mb-3 tarjeta-producto" th:each="producto: ${productos}">
+                <a th:href="@{/productos/edit/{id} (id=${producto.id}) }" th:if="${producto.ubicacion == 'Inferior'}">
+                    <div class="card h-100">
+                        <br>
+                        <h4 class="card-text" th:text="${producto.nombre}"></h4>
+                        <!-- <p class="card-text" th:text="${producto.descripcion}"></p> -->
+                        <img class="card-img-top" th:src="@{/images/{img} (img=${producto.imagen})}" alt="img-prod">
+                        <div class="card-body">
+                            <!-- <p class="card-text" th:text="${producto.descripcion}"></p> -->
+                            <h5 class="card-text" th:text="'$' + ${producto.precio}"></h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Fin productos 2 -->
+
+        <br>
+        <!-- Publicidad -->
+        <div th:each="promo:${promo}" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="2500">
+                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo7})}" alt="7">
+                </div>
+                <div class="carousel-item" data-bs-interval="2500">
+                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo8})}" alt="8">
+                </div>
+                <div class="carousel-item" data-bs-interval="2500">
+                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo9})}" alt="9">
+                </div>
+            </div>
+        </div>
+        <!-- Fin Publicidad -->
+        <br>
+
+
+        <br>
+    </div>
     <!-- Footer -->
     <div th:insert="~{administrador/template_admin.html::footer}"></div>
 

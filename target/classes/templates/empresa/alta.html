@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>eCommerce</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <div th:insert="~{administrador/template_admin.html::header}"></div>
+    <br>
+    <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
+    <br>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-12">
+                  <h1 class="mt-4 mb-3">Cargar<small> Datos de la Empresa</small></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        <form th:action="@{/empresa/save}" method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label class="control-label" for="img">Logo:</label>
+                <div class="col-sm-6">
+                    <input type="file" class="form-control-file" id="img" name="img">
+                </div>
+            </div>
+           
+            <div class="form-group">
+                <label for="razonSocial">Razón Social:</label> 
+                <input type="text" class="form-control" id="razonSocial" name="razonSocial"
+                    required placeholder="Nombre de la Empresa" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="pais">País:</label>
+                <input type="text" class="form-control" id="pais" name="pais" required
+                    placeholder="País donde esta ubicada la Empresa" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="provincia">Provincia:</label>
+                <input type="text" class="form-control" id="provincia" name="provincia" required
+                    placeholder="Provincia donde esta ubicada la Empresa" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="localidad">Localidad:</label>
+                <input type="text" class="form-control" id="localidad" name="localidad" required
+                    placeholder="Localidad donde esta ubicada la Empresa" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" required
+                    placeholder="Calle, Numero, Piso, Depto." autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" required
+                    placeholder="Teléfono de la Empresa" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label> <input type="email" class="form-control" id="email" name="email"
+                    required placeholder="Email de la Empresa" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="condicionIVA">Condición Frente al IVA:</label>
+                <input type="text" class="form-control" id="condicionIVA" name="condicionIVA"
+                    placeholder="Condición frente al IVA" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="cuit">CUIT:</label>
+                <input type="text" class="form-control" id="cuit" name="cuit" placeholder="Ingrese el CUIT de la Empresa"
+                    autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="ingresosBrutos">Ingresos Brutos:</label>
+                <input type="text" class="form-control" id="ingresosBrutos" name="ingresosBrutos" placeholder="Ingrese el IIBB de la Empresa"
+                    autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="inicioActividades">Inicio de Actividades:</label>
+                <input type="text" class="form-control" id="inicioActividades" name="inicioActividades" placeholder="Inicio de Actividades"
+                    autocomplete="off">
+            </div>
+
+            <div class="col-sm-12 center">
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <a class="btn btn-warning" th:href="@{/administrador}">Cancelar</a>
+            </div>
+        </form>
+        <br>
+    </div>
+
+    <!-- Footer -->
+    <div th:insert="~{administrador/template_admin.html::footer}"></div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>

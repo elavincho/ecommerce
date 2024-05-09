@@ -4,14 +4,23 @@
 
         <div class="contenedor-header">
 
-            <div class="header-logo">
+            <div class="header-logo" th:each="empres:${empresa}">
                 <a th:href="@{/administrador}">
-                    <img class="width-ico" th:src="@{/img/casa-blanco.png}" alt="casa">
-                    <p>eCommerce</p>
+                    <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
+                    <p th:text="${empres.razonSocial}" style="color: white;"></p>
                 </a>
             </div>
 
             <div class="header-menu">
+
+                <a th:href="@{/promos/show}">
+                    <img class="width-ico" th:src="@{/img/promo.png}" alt="promos">
+                    <p>Promos</p>
+                </a>
+                <a th:href="@{/empresa/show}">
+                    <img class="width-ico" th:src="@{/img/logro-blanco.png}" alt="empresa">
+                    <p>Empresa</p>
+                </a>
                 <a th:href="@{/productos}">
                     <img class="width-ico" th:src="@{/img/entrega-pedido.png}" alt="productos">
                     <p>Productos</p>
@@ -30,9 +39,8 @@
                 </a>
                 <div class="usersession" th:fragment="header-username">
                     <a href="">
-                        <img class="w25" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
+                        <img class="w25 circle" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
                         <p th:text="${usuario.nombre}" style="color: white;"></p>
-                        <!-- <p style="color: white;">Admin</p> -->
                     </a>
                 </div>
             </div>
@@ -49,9 +57,34 @@
 
 <!-- Footer -->
 <div th:fragment="footer">
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; eCommerce. All Rigths Reserved</p>
+    <footer class="footer-personalizado" th:each="empres:${empresa}">
+        <div class="contenedor-footer">
+            <div class="white ml30 interlineado">
+                <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
+                <p th:text="${empres.razonSocial}"></p>
+                <p th:text="${empres.direccion} + ' - ' + ${empres.localidad}"></p>
+                <p th:text="${empres.provincia} + ' - ' + ${empres.pais}"></p>
+            </div>
+            <div class="white mr30 mrt interlineado">
+                <br>
+                <p th:text="${empres.email}"></p>
+                <p th:text="${empres.telefono}"></p>
+                <p th:text="'Copyright &copy; ' + ${empres.razonSocial} + '. All Rigths Reserved'"></p>
+                <div class="">
+                    <a href="" class="mr30">
+                        <img class="width-redes" th:src="@{/img/facebook.png}" alt="facebook">
+                    </a>
+                    <a href="" class="mr30">
+                        <img class="width-redes" th:src="@{/img/instagram.png}" alt="instagram">
+                    </a>
+                    <a href="" class="mr30">
+                        <img class="width-redes" th:src="@{/img/twitter.png}" alt="twitter">
+                    </a>
+                    <a href="" class="mr30">
+                        <img class="width-redes" th:src="@{/img/whatsapp.png}" alt="whatsapp">
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 </div>

@@ -6,6 +6,7 @@ package com.ecommerce.ecommerce.controller;
 
 import com.ecommerce.ecommerce.model.Orden;
 import com.ecommerce.ecommerce.model.Usuario;
+import com.ecommerce.ecommerce.service.EmpresaService;
 import com.ecommerce.ecommerce.service.OrdenService;
 import com.ecommerce.ecommerce.service.UploadFileService;
 import com.ecommerce.ecommerce.service.UsuarioService;
@@ -44,9 +45,16 @@ public class UsuarioController {
     @Autowired
     private UploadFileService upload;
 
+    @Autowired
+    private EmpresaService empresaService;
+
     // /usuario/registro
     @GetMapping("/registro")
-    public String create() {
+    public String create(Model model) {
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
         return "usuario/registro";
     }
 
@@ -68,8 +76,66 @@ public class UsuarioController {
         return "redirect:/";
     }
 
+    @GetMapping("/editUser/{id}")
+    public String editUser(@PathVariable Integer id, Model model, HttpSession session) {
+
+        model.addAttribute("sesion", session.getAttribute("idusuario"));
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
+        Usuario usuario = new Usuario();
+
+        Optional<Usuario> optionalUsuario = usuarioService.findById(id);
+        usuario = optionalUsuario.get();
+
+        model.addAttribute("usuario", usuario);
+
+        logger.info("Usuario a Editar: {}", usuario);
+
+        return "usuario/editar";
+    }
+
+    @PostMapping("/update")
+    public String update(Model model, Usuario usuario, @RequestParam("img") MultipartFile file,
+            HttpSession session) throws IOException {
+
+        model.addAttribute("sesion", session.getAttribute("idusuario"));
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
+        Usuario u = new Usuario();
+        u = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
+
+        /* cuando editamos el producto pero no cambiamos la imagen */
+        if (file.isEmpty()) {
+            usuario.setFoto(u.getFoto());
+        } else {
+
+            /* eliminar cuando no sea la imagen por defecto */
+            if (!u.getFoto().equals("default.jpg")) {
+                upload.deleteImage(u.getFoto());
+            }
+            String nombreFoto = upload.saveImage(file);
+            usuario.setFoto(nombreFoto);
+        }
+
+        // Seteamos estos datos para que no se pierdan
+        usuario.setEmail(u.getEmail());
+        usuario.setPassword(u.getPassword());
+        usuario.setTipo("USER");
+
+        usuarioService.save(usuario);
+
+        return "redirect:/";
+    }
+
     @GetMapping("/login")
-    public String login() {
+    public String login(Model model) {
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         return "usuario/login";
     }
@@ -77,18 +143,22 @@ public class UsuarioController {
     @PostMapping("/acceder")
     public String acceder(Usuario usuario, HttpSession session, Model model) {
 
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
         logger.info("Accesos : {}", usuario);
 
         Optional<Usuario> user = usuarioService.findByEmail(usuario.getEmail());
-        //logger.info("Usuario de la bd: {}", user.get());
+        // logger.info("Usuario de la bd: {}", user.get());
 
         // validacion momentanea
         if (user.isPresent()) {
 
-            //Obtenemos el id del usuario para usarlo en cualquier lugar de la app
+            // Obtenemos el id del usuario para usarlo en cualquier lugar de la app
             session.setAttribute("idusuario", user.get().getId());
 
-            // Obtenemos todos los datos del usuario para usarlo en cualquier lugar de la app
+            // Obtenemos todos los datos del usuario para usarlo en cualquier lugar de la
+            // app
             session.setAttribute("usersession", user.get());
 
             if (user.get().getTipo().equals("ADMIN")) {
@@ -101,7 +171,7 @@ public class UsuarioController {
         } else {
             logger.info("Usuario no exsite");
 
-            //crear un html o una alerta de que el usuario no existe
+            // crear un html o una alerta de que el usuario no existe
         }
 
         return "redirect:/";
@@ -109,6 +179,9 @@ public class UsuarioController {
 
     @GetMapping("/compras")
     public String obtenerCompras(Model model, HttpSession session) {
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         model.addAttribute("sesion", session.getAttribute("idusuario"));
         // Con esto obtenemos todos los datos del usuario
@@ -125,13 +198,16 @@ public class UsuarioController {
     @GetMapping("/detalle/{id}")
     public String detalleCompra(@PathVariable Integer id, HttpSession session, Model model) {
 
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
         logger.info("Id de la orden: {}", id);
 
         Optional<Orden> orden = ordenService.findById(id);
 
         model.addAttribute("detalles", orden.get().getDetalle());
 
-        //Le pasamos la orden para obtener el total de la compra
+        // Le pasamos la orden para obtener el total de la compra
         model.addAttribute("ordencompra", orden.get());
 
         // sesion

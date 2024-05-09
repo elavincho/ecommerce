@@ -11,6 +11,9 @@
     <title>eCommerce</title>
 
     <!-- Bootstrap core CSS -->
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
@@ -24,42 +27,64 @@
 
     <div th:insert="~{usuario/template_usuario.html::header-user}" th:unless="${sesion==null}"></div>
     <br>
-    <!-- <div th:insert="~{usuario/template_usersession.html::header-username}" th:unless="${sesion==null}"></div> -->
-
     <!-- Page Content -->
     <div class="container">
-
+        <br>
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">
             eCommerce <small>Producto</small>
         </h1>
-
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-            <li class="breadcrumb-item active">Producto</li>
-        </ol>
-
         <!-- Blog Post -->
         <div class="card mb-4">
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <!-- <a href="">  -->
-                            <img class="img-fluid rounded" th:src="@{/images/{img} (img=${producto.imagen})}"
-                                alt="">
-                        <!-- </a> -->
+                        <div id="carouselExampleAutoplaying" class="carousel carousel-dark slide"
+                            data-bs-ride="carousel">
+                            <div class="carousel-inner center">
+                                <div class="carousel-item active">
+                                    <img class="img-fluid rounded" th:src="@{/images/{img} (img=${producto.imagen})}"
+                                        alt="img">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="img-fluid rounded" th:src="@{/images/{img} (img=${producto.imagen2})}"
+                                        alt="img">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="img-fluid rounded" th:src="@{/images/{img} (img=${producto.imagen3})}"
+                                        alt="img">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                     </div>
                     <div class="col-lg-6">
                         <form th:action="@{/cart}" method="POST">
+
+
                             <input type="hidden" th:value="${producto.id}" name="id">
                             <h2 class="card-title" th:text="${producto.nombre}"></h2>
+                            <br>
+                            <div class="row w100 center">
+                                <div>
+                                    <a th:href="@{/}" class="btn btn-dark">Ver más productos</a>
 
+                                    <button type="submit" class="btn btn-dark">Añadir al carrito </button>
+                                </div>
+                            </div>
+                            <br>
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <h5 th:text=" 'Precio: $' + ${producto.precio}"></h5>
-                                </li>
-                                <li class="list-group-item">
-                                    <p th:text=" 'Descripción: ' + ${producto.descripcion}"></p>
                                 </li>
                                 <li class="list-group-item">
                                     <h6>
@@ -67,14 +92,75 @@
                                             min="1" max="5" value="1">
                                     </h6>
                                 </li>
+                                <li class="list-group-item">
+                                    <h5>Descripción</h5>
+                                    <p class="text-indent justify" th:text="${producto.descripcion}"></p>
+                                </li>
+                                <li class="list-group-item">
+                                    <h5>Especificaciones Técnicas</h5>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td class="bold" th:text="${producto.dato1}"></td>
+                                                <td th:text="${producto.datoTecnico1}"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bold" th:text="${producto.dato2}"></td>
+                                                <td th:text="${producto.datoTecnico2}"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bold" th:text="${producto.dato3}"></td>
+                                                <td th:text="${producto.datoTecnico3}"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bold" th:text="${producto.dato4}"></td>
+                                                <td th:text="${producto.datoTecnico4}"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bold" th:text="${producto.dato5}"></td>
+                                                <td th:text="${producto.datoTecnico5}"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bold" th:text="${producto.dato6}"></td>
+                                                <td th:text="${producto.datoTecnico6}"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bold" th:text="${producto.dato7}"></td>
+                                                <td th:text="${producto.datoTecnico7}"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bold" th:text="${producto.dato8}"></td>
+                                                <td th:text="${producto.datoTecnico8}"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bold" th:text="${producto.dato9}"></td>
+                                                <td th:text="${producto.datoTecnico9}"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
                             </ul>
                             <br>
-                            <button type="submit" class="btn btn-dark">Añadir al carrito </button>
 
+                            <ul class="list-group">
+                                <li class="list-group-item">
+
+                                    <p class="text-indent justify">Fotos a modo ilustrativo. La venta de cualquiera de
+                                        los
+                                        productos publicados está sujeta a la verificación de stock.
+                                        Los precios online para los productos publicados son válidos exclusivamente para
+                                        la
+                                        compra vía internet en esta página.
+                                        Las especificaciones técnicas y descripciones están sujetas a cambios sin previo
+                                        aviso.
+                                    </p>
+                                </li>
+                            </ul>
                         </form>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -84,6 +170,10 @@
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js}"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
 
 </body>
 

@@ -50,3 +50,33 @@ function compraExitosa() {
     } 
   });
 }
+
+
+// Alert para eliminar un promo
+function eliminarPromo(id) {
+  swal({
+    title: "¿Estas Seguro?",
+    text: "¡Realmente lo queres eliminar!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    buttons: ["Cancelar", "Eliminar"],
+  }).then((Eliminar) => {
+    if (Eliminar) {
+      $.ajax({
+        url: "/promos/delete/" + id,
+        success: function (res) {
+          console.log(res);
+        },
+      });
+      swal("Registro eliminado.", {
+        icon: "success",
+      }).then((ok)=> {
+        if(ok){
+            location.href="/promos/show";
+        }
+      })
+    } 
+   
+  });
+}

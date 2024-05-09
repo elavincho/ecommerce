@@ -9,8 +9,10 @@ import com.ecommerce.ecommerce.model.Orden;
 import com.ecommerce.ecommerce.model.Producto;
 import com.ecommerce.ecommerce.model.Usuario;
 import com.ecommerce.ecommerce.service.DetalleOrdenService;
+import com.ecommerce.ecommerce.service.EmpresaService;
 import com.ecommerce.ecommerce.service.OrdenService;
 import com.ecommerce.ecommerce.service.ProductoService;
+import com.ecommerce.ecommerce.service.PromoService;
 import com.ecommerce.ecommerce.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import java.util.*;
@@ -43,6 +45,12 @@ public class HomeController {
     @Autowired
     private DetalleOrdenService detalleOrdenService;
 
+    @Autowired
+    private EmpresaService empresaService;
+
+    @Autowired
+    private PromoService promoService;
+
     // Para almacenar los detalles de la orden
     List<DetalleOrden> detalles = new ArrayList<DetalleOrden>();
 
@@ -62,6 +70,10 @@ public class HomeController {
         model.addAttribute("sesion", session.getAttribute("idusuario"));
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+        // Pasamos los datos de la promo
+        model.addAttribute("promo", promoService.findAll());
 
         return "usuario/home";
     }
@@ -73,6 +85,8 @@ public class HomeController {
         model.addAttribute("sesion", session.getAttribute("idusuario"));
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         logger.info("Id producto enviado como parametro {}", id);
         Producto producto = new Producto();
@@ -93,10 +107,12 @@ public class HomeController {
         model.addAttribute("sesion", session.getAttribute("idusuario"));
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         logger.info("Sesion del usuario: {}", session.getAttribute("idusuario"));
 
-        //Si el cliente intenta agregar un producto al carrito y no esta logueado
+        // Si el cliente intenta agregar un producto al carrito y no esta logueado
         if (session.getAttribute("idusuario") == null) {
             return "redirect:/usuario/login";
         }
@@ -145,6 +161,8 @@ public class HomeController {
         model.addAttribute("sesion", session.getAttribute("idusuario"));
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         logger.info("Sesion del usuario: {}", session.getAttribute("idusuario"));
 
@@ -181,6 +199,8 @@ public class HomeController {
         model.addAttribute("sesion", session.getAttribute("idusuario"));
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         return "/usuario/carrito";
     }
@@ -192,6 +212,8 @@ public class HomeController {
         model.addAttribute("sesion", session.getAttribute("idusuario"));
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
 
@@ -210,6 +232,8 @@ public class HomeController {
         model.addAttribute("sesion", session.getAttribute("idusuario").toString());
         // Con esto obtenemos todos los datos del usuario
         model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         Date fechaCreacion = new Date();
         orden.setFechaCreacion(fechaCreacion);
@@ -245,7 +269,6 @@ public class HomeController {
 
         model.addAttribute("productos", productos);
         return "usuario/home";
-
     }
 
 }

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>eCommerce</title>
+
+  <!-- Bootstrap core CSS -->
+  <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div th:insert="~{administrador/template_admin.html::header}"></div>
+  <br>
+  <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="mt-4 mb-3 center">Datos<small> de la Empresa</small></h1>
+            <div class="centrado">
+              <a class="btn btn-success" th:href="@{create}">Crear Empresa</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <!-- Blog Post -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12">
+
+            <div class="membrete" th:each="empres:${empresa}">
+              <span>
+                <img class="w55" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
+                <h6 th:text="${empres.razonSocial}"></h6>
+                <h6 th:text="${empres.direccion}"></h6>
+                <h6 th:text="${empres.localidad} + ' - ' + ${empres.provincia} + ' - ' + ${empres.pais}"></h6>
+                <h6 th:text="'Teléfono: ' +${empres.telefono}"></h6>
+                <h6 th:text="'email: ' + ${empres.email}"></h6>
+              </span>
+              <span>
+                <h3>Datos Impositivos</h3>
+                <br>
+                <h6 th:text="'CUIT: ' + ${empres.cuit}"></h6>
+                <h6 th:text="'IVA ' +${empres.condicionIVA}"></h6>
+                <h6 th:text="'Ingresos Brutos: ' + ${empres.ingresosBrutos}"></h6>
+                <h6 th:text="'Inicio de Actividades: ' + ${empres.inicioActividades}"></h6>
+              </span>
+            </div>
+            <hr>
+          </div>
+
+        </div>
+      </div>
+      <div class="row w100 centrado">
+        <div th:each="empres:${empresa}">
+
+          <a class="btn btn-dark" th:href="@{/administrador}">Volver</a>
+
+          <a class="btn btn-dark" th:href="@{/empresa/editEmpresa/{id} (id=${empres.id}) }">Editar</a>
+
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div th:insert="~{administrador/template_admin.html::footer}"></div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>
