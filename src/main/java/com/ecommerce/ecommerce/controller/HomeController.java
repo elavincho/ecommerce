@@ -87,6 +87,8 @@ public class HomeController {
         model.addAttribute("usuario", session.getAttribute("usersession"));
         // Pasamos todos los datos de la empresa
         model.addAttribute("empresa", empresaService.findAll());
+        // Pasamos todos los datos del producto
+        model.addAttribute("productos", productoService.findAll());
 
         logger.info("Id producto enviado como parametro {}", id);
         Producto producto = new Producto();

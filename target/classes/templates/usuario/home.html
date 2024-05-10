@@ -30,9 +30,10 @@
     <div class="overflow-x-scroll">
         <div class="menu-scroll">
             <article th:each="producto: ${productos}">
-                <a th:href="@{/productohome/{id} (id=${producto.id})}" class="">
+                <a th:href="@{/productohome/{id} (id=${producto.id})}">
                     <div>
-                        <img class="img-menu-scroll" th:src="@{/images/{img} (img=${producto.imagen})}" alt="img-prod">
+                        <img class="img-menu-scroll bg-white border" th:src="@{/images/{img} (img=${producto.imagen})}"
+                            alt="img-prod">
                         <p th:text="${producto.categoria}"></p>
                     </div>
                 </a>
@@ -65,12 +66,11 @@
             <div class="col-lg-3 col-md-3 mb-3 tarjeta-producto" th:each="producto: ${productos}">
                 <a th:href="@{/productohome/{id} (id=${producto.id})}" class="img-prod"
                     th:if="${producto.ubicacion == 'Superior'}">
-                    <div class="card h-100">
+                    <div class="card h-100 border">
                         <img class="card-img-top" th:src="@{/images/{img} (img=${producto.imagen})}" alt="producto">
                         <div class="card-body">
-                            <h6 class="card-text" th:text="${producto.nombre}"></h6>
-                            <!-- <p class="card-text" th:text="${producto.descripcion}"></p> -->
-                            <h5 class="card-text" th:text="'$' + ${producto.precio}"></h5>
+                            <p class="card-text" th:text="${producto.nombre}"></p>
+                            <h4 class="card-text" th:text="'$' + ${producto.precio}"></h4>
                         </div>
                     </div>
                 </a>
@@ -97,33 +97,32 @@
         <br>
         <!-- Producto con Enlace Estirado -->
         <div class="contenedor dos-columnas enlace-estirado deco-none" th:each="producto: ${productos}">
-            <div class="d-flex position-relative cont-enl-estirado" th:if="${producto.ubicacion == 'Enl. Estirado'}">
+            <div class="d-flex position-relative cont-enl-estirado bg-white border"
+                th:if="${producto.ubicacion == 'Enl. Estirado'}">
                 <img class="flex-shrink-0 me-3 img-enl-estirado" th:src="@{/images/{img} (img=${producto.imagen})}"
                     alt="img-prod">
                 <div class="left">
-                    <h2 class="mt-0 black" th:text="${producto.nombre}"></h2>
-                    <p class="card-text black justify" th:text="${producto.descripcion}"></p>
-                    <h5 class="card-text black" th:text="'$' + ${producto.precio}"></h5>
+                    <h3 class="mt-0 black" th:text="${producto.nombre}"></h3>
+                    <p class="card-text black text-indent justify" th:text="${producto.descripcion}"></p>
+                    <h3 class="card-text black" th:text="'$' + ${producto.precio}"></h3>
                     <a th:href="@{/productohome/{id} (id=${producto.id})} " class="stretched-link"></a>
                 </div>
             </div>
         </div>
         <!-- Producto con Enlace Estirado -->
-        <br>
-        <br>
+        <br><br>
         <!-- Producto Destacado -->
-        <div class="centrado w100">
+        <div class="card centrado border w100">
             <div class="contenedor-destacado deco-none" th:each="producto: ${productos}"
                 th:if="${producto.ubicacion == 'Destacado'}">
-                <h3 class="center w100 white">Producto Destacado</h3>
+                <h3 class="center w100">Producto Destacado</h3>
                 <a th:href="@{/productohome/{id} (id=${producto.id})} ">
                     <div class="destacado center">
                         <img class="img-destacado" th:src="@{/images/{img} (img=${producto.imagen})}" alt="img-prod">
                     </div>
-
-                    <h4 class="card-text white center" th:text="${producto.nombre}"></h4>
-                    <p class="card-text white center" th:text="${producto.descripcion}"></p>
-                    <h5 class="card-text white center" th:text="'$' + ${producto.precio}"></h5>
+                    <h4 class="card-text center" th:text="${producto.nombre}"></h4>
+                    <p class="card-text center" th:text="${producto.descripcion}"></p>
+                    <h3 class="card-text center" th:text="'$' + ${producto.precio}"></h3>
                 </a>
             </div>
         </div>
@@ -133,14 +132,12 @@
         <div class="row text-center">
             <div class="col-lg-4 col-md-4 col-sm-4 mb-3 tarjeta-producto" th:each="producto: ${productos}">
                 <a th:href="@{/productohome/{id} (id=${producto.id})}" th:if="${producto.ubicacion == 'Inferior'}">
-                    <div class="card h-100">
+                    <div class="card h-100 border">
                         <br>
-                        <h4 class="card-text" th:text="${producto.nombre}"></h4>
-                        <!-- <p class="card-text" th:text="${producto.descripcion}"></p> -->
+                        <h5 class="card-text" th:text="${producto.nombre}"></h5>
                         <img class="card-img-top" th:src="@{/images/{img} (img=${producto.imagen})}" alt="img-prod">
                         <div class="card-body">
-                            <!-- <p class="card-text" th:text="${producto.descripcion}"></p> -->
-                            <h5 class="card-text" th:text="'$' + ${producto.precio}"></h5>
+                            <h3 class="card-text" th:text="'$' + ${producto.precio}"></h3>
                         </div>
                     </div>
                 </a>
@@ -164,9 +161,6 @@
         </div>
         <!-- Fin Publicidad -->
         <br>
-
-
-
     </div>
 
     <!-- Footer -->

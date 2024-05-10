@@ -8,7 +8,8 @@
 body {
     /* padding-top: 56px; */
     padding-top: 30px;
-    /* background-color:#ffffff; */
+    /* background-color: whitesmoke; */
+    background-color: snow;
 }
 
 /* Ajusto la altura de la hoja a un tamaño A4 */
@@ -110,6 +111,10 @@ body {
 
 .border {
     border: solid 2px;
+}
+
+.b-none {
+    border-color: rgb(173, 22, 22);
 }
 
 @media print {
@@ -220,6 +225,14 @@ body {
 /* fin header */
 
 /* tarjeta producto */
+.border {
+    filter: drop-shadow(0px 1px 3px #c6c3c3);
+}
+
+.border:hover {
+    filter: drop-shadow(3px 5px 7px #c6c3c3);
+}
+
 .tarjeta-producto a {
     text-decoration: none;
     color: black;
@@ -361,7 +374,8 @@ body {
     height: 460px;
     width: 50%;
     display: flex;
-    background-color: black;
+    /* background-color: black; */
+    /* background-color: white; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -377,7 +391,7 @@ body {
     background-size: cover;
     position: relative;
     top: 10px;
-    filter: drop-shadow(0px 7px 15px #ffffff);
+    filter: drop-shadow(0px 7px 15px #e3e3e3);
     animation: rotar 10s linear infinite;
 }
 
@@ -430,6 +444,7 @@ body {
 
 .img-enl-estirado {
     max-width: 150px;
+    max-height: 150px;
 }
 
 .left {

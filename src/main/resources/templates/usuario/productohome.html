@@ -70,7 +70,7 @@
                     <div class="col-lg-6">
                         <form th:action="@{/cart}" method="POST">
 
-
+                            <!-- Obtenemos los datos del producto -->
                             <input type="hidden" th:value="${producto.id}" name="id">
                             <h2 class="card-title" th:text="${producto.nombre}"></h2>
                             <br>
@@ -141,7 +141,25 @@
                                 </li>
                             </ul>
                             <br>
-
+                            <!-- Podria Interesarte -->
+                            <div class="card bg-white w100 center">
+                                <h3>¡Podría Interesarte!</h3>
+                            </div>
+                            <div class="overflow-x-scroll">
+                                <div class="menu-scroll">
+                                    <article th:each="product: ${productos}">
+                                        <a th:href="@{/productohome/{id} (id=${producto.id})}">
+                                            <div>
+                                                <img class="img-menu-scroll bg-white border"
+                                                    th:src="@{/images/{img} (img=${product.imagen})}" alt="img-prod">
+                                                <p th:text="${product.categoria}"></p>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                            </div>
+                            <!-- Fin Podria Interesarte -->
+                            <br>
                             <ul class="list-group">
                                 <li class="list-group-item">
 
