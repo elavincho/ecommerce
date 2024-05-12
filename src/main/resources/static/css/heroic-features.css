@@ -76,6 +76,43 @@ body {
     margin-left: 30px;
 }
 
+.mrt-30 {
+    margin-top: 30px;
+}
+
+.mrb {
+    margin-bottom: 15px;
+}
+
+.mrb-30 {
+    margin-bottom: 30px;
+}
+
+.black {
+    color: black;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mrt {
+    margin-top: 15px;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.text-indent {
+    text-indent: 30px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 .centrado {
     display: flex;
     justify-content: center;
@@ -107,14 +144,6 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
-}
-
-.border {
-    border: solid 2px;
-}
-
-.b-none {
-    border-color: rgb(173, 22, 22);
 }
 
 @media print {
@@ -225,13 +254,17 @@ body {
 /* fin header */
 
 /* tarjeta producto */
+
 .border {
-    filter: drop-shadow(0px 1px 3px #c6c3c3);
+    border: solid 2px;
+    filter: drop-shadow(2px 2px 3px #c6c3c3);
 }
 
 .border:hover {
     filter: drop-shadow(3px 5px 7px #c6c3c3);
 }
+
+
 
 .tarjeta-producto a {
     text-decoration: none;
@@ -306,31 +339,6 @@ body {
 
 /* Fin Membrete */
 
-.black {
-    color: black;
-}
-
-.total {
-    display: flex;
-    justify-content: space-between;
-}
-
-.mrt {
-    margin-top: 15px;
-}
-
-.justify {
-    text-align: justify;
-}
-
-.text-indent {
-    text-indent: 30px;
-}
-
-.bold {
-    font-weight: bold;
-}
-
 /* footer */
 
 .footer-personalizado {
@@ -366,16 +374,15 @@ body {
 /* Producto Destacado */
 
 .img-destacado {
-  
+
     max-width: 250px;
     max-height: 300px;
 }
+
 .contenedor-destacado {
     height: 460px;
     width: 50%;
     display: flex;
-    /* background-color: black; */
-    /* background-color: white; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -391,8 +398,8 @@ body {
     background-size: cover;
     position: relative;
     top: 10px;
-    filter: drop-shadow(0px 7px 15px #e3e3e3);
-    animation: rotar 10s linear infinite;
+    filter: drop-shadow(2px 4px 6px #656464);
+    animation: rotar 5s linear infinite;
 }
 
 @keyframes rotar {
@@ -401,7 +408,7 @@ body {
     }
 
     to {
-        transform: rotateY(-180deg);
+        transform: rotateY(360deg);
     }
 }
 
@@ -412,9 +419,10 @@ body {
 .contenedor {
     display: flex;
     justify-content: center;
-    max-width: 800px;
-    width: 95%;
+    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+    margin-top: 10px;
 }
 
 .dos-columnas {
@@ -454,3 +462,17 @@ body {
 
 /* Fin Enlace Estirado */
 
+/* Filtro Buscador */
+
+
+.filtro {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    /*Todas las tarjetas que se oculten van al final*/
+    order: 1;
+}
+
+
+
+/* Fin filtro buscador */

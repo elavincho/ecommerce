@@ -32,12 +32,21 @@
     <!-- Page Content -->
     <div class="container">
       
-        <div class="card mb-3">
-            <div class="row no-gutters">
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h1 class="mt-4 mb-3">Usuarios<small> Registrados</small></h1>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="card-body mb-3 center">Usuarios<small> Registrados</small></h1>
                     </div>
+                    <!-- Buscador -->
+                    <div class="col-lg-6 buscador">
+                        <h2>Buscador de Usuarios</h2>
+                        <form class="d-flex" role="search">
+                            <input class="buscador form-control me-2" type="search" placeholder="Buscar usuarios"
+                                id="buscador" name="buscador" aria-label="Search">
+                        </form>
+                    </div>
+                    <!-- Fin Buscador -->
                 </div>
             </div>
         </div>
@@ -63,7 +72,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="usuario:${usuarios}">
+                                        <tr th:each="usuario:${usuarios}" id="buscar">
                                             <td><img class="w55" th:src="@{/images/{img} (img=${usuario.foto})}"
                                                     alt="img"></td>
                                             <td th:text="${usuario.nombre} +' '+ ${usuario.apellido}"></td>
@@ -92,7 +101,7 @@
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-
+    <script th:src="@{/js/script.js}"></script>
 </body>
 
 </html>

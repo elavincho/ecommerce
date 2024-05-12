@@ -38,7 +38,7 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div id="carouselExampleAutoplaying" class="carousel carousel-dark slide"
                             data-bs-ride="carousel">
                             <div class="carousel-inner center">
@@ -67,18 +67,17 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <form th:action="@{/cart}" method="POST">
-
                             <!-- Obtenemos los datos del producto -->
                             <input type="hidden" th:value="${producto.id}" name="id">
-                            <h2 class="card-title" th:text="${producto.nombre}"></h2>
+                            <h2 class="card-title center" th:text="${producto.nombre}"></h2>
                             <br>
                             <div class="row w100 center">
                                 <div>
                                     <a th:href="@{/}" class="btn btn-dark">Ver más productos</a>
 
-                                    <button type="submit" class="btn btn-dark">Añadir al carrito </button>
+                                    <button type="submit" class="btn btn-dark ml30">Añadir al carrito </button>
                                 </div>
                             </div>
                             <br>
@@ -87,15 +86,18 @@
                                     <h5 th:text=" 'Precio: $' + ${producto.precio}"></h5>
                                 </li>
                                 <li class="list-group-item">
-                                    <h6>
+                                    <h5>
                                         Cantidad: <input type="number" id="cantidad" name="cantidad" autocomplete="off"
                                             min="1" max="5" value="1">
-                                    </h6>
+                                    </h5>
                                 </li>
                                 <li class="list-group-item">
                                     <h5>Descripción</h5>
                                     <p class="text-indent justify" th:text="${producto.descripcion}"></p>
                                 </li>
+                            </ul>
+                            <br>
+                            <ul class="list-group">
                                 <li class="list-group-item">
                                     <h5>Especificaciones Técnicas</h5>
                                     <table class="table">

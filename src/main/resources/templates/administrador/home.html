@@ -68,7 +68,7 @@
                     <div class="card h-100 border">
                         <img class="card-img-top" th:src="@{/images/{img} (img=${producto.imagen})}" alt="img-prod">
                         <div class="card-body">
-                            <h6 class="card-text" th:text="${producto.nombre}"></h6>
+                            <p class="card-text" th:text="${producto.nombre}"></p>
                             <h4 class="card-text" th:text="'$' + ${producto.precio}"></h4>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                 <a th:href="@{/productos/edit/{id} (id=${producto.id}) }" th:if="${producto.ubicacion == 'Inferior'}">
                     <div class="card h-100 border">
                         <br>
-                        <h4 class="card-text" th:text="${producto.nombre}"></h4>
+                        <p class="card-text" th:text="${producto.nombre}"></p>
                         <img class="card-img-top" th:src="@{/images/{img} (img=${producto.imagen})}" alt="img-prod">
                         <div class="card-body">
                             <h3 class="card-text" th:text="'$' + ${producto.precio}"></h3>

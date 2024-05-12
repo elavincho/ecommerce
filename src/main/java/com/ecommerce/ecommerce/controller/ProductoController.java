@@ -12,7 +12,6 @@ import com.ecommerce.ecommerce.service.UploadFileService;
 import com.ecommerce.ecommerce.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-//import java.util.List;
 import java.util.Optional;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;

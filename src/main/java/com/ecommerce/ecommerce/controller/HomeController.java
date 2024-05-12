@@ -262,15 +262,43 @@ public class HomeController {
     }
 
     @PostMapping("/search")
-    public String seachProduct(@RequestParam String nombre, Model model) {
+    public String seachProduct(@RequestParam String nombre, Model model, HttpSession session) {
 
         logger.info("Nombre del Producto: {}", nombre);
+        // Pasamos los datos de los productos
+        model.addAttribute("productos", productoService.findAll());
+        // sesion
+        model.addAttribute("sesion", session.getAttribute("idusuario"));
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+        // Pasamos los datos de la promo
+        model.addAttribute("promo", promoService.findAll());
 
         List<Producto> productos = productoService.findAll().stream().filter(p -> p.getNombre().contains(nombre))
                 .collect(Collectors.toList());
 
         model.addAttribute("productos", productos);
-        return "usuario/home";
+        // return "usuario/home";
+        return "usuario/allProducts";
+    }
+
+    @GetMapping("/allProducts")
+    public String allProducts(Model model, HttpSession session) {
+
+        // Pasamos los datos de los productos
+        model.addAttribute("productos", productoService.findAll());
+        // sesion
+        model.addAttribute("sesion", session.getAttribute("idusuario"));
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+        // Pasamos los datos de la promo
+        model.addAttribute("promo", promoService.findAll());
+
+        return "usuario/allProducts";
     }
 
 }

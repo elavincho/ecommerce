@@ -1,4 +1,4 @@
-// Alert para eliminar un producto
+/* Alert para eliminar un producto */
 function eliminar(id) {
   swal({
     title: "¿Estas Seguro?",
@@ -17,20 +17,18 @@ function eliminar(id) {
       });
       swal("Registro eliminado.", {
         icon: "success",
-      }).then((ok)=> {
-        if(ok){
-            location.href="/productos";
+      }).then((ok) => {
+        if (ok) {
+          location.href = "/productos";
         }
-      })
-    } 
-   
+      });
+    }
   });
 }
+/* Fin Alert para eliminar un producto */
 
-
-// Alert compra exitosa
+/* Alert compra exitosa */
 function compraExitosa() {
-
   swal({
     title: "¡Compra Exitosa!",
     text: "Tu compra fue realizada con exito.",
@@ -44,15 +42,15 @@ function compraExitosa() {
         url: "/saveOrder",
         success: function (res) {
           console.log(res);
-          location.href="/usuario/compras";
+          location.href = "/usuario/compras";
         },
       });
-    } 
+    }
   });
 }
+/* Fin Alert compra exitosa */
 
-
-// Alert para eliminar un promo
+/* Alert para eliminar un promo */
 function eliminarPromo(id) {
   swal({
     title: "¿Estas Seguro?",
@@ -71,12 +69,47 @@ function eliminarPromo(id) {
       });
       swal("Registro eliminado.", {
         icon: "success",
-      }).then((ok)=> {
-        if(ok){
-            location.href="/promos/show";
+      }).then((ok) => {
+        if (ok) {
+          location.href = "/promos/show";
         }
-      })
-    } 
-   
+      });
+    }
   });
 }
+/* FinAlert para eliminar un promo */
+
+/* Buscador*/
+
+document.addEventListener("keyup", (e) => {
+  if (e.target.matches("#buscador")) {
+    /*Para vaciar el campo al presionar esc*/
+    if (e.key === "Escape") {
+      e.target.value = "";
+    }
+    document.querySelectorAll("#buscar").forEach((articulo) => {
+      articulo.textContent.toUpperCase().includes(e.target.value) ||
+      articulo.textContent.toLowerCase().includes(e.target.value) ||
+      articulo.textContent.includes(e.target.value)
+        ? articulo.classList.remove("filtro")
+        : articulo.classList.add("filtro");
+    });
+  }
+});
+/* Fin Buscador*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

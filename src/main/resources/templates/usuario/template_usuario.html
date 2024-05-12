@@ -4,29 +4,35 @@
     <nav class="header-personalizado">
 
         <div class="contenedor-header">
-
+            <!-- Logo -->
             <div class="header-logo" th:each="empres:${empresa}">
                 <a th:href="@{/}">
                     <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
                     <p th:text="${empres.razonSocial}" style="color: white;"></p>
                 </a>
             </div>
-
-            <div class="dropdown">
-                <button class="btn btn-dark" style="background-color: black; color: white;" type="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <img class="width-ico" th:src="@{/img/lupa.png}" alt="lupa">
-                    <p>Buscar</p>
-                </button>
-                <ul class="dropdown-menu">
-                    <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos"
-                            aria-label="Search" name="nombre" autocomplete="off">
-                    </form>
-                </ul>
-            </div>
-
+            <!-- Fin logo -->
             <div class="header-menu">
+                <!-- Buscador -->
+                <a>
+                    <div class="dropdown">
+                        <div class="width-ico" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="width-ico" th:src="@{/img/lupa.png}" alt="lupa">
+                            <p class="white">Buscar</p>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos"
+                                    aria-label="Search" name="nombre" autocomplete="off">
+                            </form>
+                        </ul>
+                    </div>
+                </a>
+                <!-- Fin buscador -->
+                <a th:href="@{/allProducts}">
+                    <img class="width-ico" th:src="@{/img/comprar.png}" alt="allproductos">
+                    <p>Productos</p>
+                </a>
                 <a th:href="@{/usuario/login}">
                     <img class="w55" th:src="@{/img/login.png}" alt="login">
                 </a>
@@ -51,23 +57,29 @@
             </div>
 
             <div class="header-menu">
+                <!-- Buscador -->
+                <a>
+                    <div class="dropdown">
+                        <div class="width-ico" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="width-ico" th:src="@{/img/lupa.png}" alt="lupa">
+                            <p class="white">Buscar</p>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos"
+                                    aria-label="Search" name="nombre" autocomplete="off">
+                            </form>
+                        </ul>
+                    </div>
+                </a>
+                <!-- Fin buscador -->
 
-                <div class="dropdown">
-                    <button class="btn btn-dark" style="background-color: black; color: white;" type="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="width-ico" th:src="@{/img/lupa.png}" alt="lupa">
-                        <p>Buscar</p>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos"
-                                aria-label="Search" name="nombre" autocomplete="off">
-                        </form>
-                    </ul>
-                </div>
-
+                <a th:href="@{/allProducts}">
+                    <img class="width-ico" th:src="@{/img/comprar.png}" alt="allproductos">
+                    <p>Productos</p>
+                </a>
                 <a th:href="@{/usuario/compras}">
-                    <img class="width-ico" th:src="@{/img/compras.png}" alt="productos">
+                    <img class="width-ico" th:src="@{/img/compras.png}" alt="compras">
                     <p>Mis Compras</p>
                 </a>
                 <a th:href="@{/getCart}">
@@ -106,7 +118,7 @@
 
             </div>
             <div class="white mr30 mrt interlineado">
-                
+
                 <p th:text="${empres.email}"></p>
                 <p th:text="${empres.telefono}"></p>
                 <p th:text="'Copyright &copy; ' + ${empres.razonSocial} + '. All Rigths Reserved'"></p>
@@ -128,3 +140,6 @@
         </div>
     </footer>
 </div>
+
+
+<script src="/src/main/resources/static/js/script.js"></script>
