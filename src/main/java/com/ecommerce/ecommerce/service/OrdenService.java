@@ -24,5 +24,9 @@ public interface OrdenService {
     List<Orden> findByUsuario(Usuario usuario);
     
     Optional<Orden> findById(Integer id);
+
+    Optional<Orden> get(Integer id);
+
+    public void update (Orden orden);
     
 }

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.ecommerce.ecommerce.controller;
 
 import com.ecommerce.ecommerce.model.Orden;
@@ -167,6 +163,8 @@ public class UsuarioController {
             } else if (user.get().getTipo().equals("USER")) {
 
                 return "redirect:/";
+            } else if (user.get().getTipo().equals("BLOQUEADO")) {
+                return "redirect:/usuario/bloqueado";
             }
         } else {
             logger.info("Usuario no exsite");
@@ -223,5 +221,31 @@ public class UsuarioController {
         session.removeAttribute("idusuario");
         return "redirect:/";
     }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id) {
+
+        Usuario u = new Usuario();
+        u = usuarioService.get(id).get();
+
+        /* eliminar cuando no sea la imagen por defecto */
+        if (!u.getFoto().equals("default.jpg")) {
+            upload.deleteImage(u.getFoto());
+        }
+
+        usuarioService.delete(id);
+
+        return "redirect:/administrador/usuarios";
+    }
+
+    // @GetMapping("/bloqueado")
+    // public String bloqueado(Model model, HttpSession session) {
+
+    //     // Pasamos todos los datos de la empresa
+    //     model.addAttribute("empresa", empresaService.findAll());
+    //     // Eliminamos la sesion del usuario
+    //     session.removeAttribute("idusuario");
+    //     return "usuario/bloqueado";
+    // }
 
 }

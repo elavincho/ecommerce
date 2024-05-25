@@ -22,4 +22,8 @@ public interface UsuarioService {
     
     List<Usuario> findAll();
 
+    public void delete(Integer id);
+
+    public Optional<Usuario> get(Integer id); //Optional nos da la opcion de poder validar si el objeto que llamamos de la base de datos existe o no.
+
 }

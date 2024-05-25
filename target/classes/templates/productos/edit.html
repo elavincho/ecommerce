@@ -52,7 +52,7 @@
 
                             <!-- Obtenemos los datos del producto -->
                             <input type="hidden" name="id" th:value="${producto.id}">
-                            
+
                             <div class="form-group w100 centrado">
                                 <label class="control-label col-sm-2" for="nombre">Nombre:</label>
                                 <div class="col-sm-10">
@@ -89,6 +89,15 @@
                                 </div>
                             </div>
 
+                            <div class="form-group w100 centrado hidden h-10">
+                                <label class="control-label col-sm-2" for="precio">Precio Formateado:</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" step="any" id="precioFormateado" name="precioFormateado"
+                                        placeholder="Ingrese el precio del producto" th:value="${producto.precioFormateado}"
+                                        required autocomplete="off">
+                                </div>
+                            </div>
+
                             <div class="form-group w100 centrado">
                                 <label class="control-label col-sm-2" for="cantidad">Cantidad:</label>
                                 <div class="col-sm-10">
@@ -101,9 +110,15 @@
                             <div class="form-group w100 centrado">
                                 <label class="control-label col-sm-2" for="nombre">Ubicación:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="ubicacion" name="ubicacion"
-                                        placeholder="Ingrese la Ubicación del producto" required autocomplete="off"
-                                        th:value="${producto.ubicacion}">
+                                    <select id="ubicacion" name="ubicacion">
+                                        <option th:value="${producto.ubicacion}" th:text="${producto.ubicacion}">
+                                        </option>
+                                        <option value="Superior">Superior</option>
+                                        <option value="Enl. Estirado">Enl. Estirado</option>
+                                        <option value="Inferior">Inferior</option>
+                                        <option value="Destacado">Destacado</option>
+                                        <option value="Sin Stock">Sin Stock</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -113,7 +128,7 @@
                                     <input type="text" class="form-control" id="dato1" name="dato1"
                                         placeholder="Ingrese el Nombre del Dato Técnico 1" autocomplete="off"
                                         th:value="${producto.dato1}">
-                                        <input type="text" class="form-control" id="datoTecnico1" name="datoTecnico1"
+                                    <input type="text" class="form-control" id="datoTecnico1" name="datoTecnico1"
                                         placeholder="Ingrese la Descripción del Dato Técnico 1" autocomplete="off"
                                         th:value="${producto.datoTecnico1}">
                                 </div>
@@ -125,7 +140,7 @@
                                     <input type="text" class="form-control" id="dato2" name="dato2"
                                         placeholder="Ingrese el Nombre del Dato Técnico 2" autocomplete="off"
                                         th:value="${producto.dato2}">
-                                        <input type="text" class="form-control" id="datoTecnico2" name="datoTecnico2"
+                                    <input type="text" class="form-control" id="datoTecnico2" name="datoTecnico2"
                                         placeholder="Ingrese la Descripción del Dato Técnico 2" autocomplete="off"
                                         th:value="${producto.datoTecnico2}">
                                 </div>
@@ -137,7 +152,7 @@
                                     <input type="text" class="form-control" id="dato3" name="dato3"
                                         placeholder="Ingrese el Nombre del Dato Técnico 3" autocomplete="off"
                                         th:value="${producto.dato3}">
-                                        <input type="text" class="form-control" id="datoTecnico3" name="datoTecnico3"
+                                    <input type="text" class="form-control" id="datoTecnico3" name="datoTecnico3"
                                         placeholder="Ingrese la Descripción del Dato Técnico 3" autocomplete="off"
                                         th:value="${producto.datoTecnico3}">
                                 </div>
@@ -149,7 +164,7 @@
                                     <input type="text" class="form-control" id="dato4" name="dato4"
                                         placeholder="Ingrese el Nombre del Dato Técnico 4" autocomplete="off"
                                         th:value="${producto.dato4}">
-                                        <input type="text" class="form-control" id="datoTecnico4" name="datoTecnico4"
+                                    <input type="text" class="form-control" id="datoTecnico4" name="datoTecnico4"
                                         placeholder="Ingrese la Descripción del Dato Técnico 4" autocomplete="off"
                                         th:value="${producto.datoTecnico4}">
                                 </div>
@@ -161,7 +176,7 @@
                                     <input type="text" class="form-control" id="dato5" name="dato5"
                                         placeholder="Ingrese el Nombre del Dato Técnico 5" autocomplete="off"
                                         th:value="${producto.dato5}">
-                                        <input type="text" class="form-control" id="datoTecnico5" name="datoTecnico5"
+                                    <input type="text" class="form-control" id="datoTecnico5" name="datoTecnico5"
                                         placeholder="Ingrese la Descripción del Dato Técnico 5" autocomplete="off"
                                         th:value="${producto.datoTecnico5}">
                                 </div>
@@ -173,7 +188,7 @@
                                     <input type="text" class="form-control" id="dato6" name="dato6"
                                         placeholder="Ingrese el Nombre del Dato Técnico 6" autocomplete="off"
                                         th:value="${producto.dato6}">
-                                        <input type="text" class="form-control" id="datoTecnico6" name="datoTecnico6"
+                                    <input type="text" class="form-control" id="datoTecnico6" name="datoTecnico6"
                                         placeholder="Ingrese la Descripción del Dato Técnico 6" autocomplete="off"
                                         th:value="${producto.datoTecnico6}">
                                 </div>
@@ -185,7 +200,7 @@
                                     <input type="text" class="form-control" id="dato7" name="dato7"
                                         placeholder="Ingrese el Nombre del Dato Técnico 7" autocomplete="off"
                                         th:value="${producto.dato7}">
-                                        <input type="text" class="form-control" id="datoTecnico7" name="datoTecnico7"
+                                    <input type="text" class="form-control" id="datoTecnico7" name="datoTecnico7"
                                         placeholder="Ingrese la Descripción del Dato Técnico 7" autocomplete="off"
                                         th:value="${producto.datoTecnico7}">
                                 </div>
@@ -197,7 +212,7 @@
                                     <input type="text" class="form-control" id="dato8" name="dato8"
                                         placeholder="Ingrese el Nombre del Dato Técnico 8" autocomplete="off"
                                         th:value="${producto.dato8}">
-                                        <input type="text" class="form-control" id="datoTecnico8" name="datoTecnico8"
+                                    <input type="text" class="form-control" id="datoTecnico8" name="datoTecnico8"
                                         placeholder="Ingrese la Descripción del Dato Técnico 8" autocomplete="off"
                                         th:value="${producto.datoTecnico8}">
                                 </div>
@@ -209,46 +224,70 @@
                                     <input type="text" class="form-control" id="dato9" name="dato9"
                                         placeholder="Ingrese el Nombre del Dato Técnico 9" autocomplete="off"
                                         th:value="${producto.dato9}">
-                                        <input type="text" class="form-control" id="datoTecnico9" name="datoTecnico9"
+                                    <input type="text" class="form-control" id="datoTecnico9" name="datoTecnico9"
                                         placeholder="Ingrese la Descripción del Dato Técnico 9" autocomplete="off"
                                         th:value="${producto.datoTecnico9}">
                                 </div>
                             </div>
 
-                            <div class="form-group w100 centrado">
-                                <div>
-                                    <img class="w150" th:src="@{/images/{img} (img=${producto.imagen})}" alt="">
-                                    <p th:text="${producto.imagen}"></p>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input type="file" class="form-control-file btn" id="img" name="img">
-                                </div>
-                            </div>
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-12 spac-betw">
 
-                            <div class="form-group w100 centrado">
-                                <div>
-                                    <img class="w150" th:src="@{/images/{img} (img=${producto.imagen2})}" alt="">
-                                    <p th:text="${producto.imagen2}"></p>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input type="file" class="form-control-file btn" id="img2" name="img2">
-                                </div>
-                            </div>
+                                            <div class="form-group w100 center">
+                                                <div>
+                                                    <img class="w150" th:src="@{/images/{img} (img=${producto.imagen})}"
+                                                        alt="">
+                                                    <p th:text="${producto.imagen}"></p>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <label for="img" class="btn btn-dark"><img class="w25"
+                                                            th:src="@{/img/camara.png}" alt="camara"> Cambiar
+                                                        foto</label>
+                                                    <input type="file" class="form-control-file btn" id="img"
+                                                        name="img">
+                                                </div>
+                                            </div>
 
-                            <div class="form-group w100 centrado">
-                                <div>
-                                    <img class="w150" th:src="@{/images/{img} (img=${producto.imagen3})}" alt="">
-                                    <p th:text="${producto.imagen3}"></p>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input type="file" class="form-control-file btn" id="img3" name="img3">
+                                            <div class="form-group w100 center">
+                                                <div>
+                                                    <img class="w150"
+                                                        th:src="@{/images/{img} (img=${producto.imagen2})}" alt="">
+                                                    <p th:text="${producto.imagen2}"></p>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <label for="img" class="btn btn-dark"><img class="w25"
+                                                            th:src="@{/img/camara.png}" alt="camara"> Cambiar
+                                                        foto</label>
+                                                    <input type="file" class="form-control-file btn" id="img2"
+                                                        name="img2">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group w100 center">
+                                                <div>
+                                                    <img class="w150"
+                                                        th:src="@{/images/{img} (img=${producto.imagen3})}" alt="">
+                                                    <p th:text="${producto.imagen3}"></p>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <label for="img" class="btn btn-dark"><img class="w25"
+                                                            th:src="@{/img/camara.png}" alt="camara"> Cambiar
+                                                        foto</label>
+                                                    <input type="file" class="form-control-file btn" id="img3"
+                                                        name="img3">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <br>
                             <div class="row w100 centrado">
                                 <div>
-                                    <button type="submit" class="btn btn-success">Guardar</button>
-                                    <a class="btn btn-warning" th:href="@{/administrador}">Cancelar</a>
+                                    <a class="btn btn-warning" th:href="@{/productos}">Cancelar</a>
+                                    <button type="submit" class="btn btn-dark ml30">Guardar</button>
                                 </div>
                             </div>
                             <br>

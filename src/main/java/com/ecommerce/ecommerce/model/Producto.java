@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.ecommerce.ecommerce.model;
 
 import jakarta.persistence.*;
@@ -22,7 +19,8 @@ public class Producto {
     private String imagen;
     private String imagen2;
     private String imagen3;
-    private int precio;
+    private double precio;
+    private String precioFormateado;
     private int cantidad;
     private String categoria;
     private String ubicacion;
@@ -51,7 +49,7 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(Integer Id, String nombre, String descripcion, String imagen, String imagen2, String imagen3, int precio, int cantidad, String categoria, String ubicacion, String dato1, String datoTecnico1, String dato2, String datoTecnico2, String dato3, String datoTecnico3, String dato4, String datoTecnico4, String dato5, String datoTecnico5, String dato6, String datoTecnico6, String dato7, String datoTecnico7, String dato8, String datoTecnico8, String dato9, String datoTecnico9) {
+    public Producto(Integer Id, String nombre, String descripcion, String imagen, String imagen2, String imagen3, double precio, String precioFormateado, int cantidad, String categoria, String ubicacion, String dato1, String datoTecnico1, String dato2, String datoTecnico2, String dato3, String datoTecnico3, String dato4, String datoTecnico4, String dato5, String datoTecnico5, String dato6, String datoTecnico6, String dato7, String datoTecnico7, String dato8, String datoTecnico8, String dato9, String datoTecnico9) {
         this.Id = Id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -59,6 +57,7 @@ public class Producto {
         this.imagen2 = imagen2;
         this.imagen3 = imagen3;
         this.precio = precio;
+        this.precioFormateado = precioFormateado;
         this.cantidad = cantidad;
         this.categoria = categoria;
         this.ubicacion = ubicacion;
@@ -130,12 +129,20 @@ public class Producto {
         this.imagen3 = imagen3;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public String getPrecioFormateado() {
+        return precioFormateado;
+    }
+
+    public void setPrecioFormateado(String precioFormateado) {
+        this.precioFormateado = precioFormateado;
     }
 
     public int getCantidad() {
@@ -316,7 +323,7 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "Producto{" + "Id=" + Id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen + ", imagen2=" + imagen2 + ", imagen3=" + imagen3 + ", precio=" + precio + ", cantidad=" + cantidad + ", categoria=" + categoria + ", ubicacion=" + ubicacion + ", dato1=" + dato1 + ", datoTecnico1=" + datoTecnico1 + ", dato2=" + dato2 + ", datoTecnico2=" + datoTecnico2 + ", dato3=" + dato3 + ", datoTecnico3=" + datoTecnico3 + ", dato4=" + dato4 + ", datoTecnico4=" + datoTecnico4 + ", dato5=" + dato5 + ", datoTecnico5=" + datoTecnico5 + ", dato6=" + dato6 + ", datoTecnico6=" + datoTecnico6 + ", dato7=" + dato7 + ", datoTecnico7=" + datoTecnico7 + ", dato8=" + dato8 + ", datoTecnico8=" + datoTecnico8 + ", dato9=" + dato9 + ", datoTecnico9=" + datoTecnico9 + '}';
+        return "Producto{" + "Id=" + Id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen + ", imagen2=" + imagen2 + ", imagen3=" + imagen3 + ", precio=" + precio + ", precioFormateado=" + precioFormateado + ", cantidad=" + cantidad + ", categoria=" + categoria + ", ubicacion=" + ubicacion + ", dato1=" + dato1 + ", datoTecnico1=" + datoTecnico1 + ", dato2=" + dato2 + ", datoTecnico2=" + datoTecnico2 + ", dato3=" + dato3 + ", datoTecnico3=" + datoTecnico3 + ", dato4=" + dato4 + ", datoTecnico4=" + datoTecnico4 + ", dato5=" + dato5 + ", datoTecnico5=" + datoTecnico5 + ", dato6=" + dato6 + ", datoTecnico6=" + datoTecnico6 + ", dato7=" + dato7 + ", datoTecnico7=" + datoTecnico7 + ", dato8=" + dato8 + ", datoTecnico8=" + datoTecnico8 + ", dato9=" + dato9 + ", datoTecnico9=" + datoTecnico9 + '}';
     }
 
 }

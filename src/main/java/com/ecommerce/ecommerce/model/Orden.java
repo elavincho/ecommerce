@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.ecommerce.ecommerce.model;
 
 import jakarta.persistence.*;
@@ -21,9 +17,15 @@ public class Orden {
     private Integer Id;
     private String numero;
     private Date fechaCreacion;
+    private String fechaCreacionFormateada;
     private Date fechaRecibida;
+    private String fechaRecibidaFormateada;
+    private String recibidoPor;
+    private String dni;
+    private String entregadoPor;
 
     private double total;
+    private String totalFormateada;
 
     @ManyToOne
     private Usuario usuario;
@@ -34,12 +36,20 @@ public class Orden {
     public Orden() {
     }
 
-    public Orden(Integer Id, String numero, Date fechaCreacion, Date fechaRecibida, double total) {
+    public Orden(Integer Id, String numero, Date fechaCreacion, String fechaCreacionFormateada, Date fechaRecibida, String fechaRecibidaFormateada, String recibidoPor, String dni, String entregadoPor, double total, String totalFormateada, Usuario usuario, List<DetalleOrden> detalle) {
         this.Id = Id;
         this.numero = numero;
         this.fechaCreacion = fechaCreacion;
+        this.fechaCreacionFormateada = fechaCreacionFormateada;
         this.fechaRecibida = fechaRecibida;
+        this.fechaRecibidaFormateada = fechaRecibidaFormateada;
+        this.recibidoPor = recibidoPor;
+        this.dni = dni;
+        this.entregadoPor = entregadoPor;
         this.total = total;
+        this.totalFormateada = totalFormateada;
+        this.usuario = usuario;
+        this.detalle = detalle;
     }
 
     public Integer getId() {
@@ -66,6 +76,14 @@ public class Orden {
         this.fechaCreacion = fechaCreacion;
     }
 
+    public String getFechaCreacionFormateada() {
+        return fechaCreacionFormateada;
+    }
+
+    public void setFechaCreacionFormateada(String fechaCreacionFormateada) {
+        this.fechaCreacionFormateada = fechaCreacionFormateada;
+    }
+
     public Date getFechaRecibida() {
         return fechaRecibida;
     }
@@ -74,12 +92,52 @@ public class Orden {
         this.fechaRecibida = fechaRecibida;
     }
 
+    public String getFechaRecibidaFormateada() {
+        return fechaRecibidaFormateada;
+    }
+
+    public void setFechaRecibidaFormateada(String fechaRecibidaFormateada) {
+        this.fechaRecibidaFormateada = fechaRecibidaFormateada;
+    }
+
+    public String getRecibidoPor() {
+        return recibidoPor;
+    }
+
+    public void setRecibidoPor(String recibidoPor) {
+        this.recibidoPor = recibidoPor;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getEntregadoPor() {
+        return entregadoPor;
+    }
+
+    public void setEntregadoPor(String entregadoPor) {
+        this.entregadoPor = entregadoPor;
+    }
+
     public double getTotal() {
         return total;
     }
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public String getTotalFormateada() {
+        return totalFormateada;
+    }
+
+    public void setTotalFormateada(String totalFormateada) {
+        this.totalFormateada = totalFormateada;
     }
 
     public Usuario getUsuario() {
@@ -100,7 +158,7 @@ public class Orden {
 
     @Override
     public String toString() {
-        return "Orden{" + "Id=" + Id + ", numero=" + numero + ", fechaCreacion=" + fechaCreacion + ", fechaRecibida=" + fechaRecibida + ", total=" + total + '}';
+        return "Orden{" + "Id=" + Id + ", numero=" + numero + ", fechaCreacion=" + fechaCreacion + ", fechaCreacionFormateada=" + fechaCreacionFormateada + ", fechaRecibida=" + fechaRecibida + ", fechaRecibidaFormateada=" + fechaRecibidaFormateada + ", recibidoPor=" + recibidoPor + ", dni=" + dni + ", entregadoPor=" + entregadoPor + ", total=" + total + ", totalFormateada=" + totalFormateada + ", detalle=" + detalle + '}';
     }
 
 }

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.ecommerce.ecommerce.controller;
 
 import com.ecommerce.ecommerce.model.DetalleOrden;
@@ -15,6 +11,10 @@ import com.ecommerce.ecommerce.service.ProductoService;
 import com.ecommerce.ecommerce.service.PromoService;
 import com.ecommerce.ecommerce.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 import org.slf4j.*;
@@ -134,8 +134,15 @@ public class HomeController {
 
         detalleOrden.setCantidad(cantidad);
         detalleOrden.setPrecio(producto.getPrecio());
+        // Formato de número
+        NumberFormat formatoNumero = NumberFormat.getNumberInstance();
+        detalleOrden.setPrecioFormateado(formatoNumero.format(producto.getPrecio()));
+        
         detalleOrden.setNombre(producto.getNombre());
         detalleOrden.setTotal(producto.getPrecio() * cantidad);
+        // Formato de número
+        //NumberFormat formatoNumero = NumberFormat.getNumberInstance();
+        detalleOrden.setTotalFormateado(formatoNumero.format(producto.getPrecio() * cantidad));
         detalleOrden.setProducto(producto);
 
         // Validar que el producto no se agregue mas de dos veces
@@ -148,6 +155,10 @@ public class HomeController {
 
         sumaTotal = detalles.stream().mapToDouble(dt -> dt.getTotal()).sum();
         orden.setTotal(sumaTotal);
+        // Formato de número
+        //NumberFormat formatoNumero = NumberFormat.getNumberInstance();
+        orden.setTotalFormateada(formatoNumero.format(sumaTotal));
+
 
         model.addAttribute("cart", detalles);
         model.addAttribute("orden", orden);
@@ -238,8 +249,16 @@ public class HomeController {
         model.addAttribute("empresa", empresaService.findAll());
 
         Date fechaCreacion = new Date();
+        // Le damos formato a la fecha
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy HH:mm");
+        String formattedDate = sdf.format(fechaCreacion);
+        orden.setFechaCreacionFormateada(formattedDate);
+
+        // Guardamos la fecha con formato original
         orden.setFechaCreacion(fechaCreacion);
         orden.setNumero(ordenService.generarNumeroOrden());
+        
+        
 
         // Usuario
         Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
@@ -276,11 +295,17 @@ public class HomeController {
         // Pasamos los datos de la promo
         model.addAttribute("promo", promoService.findAll());
 
-        List<Producto> productos = productoService.findAll().stream().filter(p -> p.getNombre().contains(nombre))
+        // List<Producto> productos = productoService.findAll().stream().filter(p ->
+        // p.getNombre().contains(nombre))
+        // .collect(Collectors.toList());
+
+        List<Producto> productos = productoService.findAll().stream().filter(p -> p.getNombre().contains(nombre) ||
+                p.getCategoria().contains(nombre) || p.getNombre().toLowerCase().contains(nombre) ||
+                p.getCategoria().toLowerCase().contains(nombre) || p.getNombre().toUpperCase().contains(nombre) ||
+                p.getCategoria().toUpperCase().contains(nombre))
                 .collect(Collectors.toList());
 
         model.addAttribute("productos", productos);
-        // return "usuario/home";
         return "usuario/allProducts";
     }
 
@@ -299,6 +324,64 @@ public class HomeController {
         model.addAttribute("promo", promoService.findAll());
 
         return "usuario/allProducts";
+    }
+
+    @GetMapping("/entrega/{id}")
+    public String entrega(Model model, @PathVariable Integer id, HttpSession session) {
+
+        logger.info("Id de la orden: {}", id);
+
+        // Le pasamos los datos de la orden para obtener los datos del cliente
+        Optional<Orden> orden = ordenService.findById(id);
+        model.addAttribute("detalles", orden.get().getDetalle());
+
+        // Le pasamos la orden para obtener el total de la compra
+        model.addAttribute("ordencompra", orden.get());
+
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
+        return "administrador/entregar_orden";
+    }
+
+    @PostMapping("/entregado")
+    public String entregado(Model model, Orden orden, @RequestParam String dni,
+            @RequestParam String recibidoPor, @RequestParam String entregadoPor,
+            HttpSession session) throws IOException {
+
+        // sesion
+        model.addAttribute("sesion", session.getAttribute("idusuario"));
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
+        Orden o = new Orden();
+        o = ordenService.get(orden.getId()).get();
+
+        Date fechaRecibida = new Date();
+        // Le damos formato a la fecha
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy HH:mm");
+        String formattedDate = sdf.format(fechaRecibida);
+        orden.setFechaRecibidaFormateada(formattedDate);
+
+        // Guardamos la fecha con formato original
+        orden.setFechaRecibida(fechaRecibida);
+
+        // Obtenemos y guardamos todos los datos para que no se borren de la bd
+        orden.setNumero(o.getNumero());
+        orden.setFechaCreacion(o.getFechaCreacion());
+        orden.setFechaCreacionFormateada(o.getFechaCreacionFormateada());
+        orden.setUsuario(o.getUsuario());
+        orden.setTotal(o.getTotal());
+        orden.setTotalFormateada(o.getTotalFormateada());
+
+        ordenService.update(orden);
+
+        return "redirect:/administrador/ordenes";
     }
 
 }

@@ -83,4 +83,15 @@ public class OrdenServiceImpl implements OrdenService {
         return ordenRepository.findById(id);
     }
 
+    @Override
+    public Optional<Orden> get(Integer id) {
+        
+        return ordenRepository.findById(id);
+    }
+
+    @Override
+    public void update(Orden orden) {
+        ordenRepository.save(orden);
+    }
+
 }

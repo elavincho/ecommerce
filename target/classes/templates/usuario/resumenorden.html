@@ -8,9 +8,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Spring eCommerce</title>
+    <title>eCommerce</title>
 
     <!-- Bootstrap core CSS -->
+    <link th:href="@{/https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
@@ -24,48 +26,55 @@
 
     <div th:insert="~{usuario/template_usuario.html::header-user}" th:unless="${sesion==null}"></div>
     <br><br><br>
-    <!-- <div th:insert="~{usuario/template_usersession.html::header-username}" th:unless="${sesion==null}"></div> -->
 
     <!-- Page Content -->
     <div class="container">
-
-        <!-- Page Heading/Breadcrumbs -->
-        <!-- <h1 class="mt-4 mb-3">
-            eCommerce <small>Resumen de la orden</small>
-        </h1> -->
-
-        <!-- <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-            <li class="breadcrumb-item active">Orden</li>
-        </ol> -->
-
-        <!-- Blog Post -->
         <div class="card mb-4">
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="membrete">
-                            <span>
-                                <h3>Orden de Compra</h3>
-                                <h6>eCommerce Inc.</h6>
-                                <h6>Buenos Aires - Argentina</h6>
+                        <div class="membrete" th:each="empres:${empresa}">
+                            <span class="w-45">
+                                <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
+                                <p th:text="${empres.razonSocial}"></p>
+                                <p th:text="${empres.email}"></p>
+                                <p th:text="${empres.telefono}"></p>
+                                <p th:text="${empres.direccion} + ' - ' + ${empres.localidad}"></p>
+                                <p th:text="${empres.provincia} + ' - ' + ${empres.pais}"></p>
                             </span>
-                            <span>
-                                <h3 class="logo-membrete">eCommerce Inc</h3>
-                                <h6>Tienda Online</h6>
+                            <span class="tipo-comprobante w-10">
+                                <p>Documento</p>
+                                <h1>X</h1>
+                                <p>NO Válido como Factura</p>
+                            </span>
+                            <span class="w-45">
+                                <h4 class="ml30">Orden de Compra</h4>
+                                <!-- <h6 class="ml30" th:text=" 'Fecha:   ' + ${ordencompra.fechaCreacionFormateada}"></h6>
+                                <h6 class="ml30" th:text=" 'Orden N°:   ' + ${ordencompra.numero}"></h6> -->
                             </span>
                         </div>
+                        <!-- </div> -->
                         <hr>
                         <h5 class="card-title">Datos del Cliente</h5>
                         <hr>
-                        <h6 th:text=" 'Nombre: ' + ${usuario.nombre} + ' ' + ${usuario.apellido}"></h6>
-                        <h6
-                            th:text=" 'Dirección: ' + ${usuario.direccion} + ' ' + ${usuario.altura} + ', Piso: ' + ${usuario.piso} + ', Depto: ' + ${usuario.depto} + ' - ' + ${usuario.localidad}">
-                        </h6>
-                        <h6 th:text=" 'Teléfono: ' + ${usuario.telefono}"></h6>
-                        <h6 th:text=" 'email: ' + ${usuario.email}"></h6>
-                        <hr>
+                        <div class="spac-betw">
+                            <h6 class="w50" th:text=" 'Nombre: ' + ${usuario.nombre} + ' ' + ${usuario.apellido}"></h6>
+                            <h6 class="w50"
+                                th:text=" 'Dirección: ' + ${usuario.direccion} + ' ' + ${usuario.altura} + ' - Piso:  ' + ${usuario.piso} + ' - Depto:  ' + ${usuario.depto}">
+                            </h6>
+                        </div>
 
+                        <div class="spac-betw">
+                            <h6 class="w50" th:text=" 'email: ' + ${usuario.email}"></h6>
+                            <h6 class="w50"
+                                th:text=" 'Provincia: ' + ${usuario.provincia} + ' - ' + 'Localidad: ' + ${usuario.localidad}">
+                            </h6>
+                        </div>
+
+                        <div class="spac-betw">
+                            <h6 th:text=" 'Teléfono: ' + ${usuario.telefono}"></h6>
+                        </div>
+                        <hr>
                         <div class="alert alert-light" role="alert">
                             <h5 class="card-title black">Productos</h5>
                             <table class="table">
@@ -73,7 +82,7 @@
                                     <tr>
                                         <th scope="col">Imagen</th>
                                         <th scope="col">Producto</th>
-                                        <th scope="col">Descripción</th>
+                                        <!-- <th scope="col">Descripción</th> -->
                                         <th scope="col">Precio</th>
                                         <th scope="col">Cantidad</th>
                                         <th scope="col">Total</th>
@@ -85,10 +94,10 @@
                                                 alt="img">
                                         </td>
                                         <td th:text="${dorden.nombre}"></td>
-                                        <td th:text="${dorden.producto.descripcion}"></td>
-                                        <td th:text="'$' + ${dorden.precio}"></td>
+                                        <!-- <td th:text="${dorden.producto.descripcion}"></td> -->
+                                        <td th:text="'$' + ${dorden.precioFormateado}"></td>
                                         <td th:text="${dorden.cantidad}"></td>
-                                        <td th:text="'$' + ${dorden.total}"></td>
+                                        <td th:text="'$' + ${dorden.totalFormateado}"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -100,7 +109,7 @@
                         <ul class="list-group">
                             <li class="list-group-item" style="display: flex; justify-content: space-between;">
                                 <h5 class="card-title">Total a Pagar:</h5>
-                                <h5 th:text="'$' + ${orden.total}"></h5>
+                                <h5 th:text="'$' + ${orden.totalFormateada}"></h5>
                             </li>
                         </ul>
                     </div>
@@ -108,8 +117,10 @@
                 </div>
             </div>
             <div class="row w100 centrado">
-                <!-- <a th:href="@{/saveOrder}" class="btn btn-dark">Completar Compra</a> -->
-                <a th:onclick="compraExitosa()" class="btn btn-dark" style="color: white;">Confirmar Compra</a>
+                <div class="centrado">
+                    <!-- <a th:href="@{/saveOrder}" class="btn btn-dark">Completar Compra</a> -->
+                    <a th:onclick="compraExitosa()" class="btn btn-dark" style="color: white;">Confirmar Compra</a>
+                </div>
             </div>
             <br>
         </div>
@@ -121,6 +132,9 @@
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js}"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"

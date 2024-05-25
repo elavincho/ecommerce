@@ -1,8 +1,6 @@
 <!-- Header usuario sin logueo-->
 <div th:fragment="header">
-
     <nav class="header-personalizado">
-
         <div class="contenedor-header">
             <!-- Logo -->
             <div class="header-logo" th:each="empres:${empresa}">
@@ -12,7 +10,7 @@
                 </a>
             </div>
             <!-- Fin logo -->
-            <div class="header-menu">
+            <div class="header-menu mr30">
                 <!-- Buscador -->
                 <a>
                     <div class="dropdown">
@@ -25,37 +23,86 @@
                                 <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos"
                                     aria-label="Search" name="nombre" autocomplete="off">
                             </form>
+
                         </ul>
                     </div>
                 </a>
                 <!-- Fin buscador -->
+
                 <a th:href="@{/allProducts}">
                     <img class="width-ico" th:src="@{/img/comprar.png}" alt="allproductos">
                     <p>Productos</p>
                 </a>
                 <a th:href="@{/usuario/login}">
-                    <img class="w55" th:src="@{/img/login.png}" alt="login">
+                    <img class="width-ico" th:src="@{/img/login.png}" alt="login">
+                    <p>Iniciar Sesión</p>
+                </a>
+                <a th:href="@{/usuario/registro}">
+                    <img class="width-ico" th:src="@{/img/registro.png}" alt="registro">
+                    <p>Registrate</p>
                 </a>
             </div>
         </div>
     </nav>
 </div>
+<!-- Fin usuario sin logueo -->
 
-
-<!-- Header usuario logueado -->
-<div th:fragment="header-user">
-
+<!-- Header usuario login-->
+<div th:fragment="header-login">
     <nav class="header-personalizado">
-
         <div class="contenedor-header">
-
+            <!-- Logo -->
             <div class="header-logo" th:each="empres:${empresa}">
                 <a th:href="@{/}">
                     <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
                     <p th:text="${empres.razonSocial}" style="color: white;"></p>
                 </a>
             </div>
+            <!-- Fin logo -->
+            <div class="header-menu mr30">
+                <a th:href="@{/usuario/registro}">
+                    <img class="w35" th:src="@{/img/registro.png}" alt="registro">
+                    <p>Registrate</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Fin usuario login -->
 
+<!-- Header usuario registro-->
+<div th:fragment="header-registro">
+    <nav class="header-personalizado">
+        <div class="contenedor-header">
+            <!-- Logo -->
+            <div class="header-logo" th:each="empres:${empresa}">
+                <a th:href="@{/}">
+                    <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
+                    <p th:text="${empres.razonSocial}" style="color: white;"></p>
+                </a>
+            </div>
+            <!-- Fin logo -->
+            <div class="header-menu mr30">
+                <a th:href="@{/usuario/login}">
+                    <img class="w35" th:src="@{/img/login.png}" alt="login">
+                    <p>Iniciar Sesión</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Fin usuario registro -->
+
+<!-- Header usuario logueado -->
+<div th:fragment="header-user">
+    <nav class="header-personalizado">
+        <div class="contenedor-header">
+            <div class="header-logo" th:each="empres:${empresa}">
+                <a th:href="@{/}">
+                    <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
+                    <p th:text="${empres.razonSocial}" style="color: white;"></p>
+                </a>
+            </div>
             <div class="header-menu">
                 <!-- Buscador -->
                 <a>
@@ -73,7 +120,6 @@
                     </div>
                 </a>
                 <!-- Fin buscador -->
-
                 <a th:href="@{/allProducts}">
                     <img class="width-ico" th:src="@{/img/comprar.png}" alt="allproductos">
                     <p>Productos</p>
@@ -86,25 +132,49 @@
                     <img class="width-ico" th:src="@{/img/carrito.png}" alt="usuarios">
                     <p>Carrito</p>
                 </a>
-                <a th:href="@{/usuario/cerrar}">
+                <!-- <a th:href="@{/usuario/cerrar}">
                     <img class="width-ico" th:src="@{/img/power-white.png}" alt="salir">
                     <p>Salir</p>
                 </a>
                 <a th:href="@{/usuario/editUser/{id} (id=${usuario.id}) }">
                     <img class="width-ico" th:src="@{/img/usuario.png}" alt="usuario">
                     <p>Editar</p>
-                </a>
-                <div class="usersession " th:fragment="header-username">
-                    <a href="">
-                        <img class="w25 circle" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
+                </a> -->
+
+                <!-- Usuario con dropdown -->
+                <div class="usersession mrt-10 ml10" th:fragment="header-username">
+                    <div class="dropdown">
+                        <div class="width-ico mr30 w-50" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <div class="center" style="width: 50px;">
+                                <img class="w25" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
+                            </div>
+                            <p th:text="${usuario.nombre}" style="color: white; width: 50px;"></p>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="black" th:href="@{/usuario/editUser/{id} (id=${usuario.id}) }"><img
+                                        class="width-ico" th:src="@{/img/sobre-nosotros-negro.png}" alt="usuario">
+                                    Editar Perfil</a></li>
+                            <li><a class="black" th:href="@{/usuario/cerrar}"><img class="width-ico"
+                                        th:src="@{/img/btn_power.png}" alt="salir"> Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Fin Usuario con dropdown -->
+
+
+                <!-- <div class="usersession " th:fragment="header-username">
+                    <a>
+                        <img class="w25" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
                         <p th:text="${usuario.nombre}" style="color: white;"></p>
                     </a>
-                </div>
+                </div> -->
+
+
             </div>
         </div>
     </nav>
 </div>
-
 
 <!-- Footer -->
 <div th:fragment="footer">
@@ -140,6 +210,4 @@
         </div>
     </footer>
 </div>
-
-
-<script src="/src/main/resources/static/js/script.js"></script>
+<!-- Fin footer -->

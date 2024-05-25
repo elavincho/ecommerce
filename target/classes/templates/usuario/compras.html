@@ -39,53 +39,69 @@
                 </div>
             </div>
         </div>
-
         <br>
-        <!-- Blog Post -->
         <div class="card mb-4">
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="overflow-x-scroll">
-                            <div class="menu-scroll">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">No. de Orden</th>
-                                            <th scope="col">Fecha</th>
-                                            <th scope="col">Valor</th>
-                                            <th scope="col">Acción</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="orden: ${ordenes}">
-                                            <td th:text="${orden.numero}"></td>
-                                            <td th:text="${orden.fechaCreacion}"></td>
-                                            <td th:text="${orden.total}"></td>
-                                            <td><a th:href="@{/usuario/detalle/{id} (id=${orden.id}) }"
-                                                    class="btn btn-success" style="color: white;">Ver Detalle</a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <!-- Mis compras con Enlace Estirado -->
+                        <div class="contenedor dos-columnas enlace-estirado deco-none">
+                            <div class="d-flex position-relative cont-enl-estirado bg-white border"
+                                th:each="orden: ${ordenes}">
+                                <div class="mr20" th:each="empresa: ${empresa}">
+                                    <!-- <img class="flex-shrink-0 me-3 img-comp" th:src="@{/img/compra.png}"
+                                        alt="compra"> -->
+                                    <img class="flex-shrink-0 me-3 img-comp"
+                                        th:src="@{/images/{img} (img=${empresa.logo})}" alt="logo">
+                                    <p class="card-text black int-lin" th:text="${empresa.razonSocial}"></p>
+                                </div>
+                                <div class="left w100 int-lin">
+                                    <div class="spac-betw">
+                                        <h5 class="black">Orden N°</h5>
+                                        <h5 class="mt-0 black" th:text="${orden.numero}"></h5>
+                                    </div>
+
+                                    <div class="spac-betw">
+                                        <h6 class="black">Fecha de Compra:</h6>
+                                        <p class="card-text black" th:text="${orden.fechaCreacionFormateada}"></p>
+                                    </div>
+
+                                    <div class="spac-betw">
+                                        <h6 class="black">Fecha de Entrega:</h6>
+                                        <p class="card-text black" th:text="${orden.fechaRecibidaFormateada} ?: 'No Entregado'"></p>
+                                    </div>
+
+
+                                    <div class="spac-betw">
+                                        <h5 class="black">Total Compra:</h5>
+                                        <h5 class="card-text black w50" th:text="' $' + ${orden.totalFormateada}">
+                                        </h5>
+                                        <a class="btn btn-dark" style="color: white;"
+                                            th:href="@{/usuario/detalle/{id} (id=${orden.id}) }">Ver Detalle
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- Fin Mis compras con Enlace Estirado -->
                     </div>
-                </div>
-                <br>
-                <div class="col-lg-12 center">
-                    <a th:href="@{/}" class="btn btn-dark">Seguir Comprando</a>
+                    <div class="col-lg-12 center mrt">
+                        <a th:href="@{/}" class="btn btn-dark">Seguir Comprando</a>
+                    </div>
                 </div>
             </div>
         </div>
+        <br>
     </div>
-
     <!-- Footer -->
     <div th:insert="~{usuario/template_usuario.html::footer}"></div>
 
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js}"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

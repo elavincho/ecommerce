@@ -12,6 +12,7 @@ import com.ecommerce.ecommerce.service.UploadFileService;
 import com.ecommerce.ecommerce.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.Optional;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,10 +92,11 @@ public class ProductoController {
         return "redirect:/productos";
     }
 
+    //Para guardar productos con multiples imagenes
     @PostMapping("/saveUploadMultiple")
     public String saveUploadMultiple(Model model, Producto producto, @RequestParam("img") MultipartFile file,
             @RequestParam("img2") MultipartFile file2, @RequestParam("img3") MultipartFile file3,
-            HttpSession session)
+            @RequestParam double precio, HttpSession session)
             throws IOException {
         LOGGER.info("Este es el objeto producto {}", producto);
 
@@ -124,6 +126,12 @@ public class ProductoController {
             producto.setImagen3(nombreImagen3);
         }
 
+        double formatearPrecio = precio;
+        // Formato de número
+        NumberFormat formatoNumero = NumberFormat.getNumberInstance();
+        //System.out.println(formatoNumero.format(formatearPrecio));
+        producto.setPrecioFormateado(formatoNumero.format(formatearPrecio));
+
         productoService.save(producto);
         return "redirect:/productos";
     }
@@ -150,7 +158,12 @@ public class ProductoController {
     @PostMapping("/update")
     public String update(Model model, Producto producto, @RequestParam("img") MultipartFile file,
             @RequestParam("img2") MultipartFile file2, @RequestParam("img3") MultipartFile file3,
-            HttpSession session) throws IOException {
+            @RequestParam double precio, HttpSession session) throws IOException {
+
+        // Con esto obtenemos todos los datos del usuario
+        model.addAttribute("usuario", session.getAttribute("usersession"));
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
 
         Producto p = new Producto();
         p = productoService.get(producto.getId()).get();
@@ -196,12 +209,12 @@ public class ProductoController {
         /* obtenemos el usuario del producto para que no se borre de la base de datos */
         producto.setUsuario(p.getUsuario());
 
-        productoService.update(producto);
+        double formatearPrecio = precio;
+        // Formato de número
+        NumberFormat formatoNumero = NumberFormat.getNumberInstance();
+        producto.setPrecioFormateado(formatoNumero.format(formatearPrecio));
 
-        // Con esto obtenemos todos los datos del usuario
-        model.addAttribute("usuario", session.getAttribute("usersession"));
-        // Pasamos todos los datos de la empresa
-        model.addAttribute("empresa", empresaService.findAll());
+        productoService.update(producto);
 
         return "redirect:/productos";
     }

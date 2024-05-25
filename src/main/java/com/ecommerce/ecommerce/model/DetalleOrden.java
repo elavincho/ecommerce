@@ -18,25 +18,31 @@ public class DetalleOrden {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
     private String nombre;
-    private double cantidad;
+    private int cantidad;
     private double precio;
+    private String precioFormateado;
     private double total;
+    private String totalFormateado;
 
     @ManyToOne
     private Orden orden;
 
     @ManyToOne
     private Producto producto;
-    
+
     public DetalleOrden() {
     }
 
-    public DetalleOrden(Integer Id, String nombre, double cantidad, double precio, double total) {
+    public DetalleOrden(Integer Id, String nombre, int cantidad, double precio, String precioFormateado, double total, String totalFormateado, Orden orden, Producto producto) {
         this.Id = Id;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
+        this.precioFormateado = precioFormateado;
         this.total = total;
+        this.totalFormateado = totalFormateado;
+        this.orden = orden;
+        this.producto = producto;
     }
 
     public Integer getId() {
@@ -55,11 +61,11 @@ public class DetalleOrden {
         this.nombre = nombre;
     }
 
-    public double getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(double cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -71,12 +77,28 @@ public class DetalleOrden {
         this.precio = precio;
     }
 
+    public String getPrecioFormateado() {
+        return precioFormateado;
+    }
+
+    public void setPrecioFormateado(String precioFormateado) {
+        this.precioFormateado = precioFormateado;
+    }
+
     public double getTotal() {
         return total;
     }
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public String getTotalFormateado() {
+        return totalFormateado;
+    }
+
+    public void setTotalFormateado(String totalFormateado) {
+        this.totalFormateado = totalFormateado;
     }
 
     public Orden getOrden() {
@@ -97,7 +119,7 @@ public class DetalleOrden {
 
     @Override
     public String toString() {
-        return "DetalleOrden{" + "Id=" + Id + ", nombre=" + nombre + ", cantidad=" + cantidad + ", precio=" + precio + ", total=" + total + '}';
+        return "DetalleOrden{" + "Id=" + Id + ", nombre=" + nombre + ", cantidad=" + cantidad + ", precio=" + precio + ", precioFormateado=" + precioFormateado + ", total=" + total + ", totalFormateado=" + totalFormateado + ", orden=" + orden + ", producto=" + producto + '}';
     }
 
 }

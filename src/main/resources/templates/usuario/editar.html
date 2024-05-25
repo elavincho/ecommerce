@@ -30,97 +30,126 @@
     <br><br><br>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container w75">
 
-        <div class="card mb-3">
-            <div class="row no-gutters">
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h2>Editar Usuario</h2>
+        <div class="card h-100 border">
+
+            <form th:action="@{/usuario/update}" method="post" enctype="multipart/form-data">
+                <!-- Obtenemos los datos del usuario -->
+                <input type="hidden" name="id" th:value="${usuario.id}">
+
+                <div class="centrado mrt">
+                    <img class="w150 circle ml20" th:src="@{/images/{img} (img=${usuario.foto})}" alt="foto">
+                    <div class="h100">
+                        <label for="img" class="btn btn-dark"><img class="w25" th:src="@{/img/camara.png}" alt="camara"> Cambiar foto</label>
+                        <input type="file" class="form-control-file btn" id="img" name="img">
+                    </div>
+                    
+                   
+                </div>
+
+                <h2 class="centrado" th:text="${usuario.nombre + ' ' + usuario.apellido}"></h2>
+
+                <div class="spac-betw">
+                    <div class="card border w50 mr10 ml10 mrt">
+                        <div class="form-group mr10 ml10">
+                            
+                            <label for="nombre">Nombre</label> <input type="text" class="form-control" id="nombre"
+                                name="nombre" required placeholder="Ingrese su Nombre" autocomplete="off"
+                                th:value="${usuario.nombre}">
+                        </div>
+                    </div>
+
+                    <div class="card border w50 mr10 ml10 mrt">
+                        <div class="form-group mr10 ml10">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" name="apellido" required
+                                placeholder="Ingrese su Apellido" autocomplete="off" th:value="${usuario.apellido}">
+                        </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="spac-betw">
+                    <div class="card border w50 mr10 ml10 mrt">
+                        <div class="form-group mr10 ml10">
+                            <label for="documento">DNI / CI / Pasaporte / Otro</label>
+                            <input type="text" class="form-control" id="documento" name="documento" required
+                                placeholder="Ingrese su Número de Documento" autocomplete="off"
+                                th:value="${usuario.documento}">
+                        </div>
+                    </div>
+
+                    <div class="card border w50 mr10 ml10 mrt">
+                        <div class="form-group mr10 ml10">
+                            <label for="telefono">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" required
+                                placeholder="Ingrese Número de Teléfono" autocomplete="off"
+                                th:value="${usuario.telefono}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spac-betw">
+                    <div class="card border w50 mr10 ml10 mrt">
+                        <div class="form-group mr10 ml10">
+                            <label for="direccion">Calle</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion" required
+                                placeholder="Ingrese su Calle" autocomplete="off" th:value="${usuario.direccion}">
+                        </div>
+                    </div>
+
+                    <div class="card border w50 mr10 ml10 mrt">
+                        <div class="form-group mr10 ml10">
+                            <label for="altura">Nro</label>
+                            <input type="text" class="form-control" id="altura" name="altura" required
+                                placeholder="Ingrese el Número" autocomplete="off" th:value="${usuario.altura}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spac-betw">
+                    <div class="card border w50 mr10 ml10 mrt">
+                        <div class="form-group mr10 ml10">
+                            <label for="piso">Piso</label>
+                            <input type="text" class="form-control" id="piso" name="piso" required
+                                placeholder="Ingrese su Piso" autocomplete="off" th:value="${usuario.piso}">
+                        </div>
+                    </div>
+
+                    <div class="card border w50 mr10 ml10 mrt">
+                        <div class="form-group mr10 ml10">
+                            <label for="depto">Depto</label>
+                            <input type="text" class="form-control" id="depto" name="depto" required
+                                placeholder="Ingrese su Depto" autocomplete="off" th:value="${usuario.depto}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spac-betw">
+                    <div class="card border w50 mr10 ml10 mrt">
+                        <div class="form-group mr10 ml10">
+                            <label for="localidad">Localidad</label>
+                            <input type="text" class="form-control" id="localidad" name="localidad" required
+                                placeholder="Ingrese su Localidad" autocomplete="off" th:value="${usuario.localidad}">
+                        </div>
+                    </div>
+
+                    <div class="card border w50 mr10 ml10 mrt">
+                        <div class="form-group mr10 ml10">
+                            <label for="provincia">Provincia</label>
+                            <input type="text" class="form-control" id="provincia" name="provincia" required
+                                placeholder="Ingrese su Provincia" autocomplete="off" th:value="${usuario.provincia}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 center mrt">
+                    <a class="btn btn-warning" th:href="@{/}">Cancelar</a>
+                    <button type="submit" class="btn btn-dark ml10">Guardar Cambios</button>
+                </div>
+            </form>
+            <br>
         </div>
-        <form th:action="@{/usuario/update}" method="post" enctype="multipart/form-data">
-
-            <!-- Obtenemos los datos del usuario -->
-            <input type="hidden" name="id" th:value="${usuario.id}">
-
-            <div class="form-group w100 centrado">
-                <div>
-                    <img class="w150" th:src="@{/images/{img} (img=${usuario.foto})}" alt="foto">
-                    <p th:text="${usuario.foto}"></p>
-                </div>
-                <div class="col-sm-8">
-                    <input type="file" class="form-control-file btn" id="img" name="img">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="nombre">Nombre:</label> <input type="text" class="form-control" id="nombre" name="nombre"
-                    required placeholder="Ingrese su Nombre" autocomplete="off" th:value="${usuario.nombre}">
-            </div>
-
-            <div class="form-group">
-                <label for="apellido">Apellido:</label>
-                <input type="text" class="form-control" id="apellido" name="apellido" required
-                    placeholder="Ingrese su Apellido" autocomplete="off" th:value="${usuario.apellido}">
-            </div>
-
-            <div class="form-group">
-                <label for="documento">DNI / CI / Pasaporte / Otro:</label>
-                <input type="text" class="form-control" id="documento" name="documento" required
-                    placeholder="Ingrese su Número de Documento" autocomplete="off" th:value="${usuario.documento}">
-            </div>
-
-            <div class="form-group">
-                <label for="telefono">Teléfono:</label>
-                <input type="text" class="form-control" id="telefono" name="telefono" required
-                    placeholder="Ingrese Número de Teléfono" autocomplete="off" th:value="${usuario.telefono}">
-            </div>
-
-            <div class="form-group">
-                <label for="provincia">Provincia:</label>
-                <input type="text" class="form-control" id="provincia" name="provincia" required
-                    placeholder="Ingrese su Provincia" autocomplete="off" th:value="${usuario.provincia}">
-            </div>
-
-            <div class="form-group">
-                <label for="localidad">Localidad:</label>
-                <input type="text" class="form-control" id="localidad" name="localidad" required
-                    placeholder="Ingrese su Localidad" autocomplete="off" th:value="${usuario.localidad}">
-            </div>
-
-            <div class="form-group">
-                <label for="direccion">Calle:</label>
-                <input type="text" class="form-control" id="direccion" name="direccion" required
-                    placeholder="Ingrese su Calle" autocomplete="off" th:value="${usuario.direccion}">
-            </div>
-
-            <div class="form-group">
-                <label for="altura">Nro:</label>
-                <input type="text" class="form-control" id="altura" name="altura" required
-                    placeholder="Ingrese el Número" autocomplete="off" th:value="${usuario.altura}">
-            </div>
-
-            <div class="form-group">
-                <label for="piso">Piso:</label>
-                <input type="text" class="form-control" id="piso" name="piso" required placeholder="Ingrese su Piso"
-                    autocomplete="off" th:value="${usuario.piso}">
-            </div>
-
-            <div class="form-group">
-                <label for="depto">Depto:</label>
-                <input type="text" class="form-control" id="depto" name="depto" required placeholder="Ingrese su Depto"
-                    autocomplete="off" th:value="${usuario.depto}">
-            </div>
-
-            <div class="col-sm-12 center">
-                <button type="submit" class="btn btn-success">Guardar Cambios</button>
-                <a class="btn btn-warning" th:href="@{/}">Cancelar</a>
-            </div>
-        </form>
-        <br>
     </div>
 
     <!-- Footer -->

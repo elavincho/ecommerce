@@ -80,7 +80,6 @@ function eliminarPromo(id) {
 /* FinAlert para eliminar un promo */
 
 /* Buscador*/
-
 document.addEventListener("keyup", (e) => {
   if (e.target.matches("#buscador")) {
     /*Para vaciar el campo al presionar esc*/
@@ -98,18 +97,51 @@ document.addEventListener("keyup", (e) => {
 });
 /* Fin Buscador*/
 
+/* Buscador Inverso*/
+document.addEventListener("keyup", (e) => {
+  if (e.target.matches("#buscador2")) {
+    /*Para vaciar el campo al presionar esc*/
+    if (e.key === "Escape") {
+      e.target.value = "";
+    }
+
+    document.querySelectorAll("#buscar2").forEach((articulo) => {
+      articulo.textContent.toUpperCase().includes(e.target.value) ||
+      articulo.textContent.toLowerCase().includes(e.target.value) ||
+      articulo.textContent.includes(e.target.value)
+        ? articulo.classList.remove("filtro")
+        : articulo.classList.add("filtro");
+    });
+  }
+});
+/* Fin Buscador Inverso*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Alert para bloquear Usuarios */
+function bloquearUsuario(id) {
+  swal({
+    title: "¿Estas Seguro?",
+    text: "¡Realmente lo queres bloquear!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    buttons: ["Cancelar", "Bloquear"],
+  }).then((Eliminar) => {
+    if (Eliminar) {
+      $.ajax({
+        url: "/usuario/bloquear/" + id,
+        success: function (res) {
+          console.log(res);
+        },
+      });
+      swal("Usuario Bloqueado.", {
+        icon: "success",
+      }).then((ok) => {
+        if (ok) {
+          location.href = "/administrador/usuarios";
+        }
+      });
+    }
+  });
+}
+/* Fin Alert para bloquear un usuario */

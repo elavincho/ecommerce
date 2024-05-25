@@ -83,7 +83,7 @@
                   <th scope="col">Imagen</th>
                   <th scope="col">Cantidad</th>
                   <th scope="col">Producto</th>
-                  <th scope="col">descripcion</th>
+                  <!-- <th scope="col">descripcion</th> -->
                   <th scope="col">Precio</th>
                   <th scope="col">Total</th>
                 </tr>
@@ -93,7 +93,7 @@
                   <td><img class="w55" th:src="@{/images/{img} (img=${detalle.producto.imagen})}" alt="img"></td>
                   <td th:text="${detalle.cantidad}"></td>
                   <td th:text="${detalle.nombre}"></td>
-                  <td th:text="${detalle.producto.descripcion}"></td>
+                  <!-- <td th:text="${detalle.producto.descripcion}"></td> -->
                   <td th:text="'$' + ${detalle.precio}"></td>
                   <td th:text="'$' + ${detalle.total}"></td>
                 </tr>

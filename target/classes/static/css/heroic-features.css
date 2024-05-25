@@ -15,6 +15,7 @@ body {
 /* Ajusto la altura de la hoja a un tamaño A4 */
 .content {
     display: flex;
+    /* flex-wrap: wrap; */
     height: 1300px;
     justify-content: space-between;
     flex-direction: column;
@@ -48,10 +49,6 @@ body {
     width: 100%;
 }
 
-.w45 {
-    width: 45px;
-}
-
 .w35 {
     width: 35px;
 }
@@ -66,6 +63,14 @@ body {
 
 .w75 {
     width: 75%;
+}
+
+.w45 {
+    width: 45px;
+}
+
+.w25 {
+    width: 25px;
 }
 
 .mr30 {
@@ -86,6 +91,34 @@ body {
 
 .mrb-30 {
     margin-bottom: 30px;
+}
+
+.ml10 {
+    margin-left: 10px;
+}
+
+.mr10 {
+    margin-right: 10px;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.ml130 {
+    margin-left: 130px;
+}
+
+.w-45 {
+    width: 45%;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.h-10 {
+    height: 10px;
 }
 
 .black {
@@ -129,6 +162,10 @@ body {
     color: white;
 }
 
+.int-lin {
+    line-height: 15px;
+}
+
 .btn-white {
     /* text-decoration: none; */
     color: white;
@@ -152,6 +189,17 @@ body {
     }
 }
 
+.img-comp {
+    width: 75px;
+}
+
+.ajustar {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: aquamarine;
+    height: 40px;
+}
 
 /* header */
 
@@ -234,10 +282,14 @@ body {
 }
 
 .usersession img {
-    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
 }
 
 .circle {
+    width: 90px;
+    height: 90px;
     border-radius: 100%;
 }
 
@@ -325,11 +377,14 @@ body {
     text-align: center;
     align-items: center;
     border: solid 1px;
-    max-height: 70px;
+    min-height: 90px;
+    min-width: 120px;
+    max-height: 90px;
+    max-width: 120px;
 }
 
 .tipo-comprobante p {
-    margin: 5px;
+    margin: 8px;
     font-size: 8px;
 }
 
@@ -459,20 +514,165 @@ body {
     text-align: left;
 }
 
+.t-end {
+    text-align: end;
+}
+
+.mrl15 {
+    margin-left: 15px;
+}
 
 /* Fin Enlace Estirado */
 
-/* Filtro Buscador */
-
-
+/* Buscador */
 .filtro {
     display: none;
     visibility: hidden;
     opacity: 0;
     /*Todas las tarjetas que se oculten van al final*/
     order: 1;
+
+}
+
+.filtro2 {
+    display: none;
+    /* position: fixed; */
+    visibility: visible;
+    opacity: 1;
+    /*Todas las tarjetas que se oculten van al final*/
+    order: 1;
+    background-color: aqua;
+
+}
+
+.hidden {
+    visibility: hidden;
+    /* opacity: 0; */
+}
+
+.cont-busc {
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    height: 60px;
+}
+
+.width-bsc {
+    width: 200px;
+    height: 60px;
+}
+
+.busc {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.p-busc {
+    font-size: 11px;
+}
+
+.p-busc2 {
+    font-size: 12px;
+}
+
+.img-busc {
+    width: 35px;
+    height: 35px;
+
 }
 
 
+.borde {
+    border: solid 1px #b5b5b5;
+}
 
-/* Fin filtro buscador */
+/* Fin buscador */
+
+.h-30 {
+    height: 30px;
+}
+
+.w-140 {
+    width: 140px;
+}
+
+.w-160 {
+    width: 180px;
+}
+
+.mrb-10 {
+    margin-bottom: 10px;
+}
+
+.mrt-10 {
+    margin-top: 10px;
+}
+
+.mrt-70 {
+    margin-top: 70px;
+}
+
+.ml35 {
+    margin-left: 40px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.rigth {
+    text-align: right;
+}
+
+.left {
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+}
+.ml10 {
+    margin-left: 10px;
+}
+
+.order {
+    order: 1;
+    background-color: aquamarine;
+
+}
+
+.w50 {
+    width: 50%;
+}
+
+.w-50 {
+    width: 50px;
+}
+
+.w20 {
+    width: 20px;
+}
+
+.spac-betw {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ml20 {
+    margin-left: 20%;
+}
+
+.h100 {
+    height: 90px;
+}
+
+
+/* Modificar el input tipo file */
+input[type=file] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+/* Fin modificar el input tipo file */

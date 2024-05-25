@@ -25,7 +25,7 @@
     <div th:insert="~{usuario/template_usuario.html::header}" th:if="${sesion==null}"></div>
     <div th:insert="~{usuario/template_usuario.html::header-user}" th:unless="${sesion==null}"></div>
     <br><br>
-    <!-- Contenido de la página -->
+    <!-- Contenido de la página container-->
     <div class="container">
         <!-- Navbar -->
         <nav class="mrt-30">
@@ -46,13 +46,14 @@
        
         <!-- Productos -->
         <div class="row text-center mrt-30 mrb-30">
-            <div class="col-lg-4 col-md-4 col-4 mb-3 tarjeta-producto" th:each="producto: ${productos}">
+            <div class="col-lg-4 col-md-4 col-4 mb-4 tarjeta-producto" th:each="producto: ${productos}">
                 <a th:href="@{/productohome/{id} (id=${producto.id})}" class="img-prod" id="articulos">
                     <div class="card h-100 border">
                         <img class="card-img-top" th:src="@{/images/{img} (img=${producto.imagen})}" alt="producto">
                         <div class="card-body">
                             <p class="card-text" th:text="${producto.nombre}"></p>
-                            <h4 class="card-text" th:text="'$' + ${producto.precio}"></h4>
+                            <h4 class="card-text" th:text="'$' + ${producto.precioFormateado}"></h4>
+                            <p class="card-text" th:text="${producto.categoria}"></p>
                         </div>
                     </div>
                 </a>
