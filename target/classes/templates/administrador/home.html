@@ -23,7 +23,7 @@
     <!-- Header -->
     <div th:insert="~{administrador/template_admin.html::header}"></div>
     <br><br>
-    <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
+    <!-- <div th:insert="~{administrador/template_admin.html::header-usuario}"></div> -->
     <!-- Page Content container-->
     <div class="ml30 mr30">
         <!-- Productos Scroll -->
@@ -42,10 +42,12 @@
         </div>
         <!-- Fin Productos Scroll -->
         <br>
-        <!-- Navbar -->
+        <!-- Publicidad -->
         <nav>
-            <div th:each="promo:${promo}" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+
+            <div th:each="promo:${promo}" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel"
+                th:if="${promo.ubicacion == 'Superior'}">
+                <div class=" carousel-inner">
                     <div class="carousel-item active" data-bs-interval="2500">
                         <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo})}" alt="1">
                     </div>
@@ -56,9 +58,10 @@
                         <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo3})}" alt="3">
                     </div>
                 </div>
+
             </div>
         </nav>
-        <!-- Fin Navbar -->
+        <!-- Fin Publicidad -->
         <br>
         <!-- Productos -->
         <div class="row text-center mrt-30">
@@ -78,17 +81,17 @@
         <!-- Fin productos -->
 
         <!-- Publicidad -->
-        <div th:each="promo:${promo}" id="carouselExampleInterval" class="carousel slide mrt-30"
-            data-bs-ride="carousel">
+        <div th:each="promo:${promo}" id="carouselExampleInterval" class="carousel slide mrt-30" data-bs-ride="carousel"
+            th:if="${promo.ubicacion == 'Central'}">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="2500">
-                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo4})}" alt="4">
+                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo})}" alt="1">
                 </div>
                 <div class="carousel-item" data-bs-interval="2500">
-                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo5})}" alt="5">
+                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo2})}" alt="2">
                 </div>
                 <div class="carousel-item" data-bs-interval="2500">
-                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo6})}" alt="6">
+                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo3})}" alt="3">
                 </div>
             </div>
         </div>
@@ -148,23 +151,21 @@
         <br>
         <!-- Publicidad -->
         <div th:each="promo:${promo}" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
+            <div class="carousel-inner" th:if="${promo.ubicacion == 'Inferior'}">
                 <div class="carousel-item active" data-bs-interval="2500">
-                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo7})}" alt="7">
+                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo})}" alt="1">
                 </div>
                 <div class="carousel-item" data-bs-interval="2500">
-                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo8})}" alt="8">
+                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo2})}" alt="2">
                 </div>
                 <div class="carousel-item" data-bs-interval="2500">
-                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo9})}" alt="9">
+                    <img class="d-block w-100" th:src="@{/images/{img} (img=${promo.promo3})}" alt="3">
                 </div>
             </div>
         </div>
         <!-- Fin Publicidad -->
         <br>
 
-
-        <br>
     </div>
     <!-- Footer -->
     <div th:insert="~{administrador/template_admin.html::footer}"></div>
@@ -172,7 +173,6 @@
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-
     <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js}"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>

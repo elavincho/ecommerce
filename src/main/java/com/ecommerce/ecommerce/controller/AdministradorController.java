@@ -185,4 +185,59 @@ public class AdministradorController {
         return "redirect:/administrador/usuarios";
     }
 
+    @GetMapping("/editUser/{id}")
+    public String editUser(@PathVariable Integer id, Model model, HttpSession session) {
+
+        model.addAttribute("sesion", session.getAttribute("idusuario"));
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
+        Usuario usuario = new Usuario();
+
+        Optional<Usuario> optionalUsuario = usuarioService.findById(id);
+        usuario = optionalUsuario.get();
+
+        model.addAttribute("usuario", usuario);
+
+        logger.info("Usuario a Editar: {}", usuario);
+
+        return "administrador/editar";
+    }
+
+    @PostMapping("/update")
+    public String update(Model model, Usuario usuario, @RequestParam("img") MultipartFile file,
+            HttpSession session) throws IOException {
+
+        model.addAttribute("sesion", session.getAttribute("idusuario"));
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
+        Usuario u = new Usuario();
+        u = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
+
+        /* cuando editamos el producto pero no cambiamos la imagen */
+        if (file.isEmpty()) {
+            usuario.setFoto(u.getFoto());
+        } else {
+
+            /* eliminar cuando no sea la imagen por defecto */
+            if (!u.getFoto().equals("default.jpg")) {
+                upload.deleteImage(u.getFoto());
+            }
+            String nombreFoto = upload.saveImage(file);
+            usuario.setFoto(nombreFoto);
+        }
+
+        // Seteamos estos datos para que no se pierdan
+        usuario.setEmail(u.getEmail());
+        usuario.setPassword(u.getPassword());
+        usuario.setTipo("ADMIN");
+
+        usuarioService.save(usuario);
+
+        return "redirect:/administrador";
+    }
+
 }

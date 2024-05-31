@@ -12,6 +12,9 @@
 
 
     <!-- Bootstrap core CSS -->
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
@@ -23,11 +26,8 @@
 
     <!-- Header -->
     <div th:insert="~{administrador/template_admin.html::header}"></div>
-    <br>
-
-    <!-- <div th:insert="~{usuario/template_usersession.html::header-username}"></div> -->
-
-    <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
+    <br><br><br>
+    <!-- <div th:insert="~{administrador/template_admin.html::header-usuario}"></div> -->
 
     <!-- Page Content -->
     <div class="container">
@@ -247,6 +247,7 @@
                                                         foto</label>
                                                     <input type="file" class="form-control-file btn" id="img"
                                                         name="img">
+                                                        <p id="fichero"></p>
                                                 </div>
                                             </div>
 
@@ -257,11 +258,12 @@
                                                     <p th:text="${producto.imagen2}"></p>
                                                 </div>
                                                 <div class="col-sm-12">
-                                                    <label for="img" class="btn btn-dark"><img class="w25"
+                                                    <label for="img2" class="btn btn-dark"><img class="w25"
                                                             th:src="@{/img/camara.png}" alt="camara"> Cambiar
                                                         foto</label>
                                                     <input type="file" class="form-control-file btn" id="img2"
                                                         name="img2">
+                                                        <p id="fichero2"></p>
                                                 </div>
                                             </div>
 
@@ -272,11 +274,12 @@
                                                     <p th:text="${producto.imagen3}"></p>
                                                 </div>
                                                 <div class="col-sm-12">
-                                                    <label for="img" class="btn btn-dark"><img class="w25"
+                                                    <label for="img3" class="btn btn-dark"><img class="w25"
                                                             th:src="@{/img/camara.png}" alt="camara"> Cambiar
                                                         foto</label>
                                                     <input type="file" class="form-control-file btn" id="img3"
                                                         name="img3">
+                                                        <p id="fichero3"></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -285,9 +288,9 @@
                             </div>
                             <br>
                             <div class="row w100 centrado">
-                                <div>
-                                    <a class="btn btn-warning" th:href="@{/productos}">Cancelar</a>
-                                    <button type="submit" class="btn btn-dark ml30">Guardar</button>
+                                <div class="center">
+                                    <a class="btn btn-secondary" th:href="@{/productos}"><img class="w25" th:src="@{/img/cancelar.png}" alt="cancelar"> Cancelar</a>
+                                    <button type="submit" class="btn btn-dark ml30"><img class="w25" th:src="@{/img/guardar.png}" alt="guardar"> Guardar</button>
                                 </div>
                             </div>
                             <br>
@@ -304,7 +307,10 @@
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js}"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <script th:src="@{/js/script.js}"></script>
 </body>
 
 </html>

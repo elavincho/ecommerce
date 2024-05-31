@@ -30,7 +30,7 @@ public class Promo {
     private String promo7;
     private String promo8;
     private String promo9;
-    private String promo10;
+    private String ubicacion;
 
     private String productoDestacado;
     private String productoDestacado2;
@@ -39,7 +39,7 @@ public class Promo {
     public Promo() {
     }
 
-    public Promo(Integer Id, String promo, String promo2, String promo3, String promo4, String promo5, String promo6, String promo7, String promo8, String promo9, String promo10, String productoDestacado, String productoDestacado2, String productoDestacado3) {
+    public Promo(Integer Id, String promo, String promo2, String promo3, String promo4, String promo5, String promo6, String promo7, String promo8, String promo9, String ubicacion, String productoDestacado, String productoDestacado2, String productoDestacado3) {
         this.Id = Id;
         this.promo = promo;
         this.promo2 = promo2;
@@ -50,7 +50,7 @@ public class Promo {
         this.promo7 = promo7;
         this.promo8 = promo8;
         this.promo9 = promo9;
-        this.promo10 = promo10;
+        this.ubicacion = ubicacion;
         this.productoDestacado = productoDestacado;
         this.productoDestacado2 = productoDestacado2;
         this.productoDestacado3 = productoDestacado3;
@@ -136,12 +136,12 @@ public class Promo {
         this.promo9 = promo9;
     }
 
-    public String getPromo10() {
-        return promo10;
+    public String getUbicacion() {
+        return ubicacion;
     }
 
-    public void setPromo10(String promo10) {
-        this.promo10 = promo10;
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
     public String getProductoDestacado() {

@@ -238,14 +238,4 @@ public class UsuarioController {
         return "redirect:/administrador/usuarios";
     }
 
-    // @GetMapping("/bloqueado")
-    // public String bloqueado(Model model, HttpSession session) {
-
-    //     // Pasamos todos los datos de la empresa
-    //     model.addAttribute("empresa", empresaService.findAll());
-    //     // Eliminamos la sesion del usuario
-    //     session.removeAttribute("idusuario");
-    //     return "usuario/bloqueado";
-    // }
-
 }

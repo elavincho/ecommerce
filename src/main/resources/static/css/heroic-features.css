@@ -73,6 +73,14 @@ body {
     width: 25px;
 }
 
+.w15 {
+    width: 15px;
+}
+
+.w20 {
+    width: 20px;
+}
+
 .mr30 {
     margin-right: 30px;
 }
@@ -117,6 +125,10 @@ body {
     width: 10%;
 }
 
+.w70 {
+    width: 70px;
+}
+
 .h-10 {
     height: 10px;
 }
@@ -159,6 +171,10 @@ body {
 }
 
 .white {
+    color: white;
+}
+
+.white:hover {
     color: white;
 }
 
@@ -284,7 +300,7 @@ body {
 .usersession img {
     width: 25px;
     height: 25px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
 }
 
 .circle {
@@ -512,6 +528,7 @@ body {
 
 .left {
     text-align: left;
+    justify-content: left;
 }
 
 .t-end {
@@ -612,6 +629,10 @@ body {
     margin-top: 70px;
 }
 
+.mrt-5 {
+    margin-top: 5px;
+}
+
 .ml35 {
     margin-left: 40px;
 }
@@ -629,6 +650,7 @@ body {
     justify-content: left;
     text-align: left;
 }
+
 .ml10 {
     margin-left: 10px;
 }
@@ -664,6 +686,10 @@ body {
     height: 90px;
 }
 
+.h-1 {
+    height: 1px;
+}
+
 
 /* Modificar el input tipo file */
 input[type=file] {
@@ -676,3 +702,23 @@ input[type=file] {
 }
 
 /* Fin modificar el input tipo file */
+
+.dropdown ul li a {
+    text-align: left;
+}
+
+.dropdown ul li a img {
+    width: 20px;
+    height: 20px;
+}
+
+.user-name {
+    color: white;
+    width: 70px;
+    text-align: center;
+
+}
+
+.header-menu a  :hover {
+    cursor: pointer;
+}

@@ -145,3 +145,39 @@ function bloquearUsuario(id) {
   });
 }
 /* Fin Alert para bloquear un usuario */
+
+
+// Mostrar el nombre del archivo seleccionado en los input
+
+document.getElementById('img').onchange = function () {
+  document.getElementById('fichero').innerHTML = this.files[0].name;
+};
+
+document.getElementById('img2').onchange = function () {
+  document.getElementById('fichero2').innerHTML = this.files[0].name;
+};
+
+document.getElementById('img3').onchange = function () {
+  document.getElementById('fichero3').innerHTML = this.files[0].name;
+};
+
+
+// Fin Mostrar el nombre del archivo seleccionado
+
+// Mostrar vista previa de la imagen antes de subir al sevidor
+
+
+
+function preview(event) {
+  const fileInput = event.target;
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+  reader.onload = function() {
+      const image = document.getElementById('output');
+      image.src = reader.result;
+      image.style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+}
+
+// Fin Mostrar vista previa de la imagen antes de subir al sevidor

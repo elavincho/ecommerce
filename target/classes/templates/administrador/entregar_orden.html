@@ -26,7 +26,7 @@
     <div th:insert="~{administrador/template_admin.html::header}"></div>
     <br><br>
 
-    <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
+    <!-- <div th:insert="~{administrador/template_admin.html::header-usuario}"></div> -->
 
     <!-- Page Content -->
     <div class="container">
@@ -86,26 +86,27 @@
 
                                         <div class="spac-betw">
                                             <h6 class="black">Recibido por: </h6>
-                                            <input type="text" class="w50" id="recibidoPor" name="recibidoPor" required
+                                            <input type="text" class="form-control w50" id="recibidoPor" name="recibidoPor" required
                                                 placeholder="Ingrese su Nombre" autocomplete="off" th:value="${ordencompra.recibidoPor}">
                                         </div>
 
                                         <div class="spac-betw mrt">
                                             <h6 class="black">DNI:</h6>
-                                            <input type="text" class="w50" id="dni" name="dni" required
+                                            <input type="text" class="form-control w50" id="dni" name="dni" required
                                                 placeholder="Ingrese el DNI" autocomplete="off" th:value="${ordencompra.dni}">
                                         </div>
 
                                         <div class="spac-betw mrt">
                                             <h6 class="black">Entregado por: </h6>
-                                            <input type="text" class="w50" id="entregadoPor" name="entregadoPor" required
+                                            <input type="text" class="form-control w50" id="entregadoPor" name="entregadoPor" required
                                                 placeholder="Ingrese su Nombre" autocomplete="off"th:value="${ordencompra.entregadoPor}">
                                         </div>
 
                                         <div class="spac-betw mrt">
                                             <a class="btn btn-dark white mr30" style="color: white;"
-                                                th:href="@{/administrador/ordenes}">Volver</a>
-                                            <button type="submit" class="btn btn-dark">Entregar</button>
+                                                th:href="@{/administrador/ordenes}"><img class="w25"
+                                                th:src="@{/img/atras.png}" alt="atras"> Volver</a>
+                                            <button type="submit" class="btn btn-dark"><img class="w25" th:src="@{/img/entrega.png}" alt="entregar"> Entregar</button>
                                         </div>
                                         
                                     </div>
@@ -113,7 +114,7 @@
                             </div>
                             <!-- Fin Ordenes de Compra con Enlace Estirado -->
 
-                            <div class="form-group hidden">
+                            <div class="form-group hidden h-1">
                                 <label for="email">email:</label>
                                 <input type="text" class="form-control" id="email" name="email" required placeholder="Ingrese su email"
                                     autocomplete="off" th:value="${usuario.email}">
@@ -133,6 +134,9 @@
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js}"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
     <script th:src="@{/js/script.js}"></script>
 
 </body>

@@ -11,6 +11,9 @@
     <title>eCommerce</title>
 
     <!-- Bootstrap core CSS -->
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
@@ -22,8 +25,8 @@
 
     <!-- Navigation -->
     <div th:insert="~{administrador/template_admin.html::header}"></div>
-    <br>
-    <div th:insert="~{administrador/template_admin.html::header-usuario}"></div>
+    <br><br><br>
+    <!-- <div th:insert="~{administrador/template_admin.html::header-usuario}"></div> -->
 
     <!-- Page Content -->
     <div class="container">
@@ -45,89 +48,60 @@
                         <form class="form-horizontal" th:action="@{/promos/saveUploadMultiple}" method="post"
                             enctype="multipart/form-data">
                             <div class="card-body" style="border: solid 1px rgb(188, 187, 187); border-radius: 5px;">
-                                <h3>Promo Superior</h3>
-                                <hr>
+ 
                                 <div class="form-group w100 centrado">
-                                    <label class="control-label col-sm-2" for="img">Promo 1:</label>
-                                    <div class="col-sm-10">
+                                    <label class="control-label col-sm-4" for="ubicacion"><h3>Promo</h3></label>
+    
+                                    <div class=" col-sm-8">
+                                        <select id="ubicacion" name="ubicacion">
+                                            <option value="Superior">Superior</option>
+                                            <option value="Central">Central</option>
+                                            <option value="Inferior">Inferior</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group w100 centrado">
+                                    <label class="control-label col-sm-4" for="img">Promo 1:</label>
+                                    <div class="col-sm-8">
+                                        <label for="img" class="btn btn-dark"><img class="w25"
+                                            th:src="@{/img/camara.png}" alt="camara"> Subir
+                                        foto</label>
                                         <input type="file" class="form-control-file" id="img" name="img">
+                                        <p id="fichero"></p>
                                     </div>
                                 </div>
 
                                 <div class="form-group w100 centrado">
-                                    <label class="control-label col-sm-2" for="img2">Promo 2:</label>
-                                    <div class="col-sm-10">
+                                    <label class="control-label col-sm-4" for="img2">Promo 2:</label>
+                                    <div class="col-sm-8">
+                                        <label for="img2" class="btn btn-dark"><img class="w25"
+                                            th:src="@{/img/camara.png}" alt="camara"> Subir
+                                        foto</label>
                                         <input type="file" class="form-control-file" id="img2" name="img2">
+                                        <p id="fichero2"></p>
                                     </div>
                                 </div>
 
                                 <div class="form-group w100 centrado">
-                                    <label class="control-label col-sm-2" for="img3">Promo 3:</label>
-                                    <div class="col-sm-10">
+                                    <label class="control-label col-sm-4" for="img3">Promo 3:</label>
+                                    <div class="col-sm-8">
+                                        <label for="img3" class="btn btn-dark"><img class="w25"
+                                            th:src="@{/img/camara.png}" alt="camara"> Subir
+                                        foto</label>
                                         <input type="file" class="form-control-file" id="img3" name="img3">
-                                    </div>
-                                </div>
-
-                            </div>
-                            <br>
-                            <div class="card-body" style="border: solid 1px rgb(188, 187, 187); border-radius: 5px;">
-                                <h3>Promo Central</h3>
-                                <hr>
-                                <div class="form-group w100 centrado">
-                                    <label class="control-label col-sm-2" for="img4">Promo 4:</label>
-                                    <div class="col-sm-10">
-                                        <input type="file" class="form-control-file" id="img4" name="img4">
-                                    </div>
-                                </div>
-
-                                <div class="form-group w100 centrado">
-                                    <label class="control-label col-sm-2" for="img5">Promo 5:</label>
-                                    <div class="col-sm-10">
-                                        <input type="file" class="form-control-file" id="img5" name="img5">
-                                    </div>
-                                </div>
-
-                                <div class="form-group w100 centrado">
-                                    <label class="control-label col-sm-2" for="img6">Promo 6:</label>
-                                    <div class="col-sm-10">
-                                        <input type="file" class="form-control-file" id="img6" name="img6">
-                                    </div>
-                                </div>
-
-                            </div>
-                            <br>
-                            <div class="card-body" style="border: solid 1px rgb(188, 187, 187); border-radius: 5px;">
-                                <h3>Promo Inferior</h3>
-                                <hr>
-                                <div class="form-group w100 centrado">
-                                    <label class="control-label col-sm-2" for="img7">Promo 7:</label>
-                                    <div class="col-sm-10">
-                                        <input type="file" class="form-control-file" id="img7" name="img7">
-                                    </div>
-                                </div>
-
-                                <div class="form-group w100 centrado">
-                                    <label class="control-label col-sm-2" for="img8">Promo 8:</label>
-                                    <div class="col-sm-10">
-                                        <input type="file" class="form-control-file" id="img8" name="img8">
-                                    </div>
-                                </div>
-
-                                <div class="form-group w100 centrado">
-                                    <label class="control-label col-sm-2" for="img9">Promo 9:</label>
-                                    <div class="col-sm-10">
-                                        <input type="file" class="form-control-file" id="img9" name="img9">
+                                        <p id="fichero3"></p>
                                     </div>
                                 </div>
 
                             </div>
                             <br>
                             <div class="row w100 centrado">
-                                <div>
-                                    <button type="submit" class="btn btn-success">
-                                        <span class="glyphicon glyphicon-saved"></span> Guardar
+                                <div class="center">
+                                    <a class="btn btn-secondary mr30 white" th:href="@{/promos/show}"><img class="w25" th:src="@{/img/cancelar.png}" alt="cancelar"> Cancelar </a>
+                                    <button type="submit" class="btn btn-dark">
+                                        <img class="w25" th:src="@{/img/guardar.png}" alt="guardar"> Guardar
                                     </button>
-                                    <a class="btn btn-warning" th:href="@{/administrador}">Cancelar</a>
                                 </div>
                             </div>
 
@@ -145,7 +119,10 @@
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js}"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <script th:src="@{/js/script.js}"></script>
 </body>
 
 </html>

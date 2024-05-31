@@ -73,10 +73,13 @@ public class PromoController {
 
     @PostMapping("/saveUploadMultiple")
     public String saveUploadMultiple(Model model, Promo promo, @RequestParam("img") MultipartFile file,
-            @RequestParam("img2") MultipartFile file2, @RequestParam("img3") MultipartFile file3, 
-            @RequestParam("img4") MultipartFile file4, @RequestParam("img5") MultipartFile file5,
-            @RequestParam("img6") MultipartFile file6, @RequestParam("img7") MultipartFile file7,
-            @RequestParam("img8") MultipartFile file8, @RequestParam("img9") MultipartFile file9,
+            @RequestParam("img2") MultipartFile file2, @RequestParam("img3") MultipartFile file3,
+            // @RequestParam("img4") MultipartFile file4, @RequestParam("img5")
+            // MultipartFile file5,
+            // @RequestParam("img6") MultipartFile file6, @RequestParam("img7")
+            // MultipartFile file7,
+            // @RequestParam("img8") MultipartFile file8, @RequestParam("img9")
+            // MultipartFile file9,
             HttpSession session)
             throws IOException {
 
@@ -102,35 +105,35 @@ public class PromoController {
             promo.setPromo3(nombrePromo3);
         }
 
-        if (promo.getId() == null) { // cuando se crea un producto
-            String nombrePromo4 = upload.saveImage(file4);
-            promo.setPromo4(nombrePromo4);
-        }
+        // if (promo.getId() == null) { // cuando se crea un producto
+        // String nombrePromo4 = upload.saveImage(file4);
+        // promo.setPromo4(nombrePromo4);
+        // }
 
-        if (promo.getId() == null) { // cuando se crea un producto
-            String nombrePromo5 = upload.saveImage(file5);
-            promo.setPromo5(nombrePromo5);
-        }
+        // if (promo.getId() == null) { // cuando se crea un producto
+        // String nombrePromo5 = upload.saveImage(file5);
+        // promo.setPromo5(nombrePromo5);
+        // }
 
-        if (promo.getId() == null) { // cuando se crea un producto
-            String nombrePromo6 = upload.saveImage(file6);
-            promo.setPromo6(nombrePromo6);
-        }
+        // if (promo.getId() == null) { // cuando se crea un producto
+        // String nombrePromo6 = upload.saveImage(file6);
+        // promo.setPromo6(nombrePromo6);
+        // }
 
-        if (promo.getId() == null) { // cuando se crea un producto
-            String nombrePromo7 = upload.saveImage(file7);
-            promo.setPromo7(nombrePromo7);
-        }
+        // if (promo.getId() == null) { // cuando se crea un producto
+        // String nombrePromo7 = upload.saveImage(file7);
+        // promo.setPromo7(nombrePromo7);
+        // }
 
-        if (promo.getId() == null) { // cuando se crea un producto
-            String nombrePromo8 = upload.saveImage(file8);
-            promo.setPromo8(nombrePromo8);
-        }
+        // if (promo.getId() == null) { // cuando se crea un producto
+        // String nombrePromo8 = upload.saveImage(file8);
+        // promo.setPromo8(nombrePromo8);
+        // }
 
-        if (promo.getId() == null) { // cuando se crea un producto
-            String nombrePromo9 = upload.saveImage(file9);
-            promo.setPromo9(nombrePromo9);
-        }
+        // if (promo.getId() == null) { // cuando se crea un producto
+        // String nombrePromo9 = upload.saveImage(file9);
+        // promo.setPromo9(nombrePromo9);
+        // }
 
         promoService.save(promo);
         return "redirect:/promos/show";
@@ -156,9 +159,12 @@ public class PromoController {
     @PostMapping("/update")
     public String update(Model model, Promo promo, @RequestParam("img") MultipartFile file,
             @RequestParam("img2") MultipartFile file2, @RequestParam("img3") MultipartFile file3,
-            @RequestParam("img4") MultipartFile file4, @RequestParam("img5") MultipartFile file5,
-            @RequestParam("img6") MultipartFile file6, @RequestParam("img7") MultipartFile file7,
-            @RequestParam("img8") MultipartFile file8, @RequestParam("img9") MultipartFile file9,
+            // @RequestParam("img4") MultipartFile file4, @RequestParam("img5")
+            // MultipartFile file5,
+            // @RequestParam("img6") MultipartFile file6, @RequestParam("img7")
+            // MultipartFile file7,
+            // @RequestParam("img8") MultipartFile file8, @RequestParam("img9")
+            // MultipartFile file9,
             HttpSession session) throws IOException {
 
         Promo p = new Promo();
@@ -204,83 +210,86 @@ public class PromoController {
             promo.setPromo3(nombrePromo3);
         }
 
-        if (file4.isEmpty()) {
-            promo.setPromo4(p.getPromo4());
+        // if (file4.isEmpty()) {
+        // promo.setPromo4(p.getPromo4());
 
-        } else {
+        // } else {
 
-            /* eliminar cuando no sea la imagen por defecto */
-            if (!p.getPromo4().equals("default.jpg")) {
-                upload.deleteImage(p.getPromo4());
-            }
-            String nombrePromo4 = upload.saveImage(file4);
-            promo.setPromo4(nombrePromo4);
-        }
+        // /* eliminar cuando no sea la imagen por defecto */
+        // if (!p.getPromo4().equals("default.jpg")) {
+        // upload.deleteImage(p.getPromo4());
+        // }
+        // String nombrePromo4 = upload.saveImage(file4);
+        // promo.setPromo4(nombrePromo4);
+        // }
 
-        if (file5.isEmpty()) {
-            promo.setPromo5(p.getPromo5());
+        // if (file5.isEmpty()) {
+        // promo.setPromo5(p.getPromo5());
 
-        } else {
+        // } else {
 
-            /* eliminar cuando no sea la imagen por defecto */
-            if (!p.getPromo5().equals("default.jpg")) {
-                upload.deleteImage(p.getPromo5());
-            }
-            String nombrePromo5 = upload.saveImage(file5);
-            promo.setPromo5(nombrePromo5);
-        }
+        // /* eliminar cuando no sea la imagen por defecto */
+        // if (!p.getPromo5().equals("default.jpg")) {
+        // upload.deleteImage(p.getPromo5());
+        // }
+        // String nombrePromo5 = upload.saveImage(file5);
+        // promo.setPromo5(nombrePromo5);
+        // }
 
-        if (file6.isEmpty()) {
-            promo.setPromo6(p.getPromo6());
+        // if (file6.isEmpty()) {
+        // promo.setPromo6(p.getPromo6());
 
-        } else {
+        // } else {
 
-            /* eliminar cuando no sea la imagen por defecto */
-            if (!p.getPromo6().equals("default.jpg")) {
-                upload.deleteImage(p.getPromo6());
-            }
-            String nombrePromo6 = upload.saveImage(file6);
-            promo.setPromo6(nombrePromo6);
-        }
+        // /* eliminar cuando no sea la imagen por defecto */
+        // if (!p.getPromo6().equals("default.jpg")) {
+        // upload.deleteImage(p.getPromo6());
+        // }
+        // String nombrePromo6 = upload.saveImage(file6);
+        // promo.setPromo6(nombrePromo6);
+        // }
 
-        if (file7.isEmpty()) {
-            promo.setPromo7(p.getPromo7());
+        // if (file7.isEmpty()) {
+        // promo.setPromo7(p.getPromo7());
 
-        } else {
+        // } else {
 
-            /* eliminar cuando no sea la imagen por defecto */
-            if (!p.getPromo7().equals("default.jpg")) {
-                upload.deleteImage(p.getPromo7());
-            }
-            String nombrePromo7 = upload.saveImage(file7);
-            promo.setPromo7(nombrePromo7);
-        }
+        // /* eliminar cuando no sea la imagen por defecto */
+        // if (!p.getPromo7().equals("default.jpg")) {
+        // upload.deleteImage(p.getPromo7());
+        // }
+        // String nombrePromo7 = upload.saveImage(file7);
+        // promo.setPromo7(nombrePromo7);
+        // }
 
-        if (file8.isEmpty()) {
-            promo.setPromo8(p.getPromo8());
+        // if (file8.isEmpty()) {
+        // promo.setPromo8(p.getPromo8());
 
-        } else {
+        // } else {
 
-            /* eliminar cuando no sea la imagen por defecto */
-            if (!p.getPromo8().equals("default.jpg")) {
-                upload.deleteImage(p.getPromo8());
-            }
-            String nombrePromo8 = upload.saveImage(file8);
-            promo.setPromo8(nombrePromo8);
-        }
+        // /* eliminar cuando no sea la imagen por defecto */
+        // if (!p.getPromo8().equals("default.jpg")) {
+        // upload.deleteImage(p.getPromo8());
+        // }
+        // String nombrePromo8 = upload.saveImage(file8);
+        // promo.setPromo8(nombrePromo8);
+        // }
 
-        if (file9.isEmpty()) {
-            promo.setPromo9(p.getPromo9());
+        // if (file9.isEmpty()) {
+        // promo.setPromo9(p.getPromo9());
 
-        } else {
+        // } else {
 
-            /* eliminar cuando no sea la imagen por defecto */
-            if (!p.getPromo9().equals("default.jpg")) {
-                upload.deleteImage(p.getPromo9());
-            }
-            String nombrePromo9 = upload.saveImage(file9);
-            promo.setPromo9(nombrePromo9);
-        }
+        // /* eliminar cuando no sea la imagen por defecto */
+        // if (!p.getPromo9().equals("default.jpg")) {
+        // upload.deleteImage(p.getPromo9());
+        // }
+        // String nombrePromo9 = upload.saveImage(file9);
+        // promo.setPromo9(nombrePromo9);
+        // }
+
+        //guardamos la ubicacion para que no se borre de la bd
+        promo.setUbicacion(p.getUbicacion());
 
         promoService.update(promo);
 

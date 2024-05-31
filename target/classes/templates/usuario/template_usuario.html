@@ -20,7 +20,7 @@
                         </div>
                         <ul class="dropdown-menu">
                             <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos"
+                                <input class="form-control mr-sm-3 ml10" type="search" placeholder="Buscar productos"
                                     aria-label="Search" name="nombre" autocomplete="off">
                             </form>
 
@@ -113,7 +113,7 @@
                         </div>
                         <ul class="dropdown-menu">
                             <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos"
+                                <input class="form-control mr-sm-3 ml10" type="search" placeholder="Buscar productos"
                                     aria-label="Search" name="nombre" autocomplete="off">
                             </form>
                         </ul>
@@ -132,45 +132,46 @@
                     <img class="width-ico" th:src="@{/img/carrito.png}" alt="usuarios">
                     <p>Carrito</p>
                 </a>
-                <!-- <a th:href="@{/usuario/cerrar}">
-                    <img class="width-ico" th:src="@{/img/power-white.png}" alt="salir">
-                    <p>Salir</p>
-                </a>
-                <a th:href="@{/usuario/editUser/{id} (id=${usuario.id}) }">
-                    <img class="width-ico" th:src="@{/img/usuario.png}" alt="usuario">
-                    <p>Editar</p>
-                </a> -->
-
+               
                 <!-- Usuario con dropdown -->
-                <div class="usersession mrt-10 ml10" th:fragment="header-username">
+                <div class="usersession mrt-10 mr30" th:fragment="header-username">
                     <div class="dropdown">
-                        <div class="width-ico mr30 w-50" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <div class="center" style="width: 50px;">
-                                <img class="w25" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
+                        <div class="width-ico mr30" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="center w70">
+                                <img class="w25 circle" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
                             </div>
-                            <p th:text="${usuario.nombre}" style="color: white; width: 50px;"></p>
+                            <p class="user-name" th:text="${usuario.nombre}"></p>
                         </div>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="black" th:href="@{/usuario/editUser/{id} (id=${usuario.id}) }"><img
-                                        class="width-ico" th:src="@{/img/sobre-nosotros-negro.png}" alt="usuario">
-                                    Editar Perfil</a></li>
-                            <li><a class="black" th:href="@{/usuario/cerrar}"><img class="width-ico"
-                                        th:src="@{/img/btn_power.png}" alt="salir"> Cerrar Sesión</a></li>
+                            <li class="ml10">
+                                <div class="card border center"
+                                    style="width: 140px; height: 170px; justify-content: center; align-items: center;">
+                                    <img class="circle w-50 h-50 mrt" th:src="@{/images/{img} (img=${usuario.foto})}"
+                                        alt="img">
+                                    <h6 th:text="${usuario.nombre + ' ' + usuario.apellido}"></h6>
+                                    <p th:text="${usuario.email}"></p>
+                                </div>
+                            </li>
+                            <br>
+                            <li class="card border w-140 ml10"><a class="black"
+                                    th:href="@{/usuario/editUser/{id} (id=${usuario.id}) }"><img class="w20"
+                                        th:src="@{/img/sobre-nosotros-negro.png}" alt="usuario">
+                                    Editar Perfil</a>
+                            </li>
+                            <li class="card border w-140 ml10 mrt-5">
+                                <a th:href="@{/usuario/compras}">
+                                    <img class="w20" style="width: 20px; height: 20px;" th:src="@{/img/mis-compras.png}" alt="compras">
+                                    Mis Compras
+                                </a>
+                            </li>
+                            <li class="card border w-140 ml10 mrt-5"><a class="black" th:href="@{/usuario/cerrar}"><img
+                                        class="w20" style="width: 20px; height: 20px;" th:src="@{/img/btn_power.png}"
+                                        alt="salir"> Cerrar Sesión</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <!-- Fin Usuario con dropdown -->
-
-
-                <!-- <div class="usersession " th:fragment="header-username">
-                    <a>
-                        <img class="w25" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
-                        <p th:text="${usuario.nombre}" style="color: white;"></p>
-                    </a>
-                </div> -->
-
-
             </div>
         </div>
     </nav>
