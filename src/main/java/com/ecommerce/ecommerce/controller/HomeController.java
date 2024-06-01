@@ -137,11 +137,11 @@ public class HomeController {
         // Formato de número
         NumberFormat formatoNumero = NumberFormat.getNumberInstance();
         detalleOrden.setPrecioFormateado(formatoNumero.format(producto.getPrecio()));
-        
+
         detalleOrden.setNombre(producto.getNombre());
         detalleOrden.setTotal(producto.getPrecio() * cantidad);
         // Formato de número
-        //NumberFormat formatoNumero = NumberFormat.getNumberInstance();
+        // NumberFormat formatoNumero = NumberFormat.getNumberInstance();
         detalleOrden.setTotalFormateado(formatoNumero.format(producto.getPrecio() * cantidad));
         detalleOrden.setProducto(producto);
 
@@ -156,9 +156,8 @@ public class HomeController {
         sumaTotal = detalles.stream().mapToDouble(dt -> dt.getTotal()).sum();
         orden.setTotal(sumaTotal);
         // Formato de número
-        //NumberFormat formatoNumero = NumberFormat.getNumberInstance();
-        orden.setTotalFormateada(formatoNumero.format(sumaTotal));
-
+        // NumberFormat formatoNumero = NumberFormat.getNumberInstance();
+        orden.setTotalFormateada(formatoNumero.format(detalles.stream().mapToDouble(dt -> dt.getTotal()).sum()));
 
         model.addAttribute("cart", detalles);
         model.addAttribute("orden", orden);
@@ -196,6 +195,10 @@ public class HomeController {
         sumaTotal = detalles.stream().mapToDouble(dt -> dt.getTotal()).sum();
         orden.setTotal(sumaTotal);
 
+        // Formato de número
+        NumberFormat formatoNumero = NumberFormat.getNumberInstance();
+        orden.setTotalFormateada(formatoNumero.format(sumaTotal));
+
         model.addAttribute("cart", detalles);
         model.addAttribute("orden", orden);
 
@@ -215,7 +218,13 @@ public class HomeController {
         // Pasamos todos los datos de la empresa
         model.addAttribute("empresa", empresaService.findAll());
 
-        return "/usuario/carrito";
+        // Evitamos que el usuario haga compras con el carrito vacio
+        if (orden.getTotal() == 0) {
+            return "redirect:/";
+        } else {
+            return "/usuario/carrito";
+        }
+
     }
 
     @GetMapping("/order")
@@ -235,7 +244,12 @@ public class HomeController {
 
         model.addAttribute("usuario", usuario);
 
-        return "usuario/resumenorden";
+        // Evitamos que el usuario realize una compra en cero
+        if (orden.getTotal() == 0) {
+            return "redirect:/";
+        } else {
+            return "usuario/resumenorden";
+        }
     }
 
     @GetMapping("/saveOrder")
@@ -257,8 +271,6 @@ public class HomeController {
         // Guardamos la fecha con formato original
         orden.setFechaCreacion(fechaCreacion);
         orden.setNumero(ordenService.generarNumeroOrden());
-        
-        
 
         // Usuario
         Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();

@@ -62,22 +62,22 @@
             <hr style="border: solid 1px gray;">
             <h5 class="card-title">Datos del Cliente</h5>
             <hr style="border: solid 1px gray;">
-            <div style="display: flex; justify-content: space-between;">
-              <h6 th:text=" 'Nombre: ' + ${ordencompra.usuario.nombre} + ' ' + ${ordencompra.usuario.apellido}"></h6>
-              <h6 th:text=" 'Documento: ' + ${ordencompra.usuario.documento}"></h6>
+            <div class="spac-betw">
+              <h6 class="w50" th:text=" 'Nombre: ' + ${ordencompra.usuario.nombre} + ' ' + ${ordencompra.usuario.apellido}"></h6>
+              <h6 class="w50" th:text=" 'Documento: ' + ${ordencompra.usuario.documento}"></h6>
             </div>
-            <div style="display: flex; justify-content: space-between;">
-              <h6
+            <div class="spac-betw">
+              <h6 class="w50"
                 th:text=" 'Dirección: ' + ${ordencompra.usuario.direccion} + ' ' + ${ordencompra.usuario.altura} + ' - Piso:  ' + ${ordencompra.usuario.piso} + ' - Depto:  ' + ${ordencompra.usuario.depto}">
               </h6>
-              <h6 th:text=" 'Localidad: ' + ${ordencompra.usuario.localidad}"></h6>
+              <h6 class="w50" th:text=" 'email: ' + ${ordencompra.usuario.email}"></h6>
             </div>
-            <div style="display: flex; justify-content: space-between;">
-              <h6 th:text=" 'Provincia: ' + ${ordencompra.usuario.provincia}"></h6>
-              <h6 th:text=" 'email: ' + ${ordencompra.usuario.email}"></h6>
+            <div class="spac-betw">
+              <h6 class="w50" th:text=" 'Localidad: ' + ${ordencompra.usuario.localidad}"></h6>
+              <h6 class="w50" th:text=" 'Teléfono: ' + ${ordencompra.usuario.telefono}"></h6>
             </div>
-            <div style="display: flex; justify-content: space-between;">
-              <h6 th:text=" 'Teléfono: ' + ${ordencompra.usuario.telefono}"></h6>
+            <div class="spac-betw">
+              <h6 class="w50" th:text=" 'Provincia: ' + ${ordencompra.usuario.provincia}"></h6>
             </div>
             <hr style="border: solid 1px gray;">
             <h5 class="card-title black">Productos</h5>
@@ -85,21 +85,19 @@
               <thead>
                 <tr>
                   <th scope="col">Imagen</th>
-                  <th scope="col">Cantidad</th>
+                  <th class="center" scope="col">Cantidad</th>
                   <th scope="col">Producto</th>
-                  <!-- <th scope="col">descripcion</th> -->
-                  <th scope="col">Precio</th>
-                  <th scope="col">Total</th>
+                  <th class="center" scope="col">Precio</th>
+                  <th class="center" scope="col">Total</th>
                 </tr>
               </thead>
               <tbody>
                 <tr th:each="detalle:${detalles}">
                   <td><img class="w55" th:src="@{/images/{img} (img=${detalle.producto.imagen})}" alt="img"></td>
-                  <td th:text="${detalle.cantidad}"></td>
+                  <td class="center" th:text="${detalle.cantidad}"></td>
                   <td th:text="${detalle.nombre}"></td>
-                  <!-- <td th:text="${detalle.producto.descripcion}"></td> -->
-                  <td th:text="'$' + ${detalle.precioFormateado}"></td>
-                  <td th:text="'$' + ${detalle.totalFormateado}"></td>
+                  <td class="center" th:text="'$' + ${detalle.precioFormateado}"></td>
+                  <td class="center" th:text="'$' + ${detalle.totalFormateado}"></td>
                 </tr>
               </tbody>
             </table>

@@ -22,11 +22,9 @@
 </head>
 
 <body>
-
     <!-- Header -->
     <div th:insert="~{administrador/template_admin.html::header}"></div>
-    <br><br>
-    <!-- <div th:insert="~{administrador/template_admin.html::header-usuario}"></div> -->
+    <br><br><br>
 
     <!-- Page Content -->
     <div class="container">
@@ -34,19 +32,21 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="card-body mb-3 center">Usuarios<small> Registrados</small></h1>
+                    <div class="col-lg-12 center">
+                        <img class="w55" th:src="@{/img/usuarios.png}" alt="usuarios">
+                        <h1 class="card-body mb-3">Usuarios<small> Registrados</small></h1>
                     </div>
-                    <!-- Buscador -->
-                    <div class="col-lg-6 buscador">
-                        <h2>Buscador de Usuarios</h2>
-                        <form class="d-flex" role="search">
-                            <input class="buscador form-control me-2" type="search" placeholder="Buscar usuarios"
-                                id="buscador" name="buscador" aria-label="Search">
-                        </form>
-                    </div>
-                    <!-- Fin Buscador -->
                 </div>
+                <!-- Buscador -->
+                <div class="card border col-lg-6 buscador">
+                    <h2>Buscador de Usuarios</h2>
+                    <form class="d-flex mrt" role="search">
+                        <input class="buscador form-control me-2" type="search" placeholder="Buscar usuarios"
+                            id="buscador" name="buscador" aria-label="Search">
+                    </form>
+                    <br>
+                </div>
+                <!-- Fin Buscador -->
             </div>
         </div>
 
@@ -99,6 +99,16 @@
                         </div>
                         <!-- Fin Usuario con Enlace Estirado -->
                     </div>
+                </div>
+                <div class="center mrt">
+                    <a class="btn btn-secondary" th:href="@{/administrador}"><img class="w25" th:src="@{/img/atras.png}"
+                            alt="atras">
+                        volver
+                    </a>
+                    <a class="btn btn-dark ml30" th:href="@{/administrador/usuarios}"><img class="w25"
+                            th:src="@{/img/subir.png}" alt="atras">
+                        subir
+                    </a>
                 </div>
             </div>
         </div>

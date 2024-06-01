@@ -60,19 +60,22 @@
                         <div class="spac-betw">
                             <h6 class="w50" th:text=" 'Nombre: ' + ${usuario.nombre} + ' ' + ${usuario.apellido}"></h6>
                             <h6 class="w50"
-                                th:text=" 'Dirección: ' + ${usuario.direccion} + ' ' + ${usuario.altura} + ' - Piso:  ' + ${usuario.piso} + ' - Depto:  ' + ${usuario.depto}">
+                                th:text=" 'Dirección: ' + ${usuario.direccion} + ' ' + ${usuario.altura} + ' - ' + ${usuario.piso} + ' - ' + ${usuario.depto}">
                             </h6>
                         </div>
 
                         <div class="spac-betw">
                             <h6 class="w50" th:text=" 'email: ' + ${usuario.email}"></h6>
                             <h6 class="w50"
-                                th:text=" 'Provincia: ' + ${usuario.provincia} + ' - ' + 'Localidad: ' + ${usuario.localidad}">
+                                th:text="'Localidad: ' + ${usuario.localidad}">
                             </h6>
                         </div>
 
                         <div class="spac-betw">
                             <h6 th:text=" 'Teléfono: ' + ${usuario.telefono}"></h6>
+                            <h6 class="w50"
+                                th:text=" 'Provincia: ' + ${usuario.provincia}">
+                            </h6>
                         </div>
 
 
@@ -82,20 +85,20 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Imagen</th>
-                                    <th scope="col">Cantidad</th>
+                                    <th class="center" scope="col">Cantidad</th>
                                     <th scope="col">Producto</th>
-                                    <th scope="col">Precio</th>
-                                    <th scope="col">Total</th>
+                                    <th class="center" scope="col">Precio</th>
+                                    <th class="center" scope="col">Total</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr th:each="detalle:${detalles}">
                                     <td><img class="w55" th:src="@{/images/{img} (img=${detalle.producto.imagen})}"
                                             alt="img"></td>
-                                    <td th:text="${detalle.cantidad}"></td>
+                                    <td class="center" th:text="${detalle.cantidad}"></td>
                                     <td th:text="${detalle.nombre}"></td>
-                                    <td th:text="'$' + ${detalle.precioFormateado}"></td>
-                                    <td th:text="'$' + ${detalle.totalFormateado}"></td>
+                                    <td class="center" th:text="'$' + ${detalle.precioFormateado}"></td>
+                                    <td class="center" th:text="'$' + ${detalle.totalFormateado}"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -142,8 +145,10 @@
             </div>
             <div class="row w100 centrado mrt">
                 <div class="centrado">
-                    <a th:href="@{/usuario/compras}" class="btn btn-dark dontPrint">Volver</a>
-                    <button onclick="window.print()" class="btn btn-dark dontPrint ml30">Imprimir</button>
+                    <a th:href="@{/usuario/compras}" class="btn btn-dark dontPrint"><img class="w25"
+                        th:src="@{/img/atras.png}" alt="atras"> Volver</a>
+                    <button onclick="window.print()" class="btn btn-dark dontPrint ml30"><img class="w25"
+                        th:src="@{/img/imprimir.png}" alt="imprimir"> Imprimir</button>
                 </div>
             </div>
             <br>

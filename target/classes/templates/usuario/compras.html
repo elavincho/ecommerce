@@ -33,7 +33,7 @@
             <div class="row no-gutters">
                 <div class="col-md-12">
                     <div class="card-body nav">
-                        <img class="w55" th:src="@{/img/shopping.png}" alt="carrito">
+                        <img class="w55" th:src="@{/img/shopping.png}" alt="shopping">
                         <h1>eCommerce <small>Mis Compras</small></h1>
                     </div>
                 </div>
@@ -48,12 +48,13 @@
                         <div class="contenedor dos-columnas enlace-estirado deco-none">
                             <div class="d-flex position-relative cont-enl-estirado bg-white border"
                                 th:each="orden: ${ordenes}">
-                                <div class="mr20" th:each="empresa: ${empresa}">
-                                    <!-- <img class="flex-shrink-0 me-3 img-comp" th:src="@{/img/compra.png}"
-                                        alt="compra"> -->
-                                    <img class="flex-shrink-0 me-3 img-comp"
+                                <div class="mr20 centrado" th:each="empresa: ${empresa}">
+                                    <img class="flex-shrink-0 me-3 img-comp" th:src="@{/img/compra.png}"
+                                        alt="compra">
+                                        <!-- <p class="card-text black">Mis Compras</p> -->
+                                    <!-- <img class="flex-shrink-0 me-3 img-comp"
                                         th:src="@{/images/{img} (img=${empresa.logo})}" alt="logo">
-                                    <p class="card-text black int-lin" th:text="${empresa.razonSocial}"></p>
+                                    <p class="card-text black int-lin" th:text="${empresa.razonSocial}"></p> -->
                                 </div>
                                 <div class="left w100 int-lin">
                                     <div class="spac-betw">
@@ -77,7 +78,7 @@
                                         <h5 class="card-text black w50" th:text="' $' + ${orden.totalFormateada}">
                                         </h5>
                                         <a class="btn btn-dark" style="color: white;"
-                                            th:href="@{/usuario/detalle/{id} (id=${orden.id}) }">Ver Detalle
+                                            th:href="@{/usuario/detalle/{id} (id=${orden.id}) }"><img class="w25" th:src="@{/img/factura.png}" alt="factura"> Detalles
                                         </a>
                                     </div>
                                 </div>
@@ -86,7 +87,8 @@
                         <!-- Fin Mis compras con Enlace Estirado -->
                     </div>
                     <div class="col-lg-12 center mrt">
-                        <a th:href="@{/}" class="btn btn-dark">Seguir Comprando</a>
+                        <a th:href="@{/}" class="btn btn-dark"><img class="w25"
+                            th:src="@{/img/carrito.png}" alt="carrito"> Seguir Comprando</a>
                     </div>
                 </div>
             </div>

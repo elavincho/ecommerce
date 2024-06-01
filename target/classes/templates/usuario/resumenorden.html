@@ -49,30 +49,33 @@
                             </span>
                             <span class="w-45">
                                 <h4 class="ml30">Orden de Compra</h4>
-                                <!-- <h6 class="ml30" th:text=" 'Fecha:   ' + ${ordencompra.fechaCreacionFormateada}"></h6>
-                                <h6 class="ml30" th:text=" 'Orden N°:   ' + ${ordencompra.numero}"></h6> -->
+                                <!-- <h6 class="ml30" th:text=" 'Fecha:   ' + ${ordencompra.fechaCreacionFormateada}"></h6> -->
+                                <!-- <h6 class="ml30" th:text=" 'Orden N°:   ' + ${ordencompra.numero}"></h6> -->
                             </span>
                         </div>
-                        <!-- </div> -->
+                        
                         <hr>
                         <h5 class="card-title">Datos del Cliente</h5>
                         <hr>
                         <div class="spac-betw">
                             <h6 class="w50" th:text=" 'Nombre: ' + ${usuario.nombre} + ' ' + ${usuario.apellido}"></h6>
                             <h6 class="w50"
-                                th:text=" 'Dirección: ' + ${usuario.direccion} + ' ' + ${usuario.altura} + ' - Piso:  ' + ${usuario.piso} + ' - Depto:  ' + ${usuario.depto}">
+                                th:text=" 'Dirección: ' + ${usuario.direccion} + ' ' + ${usuario.altura} + ' - ' + ${usuario.piso} + ' - ' + ${usuario.depto}">
                             </h6>
                         </div>
 
                         <div class="spac-betw">
                             <h6 class="w50" th:text=" 'email: ' + ${usuario.email}"></h6>
                             <h6 class="w50"
-                                th:text=" 'Provincia: ' + ${usuario.provincia} + ' - ' + 'Localidad: ' + ${usuario.localidad}">
+                                th:text="'Localidad: ' + ${usuario.localidad}">
                             </h6>
                         </div>
 
                         <div class="spac-betw">
                             <h6 th:text=" 'Teléfono: ' + ${usuario.telefono}"></h6>
+                            <h6 class="w50"
+                            th:text=" 'Provincia: ' + ${usuario.provincia}">
+                        </h6>
                         </div>
                         <hr>
                         <div class="alert alert-light" role="alert">
@@ -82,7 +85,6 @@
                                     <tr>
                                         <th scope="col">Imagen</th>
                                         <th scope="col">Producto</th>
-                                        <!-- <th scope="col">Descripción</th> -->
                                         <th scope="col">Precio</th>
                                         <th scope="col">Cantidad</th>
                                         <th scope="col">Total</th>
@@ -94,7 +96,6 @@
                                                 alt="img">
                                         </td>
                                         <td th:text="${dorden.nombre}"></td>
-                                        <!-- <td th:text="${dorden.producto.descripcion}"></td> -->
                                         <td th:text="'$' + ${dorden.precioFormateado}"></td>
                                         <td th:text="${dorden.cantidad}"></td>
                                         <td th:text="'$' + ${dorden.totalFormateado}"></td>
@@ -119,7 +120,8 @@
             <div class="row w100 centrado">
                 <div class="centrado">
                     <!-- <a th:href="@{/saveOrder}" class="btn btn-dark">Completar Compra</a> -->
-                    <a th:onclick="compraExitosa()" class="btn btn-dark" style="color: white;">Confirmar Compra</a>
+                    <a th:onclick="compraExitosa()" class="btn btn-dark" style="color: white;"><img class="w25"
+                        th:src="@{/img/compras.png}" alt="compras"> Confirmar Compra</a>
                 </div>
             </div>
             <br>

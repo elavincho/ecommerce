@@ -65,7 +65,8 @@
                                     <td th:text="${dorden.cantidad}"></td>
                                     <td th:text="'$' + ${dorden.totalFormateado}"></td>
                                     <td><a th:href="@{/delete/cart/{id} (id=${dorden.producto.id}) }"
-                                            class="btn btn-danger">Quitar</a></td>
+                                            class="btn btn-danger"><img class="w25"
+                                            th:src="@{/img/eliminar.png}" alt="eliminar"> Quitar</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -94,10 +95,13 @@
                     </div>
                 </div>
             </div>
+            
             <div class="row w100 centrado">
                 <div class="center">
-                    <a th:href="@{/}" class="btn btn-dark mr30">Agregar Productos</a>
-                    <a th:href="@{/order}" class="btn btn-dark">Comprar</a>
+                    <a th:href="@{/}" class="btn btn-dark mr30"><img class="w25"
+                        th:src="@{/img/mas.png}" alt="mas"> Agregar Productos</a>
+                    <a th:href="@{/order}" class="btn btn-dark"><img class="w25"
+                        th:src="@{/img/compras.png}" alt="compras"> Comprar</a>
                 </div>
             </div>
             <br>

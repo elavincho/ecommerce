@@ -238,4 +238,10 @@ public class UsuarioController {
         return "redirect:/administrador/usuarios";
     }
 
+    @GetMapping("/bloqueado")
+    public String bloqueado(HttpSession session) {
+        session.removeAttribute("idusuario");
+        return "usuario/bloqueado";
+    }
+
 }
