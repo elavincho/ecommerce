@@ -44,8 +44,6 @@
                         <label for="img" class="btn btn-dark"><img class="w25" th:src="@{/img/camara.png}" alt="camara"> Cambiar foto</label>
                         <input type="file" class="form-control-file btn" id="img" name="img">
                     </div>
-                    
-                   
                 </div>
 
                 <h2 class="centrado" th:text="${usuario.nombre + ' ' + usuario.apellido}"></h2>
@@ -144,8 +142,8 @@
                 </div>
 
                 <div class="col-sm-12 center mrt">
-                    <a class="btn btn-warning" th:href="@{/}">Cancelar</a>
-                    <button type="submit" class="btn btn-dark ml10">Guardar Cambios</button>
+                    <a class="btn btn-secondary" th:href="@{/}"><img class="w25" th:src="@{/img/cancelar.png}" alt="cancelar"> Cancelar</a>
+                    <button type="submit" class="btn btn-dark ml10"><img class="w25" th:src="@{/img/guardar.png}" alt="guardar"> Guardar Cambios</button>
                 </div>
             </form>
             <br>
@@ -158,6 +156,7 @@
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
 </body>
 
 </html>

@@ -44,6 +44,34 @@ public class UsuarioController {
     @Autowired
     private EmpresaService empresaService;
 
+    
+    @GetMapping("/register")
+    public String createAdmin(Model model) {
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
+        return "usuario/register";
+    }
+
+    @PostMapping("/saveAdmin")
+    public String saveAdmin(Usuario usuario, @RequestParam("img") MultipartFile file) throws IOException {
+
+        logger.info("Usuario Registro: {}", usuario);
+
+        usuario.setTipo("ADMIN");
+
+        // imagen
+        if (usuario.getId() == null) { // cuando se crea un usuario
+            String nombreFoto = upload.saveImage(file);
+            usuario.setFoto(nombreFoto);
+        }
+
+        usuarioService.save(usuario);
+
+        return "redirect:/";
+    }
+
     // /usuario/registro
     @GetMapping("/registro")
     public String create(Model model) {

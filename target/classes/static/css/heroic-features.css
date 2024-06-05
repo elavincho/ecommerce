@@ -304,9 +304,10 @@ body {
 }
 
 .circle {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     border-radius: 100%;
+    background-color: black;
 }
 
 .usersession a {
@@ -667,6 +668,10 @@ body {
 
 .w-50 {
     width: 50px;
+}
+
+.h-50 {
+    height: 50px;
 }
 
 .w20 {

@@ -132,11 +132,11 @@
                     <img class="width-ico" th:src="@{/img/carrito.png}" alt="usuarios">
                     <p>Carrito</p>
                 </a>
-               
+
                 <!-- Usuario con dropdown -->
                 <div class="usersession mrt-10 mr30" th:fragment="header-username">
                     <div class="dropdown">
-                        <div class="width-ico mr30" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="width-ico mr30" type="button" data-bs-toggle="dropdown" aria-expanded="true">
                             <div class="center w70">
                                 <img class="w25 circle" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
                             </div>
@@ -146,8 +146,10 @@
                             <li class="ml10">
                                 <div class="card border center"
                                     style="width: 140px; height: 170px; justify-content: center; align-items: center;">
+                                    
                                     <img class="circle w-50 h-50 mrt" th:src="@{/images/{img} (img=${usuario.foto})}"
                                         alt="img">
+                                    
                                     <h6 th:text="${usuario.nombre + ' ' + usuario.apellido}"></h6>
                                     <p th:text="${usuario.email}"></p>
                                 </div>
@@ -160,7 +162,8 @@
                             </li>
                             <li class="card border w-140 ml10 mrt-5">
                                 <a th:href="@{/usuario/compras}">
-                                    <img class="w20" style="width: 20px; height: 20px;" th:src="@{/img/mis-compras.png}" alt="compras">
+                                    <img class="w20" style="width: 20px; height: 20px;" th:src="@{/img/mis-compras.png}"
+                                        alt="compras">
                                     Mis Compras
                                 </a>
                             </li>
