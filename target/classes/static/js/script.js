@@ -185,3 +185,27 @@ function preview(event) {
 }
 
 // Fin Mostrar vista previa de la imagen antes de subir al sevidor
+
+
+//Verificar que las contraseñas coincidan
+
+function actualizarContrasena(id) {
+  swal({
+    title: "¡Actualización Exitosa!",
+    text: "Tu contraseña fue actualizada con exito.",
+    icon: "success",
+    timer: 1000,
+
+    //con el then vacio y el if !"" se realiza la compra automaticamente
+  }).then(() => {
+    if (!"") {
+      $.ajax({
+        url: "/administrador/updatePassword" + id,
+        success: function (res) {
+          console.log(res);
+          location.href = "/administrador";
+        },
+      });
+    }
+  });
+}

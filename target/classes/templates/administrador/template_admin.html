@@ -41,58 +41,63 @@
                             </div>
                             <p class="user-name" th:text="${usuario.nombre}"></p>
                         </div>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li class="ml10">
-                                <div class="card border center"
-                                    style="width: 140px; height: 170px; justify-content: center; align-items: center;">
-                                    <div class="w100 h-50" style="background-color: rgb(57, 57, 57); border-top-left-radius: 3px; border-top-right-radius: 3px;">
+                        <ul class="dropdown-menu dropdown-menu-dark w220 mr30">
+                            <li class="ml10 mr10 mrt-5">
+                                <div class="card border center" style="justify-content: center; align-items: center;">
+                                    <div class="w100 h-50"
+                                        style="background-color: rgb(57, 57, 57); border-top-left-radius: 3px; border-top-right-radius: 3px;">
                                         <h6 class="white mrt-5" th:text="${usuario.tipo}"></h6>
                                     </div>
-                                    
+
                                     <img class="circle w-50 h-50 mrt-5" th:src="@{/images/{img} (img=${usuario.foto})}"
                                         alt="img">
                                     <h6 th:text="${usuario.nombre + ' ' + usuario.apellido}"></h6>
-                                    
+
                                     <p th:text="${usuario.email}"></p>
                                 </div>
                             </li>
                             <br>
-                            <li class="card border w-140 ml10"><a class="black"
+                            <li class="card border ml10 mr10"><a class="black"
                                     th:href="@{/administrador/editUser/{id} (id=${usuario.id}) }"><img class="w20"
                                         th:src="@{/img/sobre-nosotros-negro.png}" alt="usuario">
                                     Editar Perfil</a>
                             </li>
-                            <li class="card border w-140 ml10 mrt-5 left">
+                            <li class="card border ml10 mr10 mrt-5"><a class="black"
+                                    th:href="@{/administrador/cambiarContrasena/{id} (id=${usuario.id}) }"><img
+                                        class="w20" th:src="@{/img/contrasena.png}" alt="usuario">
+                                    Editar Contraseña</a>
+                            </li>
+                            <li class="card border ml10 mr10 mrt-5 left">
                                 <a class="black" th:href="@{/promos/show}">
                                     <img class="w20" th:src="@{/img/cupon-negro.png}" alt="promos">
                                     Promociones
                                 </a>
                             </li>
-                            <li class="card border w-140 ml10 mrt-5">
+                            <li class="card border ml10 mr10 mrt-5">
                                 <a class="black mr20" th:href="@{/empresa/show}">
                                     <img class="w20" th:src="@{/img/maletin-negro.png}" alt="promos">
                                     Empresa
                                 </a>
                             </li>
-                            <li class="card border w-140 ml10 mrt-5">
+                            <li class="card border  ml10 mr10 mrt-5">
                                 <a class="black" th:href="@{/productos}">
                                     <img class="w20" th:src="@{/img/cajas-negro.png}" alt="promos">
                                     Productos
                                 </a>
                             </li>
-                            <li class="card border w-140 ml10 mrt-5">
+                            <li class="card border ml10 mr10 mrt-5">
                                 <a class="black" th:href="@{/administrador/usuarios}">
                                     <img class="w20" th:src="@{/img/usuarios.png}" alt="promos">
                                     Usuarios
                                 </a>
                             </li>
-                            <li class="card border w-140 ml10 mrt-5">
+                            <li class="card border ml10 mr10 mrt-5">
                                 <a class="black mr20" th:href="@{/administrador/ordenes}">
                                     <img class="w20" th:src="@{/img/lista-negro.png}" alt="promos">
                                     Ordenes
                                 </a>
                             </li>
-                            <li class="card border w-140 ml10 mrt-5"><a class="black" th:href="@{/usuario/cerrar}"><img
+                            <li class="card border ml10 mr10 mrt-5"><a class="black" th:href="@{/usuario/cerrar}"><img
                                         class="w20" th:src="@{/img/btn_power.png}" alt="salir"> Cerrar Sesión</a>
                             </li>
                         </ul>

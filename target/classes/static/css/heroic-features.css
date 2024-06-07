@@ -711,6 +711,29 @@ body {
     height: 1px;
 }
 
+.h-01 {
+    height: 0.1px;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w220 {
+    width: 220px;
+}
+
+.correcto {
+    background-color: green;
+    color: green;
+    font-size: 50px;
+}
+
+.incorrecto {
+    background-color: red;
+    color: red;
+    font-size: 50px;
+}
 
 /* Modificar el input tipo file */
 input[type=file] {
@@ -740,6 +763,6 @@ input[type=file] {
 
 }
 
-.header-menu a  :hover {
+.header-menu a :hover {
     cursor: pointer;
 }
