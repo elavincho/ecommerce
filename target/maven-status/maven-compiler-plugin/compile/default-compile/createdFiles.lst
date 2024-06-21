@@ -1,4 +1,5 @@
 com\ecommerce\ecommerce\service\OrdenService.class
+com\ecommerce\ecommerce\model\EmailSender.class
 com\ecommerce\ecommerce\model\Usuario.class
 com\ecommerce\ecommerce\rerpository\ProductoRepository.class
 com\ecommerce\ecommerce\rerpository\UsuarioRepository.class
@@ -8,7 +9,9 @@ com\ecommerce\ecommerce\service\ServiceImpl\PromoServiceImpl.class
 com\ecommerce\ecommerce\controller\UsuarioController.class
 com\ecommerce\ecommerce\service\SpringBootSecurity.class
 com\ecommerce\ecommerce\controller\HomeController.class
+com\ecommerce\ecommerce\controller\EmailController.class
 com\ecommerce\ecommerce\controller\PromoController.class
+com\ecommerce\ecommerce\service\IEmailService.class
 com\ecommerce\ecommerce\service\ServiceImpl\ProductoServiceImpl.class
 com\ecommerce\ecommerce\controller\AdministradorController.class
 com\ecommerce\ecommerce\service\ServiceImpl\OrdenServiceImpl.class
@@ -16,13 +19,14 @@ com\ecommerce\ecommerce\rerpository\DetalleOrdenRepository.class
 com\ecommerce\ecommerce\service\ProductoService.class
 com\ecommerce\ecommerce\service\DetalleOrdenService.class
 com\ecommerce\ecommerce\service\ServiceImpl\UsuarioServiceImpl.class
+com\ecommerce\ecommerce\config\EmailConfig.class
 com\ecommerce\ecommerce\model\Promo.class
 com\ecommerce\ecommerce\EcommerceApplication.class
 com\ecommerce\ecommerce\model\DetalleOrden.class
-com\ecommerce\ecommerce\ResourseWebConfiguration.class
 com\ecommerce\ecommerce\service\ServiceImpl\DetalleOrdenServiceImpl.class
 com\ecommerce\ecommerce\rerpository\OrdenRepository.class
 com\ecommerce\ecommerce\service\ServiceImpl\UserDetailServiceImpl.class
+com\ecommerce\ecommerce\service\ServiceImpl\EmailServiceImpl.class
 com\ecommerce\ecommerce\service\UsuarioService.class
 com\ecommerce\ecommerce\model\Producto.class
 com\ecommerce\ecommerce\rerpository\PromoRepository.class
