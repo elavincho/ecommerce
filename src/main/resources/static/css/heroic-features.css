@@ -659,7 +659,6 @@ body {
 .order {
     order: 1;
     background-color: aquamarine;
-
 }
 
 .w50 {
@@ -733,6 +732,12 @@ body {
     background-color: red;
     color: red;
     font-size: 50px;
+}
+
+.green {
+    background-color: rgb(124, 212, 124);
+    border: solid 1px green;
+    color: white;
 }
 
 /* Modificar el input tipo file */

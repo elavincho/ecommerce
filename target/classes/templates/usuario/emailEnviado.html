@@ -33,6 +33,15 @@
                 <img class="card-img-top w150" th:src="@{/img/inicio-sesion.png}" alt="login">
             </div>
             <h2 class="centrado">Iniciar Sesión</h2>
+
+            <div class="card-body">
+                <div class="card border green text-indent justify">
+                    <div class="form-group w90 mrl15">
+                        <h6 class="centrado mrt">En unos minutos recibirás un email con las instrucciones para reestablecer tu contraseña.</h6>
+                    </div>
+                </div>
+            </div>
+            
             <div class="card-body">
                 <form th:action="@{/usuario/acceder}" method="post">
                     <div class="card border">
@@ -57,9 +66,6 @@
                                 Ingresar</button>
                         </div>
                     </div>
-                    <div class="centrado">
-                        <a class="black" th:href="@{/email/recuperarContrasena}">¿Olvidaste la contraseña?</a>
-                    </div>
 
                 </form>
             </div>
@@ -67,12 +73,13 @@
 
         <div class="card mb-3 center deco-none border mrt">
             <div class="row no-gutters center">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="card-body">
-
-                        <a th:href="@{/usuario/registro}">
-                            <h6>Si no estas registrado hace click aquí</h6>
-                        </a>
+                        <a class="black" th:href="@{/usuario/login}">¿Ya tenes una cuenta? <strong> Inicia Sesión</strong></a>
+                        <br>
+                        <a class="black" th:href="@{/usuario/registro}">¿No tenes cuenta? <strong> Registrate</strong></a>
+                        <br>
+                        <a class="black" th:href="@{/email/recuperarContrasena}">¿No recibiste el correo? <strong>Reenvialo</strong></a>
 
                     </div>
                 </div>
