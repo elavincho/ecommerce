@@ -722,6 +722,14 @@ body {
     width: 220px;
 }
 
+.mrt10 {
+    margin-top: 10%;
+}
+
+.mrb-25 {
+    margin-bottom: 25%;
+}
+
 .correcto {
     background-color: green;
     color: green;
@@ -771,3 +779,123 @@ input[type=file] {
 .header-menu a :hover {
     cursor: pointer;
 }
+
+
+/* Maximizar imagenes */
+
+.ventana {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(84, 84, 84);
+    min-width: 100%;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    /* padding: 30px; */
+    min-height: 100%;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: none;
+
+}
+
+.cerrar {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 10;
+   /* left: 5px;  */
+   width: 35px;
+   height: 35px;
+}
+
+.cerrar img {
+    width: 35px;
+    height: 35px;
+}
+
+
+/* Fin maximizar imagenes */
+
+/* Estilos de Todos los Productos */
+.cont-img-principal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2%;
+    align-items: center;
+}
+
+.img-prod-principal {
+    justify-content: center;
+    align-items: center;
+}
+
+.img-prod-principal img {
+    min-width: 250px;
+    border: solid 1px;
+    color: rgb(180, 180, 180);
+    border-radius: 10px;
+    padding: 3%;
+}
+
+.img-prod-principal h2 {
+    margin: 5%;
+}
+
+.img-seleccion {
+    display: flex;
+    flex-direction: column;
+    max-width: 100px;
+    min-width: 90%;
+    justify-content: center;
+    text-align: justify;
+    padding: 5%;
+    align-items: center;
+}
+
+.img-seleccion img {
+    border: none;
+    border-radius: 25%;
+    border: solid 1px;
+    color: rgb(180, 180, 180);
+    padding: 3px;
+    margin: 3px;
+    width: 80px;
+    height: 80px;
+
+}
+
+/* Pantallas de Celular */
+@media (max-width: 480px) {
+    .cont-img-seleccion {
+        max-height: 265px;
+        max-width: 120px;
+        justify-content: center;
+    }
+}
+
+/* Pantallas de Tables y Netbooks */
+@media (min-width: 480px) {
+    .cont-img-seleccion {
+        min-width: 100px;
+        max-width: 200px;
+        max-height: 400px;
+        justify-content: center;
+    }
+}
+
+/* Pantallas de Tables y Netbooks */
+/* @media (min-width: 800px) {
+    .cont-img-seleccion {
+        max-height: 700px;
+        justify-content: center;
+    }
+} */
+
+/* Fin Estilos de Todos los Productos */

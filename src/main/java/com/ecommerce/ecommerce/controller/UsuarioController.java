@@ -44,7 +44,6 @@ public class UsuarioController {
     @Autowired
     private EmpresaService empresaService;
 
-    
     @GetMapping("/register")
     public String createAdmin(Model model) {
 
@@ -330,6 +329,67 @@ public class UsuarioController {
         usuario.setDepto(u.getDepto());
         usuario.setLocalidad(u.getLocalidad());
         usuario.setProvincia(u.getProvincia());
+
+        usuarioService.save(usuario);
+
+        return "redirect:/";
+    }
+
+    @GetMapping("/linkCambiarContrasena/{id}")
+    public String linkCambiarContrasena(@PathVariable Integer id, Model model, HttpSession session) {
+
+        model.addAttribute("sesion", session.getAttribute("idusuario"));
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
+        Usuario usuario = new Usuario();
+
+        Optional<Usuario> optionalUsuario = usuarioService.findById(id);
+        usuario = optionalUsuario.get();
+
+        model.addAttribute("usuario", usuario);
+
+        logger.info("Usuario a Editar: {}", usuario);
+
+        return "usuario/linkCambiarContrasena";
+    }
+
+    @PostMapping("/linkUpdatePassword")
+    public String linkUpdatePassword(Model model, Usuario usuario, @RequestParam String password2,
+            @RequestParam String password3, HttpSession session)
+            throws IOException {
+
+        model.addAttribute("sesion", session.getAttribute("idusuario"));
+
+        // Pasamos todos los datos de la empresa
+        model.addAttribute("empresa", empresaService.findAll());
+
+        // Usuario u = new Usuario();
+        // u = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
+
+        // Cambiamos el password del usuario
+
+        if (password2.equals(password3)) {
+            usuario.setPassword(password3);
+        } else {
+            return "usuario/login";
+        }
+
+        // Seteamos estos datos para que no se pierdan
+        // usuario.setEmail(u.getEmail());
+        // usuario.setTipo("USER");
+        // usuario.setFoto(u.getFoto());
+        // usuario.setNombre(u.getNombre());
+        // usuario.setApellido(u.getApellido());
+        // usuario.setDocumento(u.getDocumento());
+        // usuario.setTelefono(u.getTelefono());
+        // usuario.setDireccion(u.getDireccion());
+        // usuario.setAltura(u.getAltura());
+        // usuario.setPiso(u.getPiso());
+        // usuario.setDepto(u.getDepto());
+        // usuario.setLocalidad(u.getLocalidad());
+        // usuario.setProvincia(u.getProvincia());
 
         usuarioService.save(usuario);
 
