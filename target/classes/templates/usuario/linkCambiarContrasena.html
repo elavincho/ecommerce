@@ -36,7 +36,7 @@
 
         <div class="card h-100 border">
 
-            <form id="register-form" th:action="@{/usuario/updatePassword}" method="post"
+            <form id="register-form" th:action="@{/usuario/linkUpdatePassword}" method="post"
                 enctype="multipart/form-data">
                 <!-- Obtenemos los datos del usuario -->
                 <input type="hidden" name="id" th:value="${usuario.id}">
@@ -53,7 +53,7 @@
 
                 <h2 class="centrado" th:text="${usuario.nombre + ' ' + usuario.apellido}"></h2>
 
-                <div class="centrado">
+                <!-- <div class="centrado">
                     <div class="card border w50 mr10 ml10 mrt">
                         <div class="form-group mr10 ml10">
                             <label for="password1">Contraseña Actual</label>
@@ -61,7 +61,7 @@
                                 placeholder="Ingrese su Contraseña" autocomplete="off">
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="centrado">
                     <div class="card border w50 mr10 ml10 mrt">

@@ -116,7 +116,6 @@ document.addEventListener("keyup", (e) => {
 });
 /* Fin Buscador Inverso*/
 
-
 /* Alert para bloquear Usuarios */
 function bloquearUsuario(id) {
   swal({
@@ -146,46 +145,41 @@ function bloquearUsuario(id) {
 }
 /* Fin Alert para bloquear un usuario */
 
-
 // Mostrar el nombre del archivo seleccionado en los input
 
-document.getElementById('img').onchange = function () {
-  document.getElementById('fichero').innerHTML = this.files[0].name;
+document.getElementById("img").onchange = function () {
+  document.getElementById("fichero").innerHTML = this.files[0].name;
 };
 
-document.getElementById('img2').onchange = function () {
-  document.getElementById('fichero2').innerHTML = this.files[0].name;
+document.getElementById("img2").onchange = function () {
+  document.getElementById("fichero2").innerHTML = this.files[0].name;
 };
 
-document.getElementById('img3').onchange = function () {
-  document.getElementById('fichero3').innerHTML = this.files[0].name;
+document.getElementById("img3").onchange = function () {
+  document.getElementById("fichero3").innerHTML = this.files[0].name;
 };
 
-document.getElementById('img').onchange = function () {
-  document.getElementById('foto').innerHTML = this.files[0].name;
+document.getElementById("img").onchange = function () {
+  document.getElementById("foto").innerHTML = this.files[0].name;
 };
-
 
 // Fin Mostrar el nombre del archivo seleccionado
 
 // Mostrar vista previa de la imagen antes de subir al sevidor
 
-
-
 function preview(event) {
   const fileInput = event.target;
   const file = fileInput.files[0];
   const reader = new FileReader();
-  reader.onload = function() {
-      const image = document.getElementById('output');
-      image.src = reader.result;
-      image.style.display = 'block';
+  reader.onload = function () {
+    const image = document.getElementById("output");
+    image.src = reader.result;
+    image.style.display = "block";
   };
   reader.readAsDataURL(file);
 }
 
 // Fin Mostrar vista previa de la imagen antes de subir al sevidor
-
 
 //Verificar que las contraseñas coincidan
 
@@ -209,3 +203,26 @@ function actualizarContrasena(id) {
     }
   });
 }
+
+//Maximizar Imagenes
+
+function abrir() {
+  document.getElementById("vent").style.display = "block";
+}
+
+function cerrar() {
+  document.getElementById("vent").style.display = "none";
+}
+
+// fin Maximizar imagenes
+
+
+
+
+/* Funcion para cambiar la imagen principal del producto*/
+
+function imgSlider(cambiarImg) {
+  document.querySelector(".productos").src = cambiarImg;
+}
+
+/* Fin Funcion para cambiar la imagen principal del producto*/
