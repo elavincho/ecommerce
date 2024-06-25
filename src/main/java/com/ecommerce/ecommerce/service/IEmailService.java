@@ -9,7 +9,7 @@ import jakarta.mail.MessagingException;
 
 /**
  *
- * @author elavi
+ * @author elavincho
  */
 public interface IEmailService {
     

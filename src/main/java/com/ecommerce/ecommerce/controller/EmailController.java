@@ -3,7 +3,9 @@ package com.ecommerce.ecommerce.controller;
 import com.ecommerce.ecommerce.model.EmailSender;
 import com.ecommerce.ecommerce.service.EmpresaService;
 import com.ecommerce.ecommerce.service.IEmailService;
+
 import jakarta.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,7 +40,9 @@ public class EmailController {
     }
 
     @PostMapping("/send")
-    private String sendEmail(@RequestParam String destinatario, EmailSender emailSender) throws MessagingException {
+    private String sendEmail(@RequestParam String destinatario, EmailSender emailSender)
+            throws MessagingException {
+
         emailService.sendMail(emailSender);
         return "redirect:/email/emailEnviado";
     }
