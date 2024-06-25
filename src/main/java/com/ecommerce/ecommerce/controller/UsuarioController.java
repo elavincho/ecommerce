@@ -362,12 +362,14 @@ public class UsuarioController {
 
         model.addAttribute("sesion", session.getAttribute("idusuario"));
 
+       
         // Pasamos todos los datos de la empresa
         model.addAttribute("empresa", empresaService.findAll());
 
-        // Usuario u = new Usuario();
-        // u = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
-
+        Usuario u = new Usuario();
+        u = usuarioService.get(usuario.getId()).get();
+       
+       
         // Cambiamos el password del usuario
 
         if (password2.equals(password3)) {
@@ -377,19 +379,19 @@ public class UsuarioController {
         }
 
         // Seteamos estos datos para que no se pierdan
-        // usuario.setEmail(u.getEmail());
-        // usuario.setTipo("USER");
-        // usuario.setFoto(u.getFoto());
-        // usuario.setNombre(u.getNombre());
-        // usuario.setApellido(u.getApellido());
-        // usuario.setDocumento(u.getDocumento());
-        // usuario.setTelefono(u.getTelefono());
-        // usuario.setDireccion(u.getDireccion());
-        // usuario.setAltura(u.getAltura());
-        // usuario.setPiso(u.getPiso());
-        // usuario.setDepto(u.getDepto());
-        // usuario.setLocalidad(u.getLocalidad());
-        // usuario.setProvincia(u.getProvincia());
+        usuario.setEmail(u.getEmail());
+        usuario.setTipo("USER");
+        usuario.setFoto(u.getFoto());
+        usuario.setNombre(u.getNombre());
+        usuario.setApellido(u.getApellido());
+        usuario.setDocumento(u.getDocumento());
+        usuario.setTelefono(u.getTelefono());
+        usuario.setDireccion(u.getDireccion());
+        usuario.setAltura(u.getAltura());
+        usuario.setPiso(u.getPiso());
+        usuario.setDepto(u.getDepto());
+        usuario.setLocalidad(u.getLocalidad());
+        usuario.setProvincia(u.getProvincia());
 
         usuarioService.save(usuario);
 

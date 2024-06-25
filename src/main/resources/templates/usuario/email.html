@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <!-- Obtenemos los datos del usuario -->
+    <!-- <input type="hidden" name="id" th:value="${usuario.id}"> -->
 
     <center>
         <img style="width: 150px; height: 150px;" th:src="'cid:imagen'" alt="inicio-sesion">
@@ -18,11 +20,16 @@
     </center>
     <hr>
 
-    <h4 style="display: flex; text-align: justify; text-indent: 30px;">¡Hola! Solicitaste un enlace para cambiar tu
+    <h4 style="display: flex; text-align: justify; text-indent: 30px;">¡Hola! [[${nombre}]]  Solicitaste un enlace para cambiar tu
         contraseña. Puedes hacerlo a través del siguiente botón.</h4>
+        <p th:text="${nombre}">1</p>
+        <p>[[${nombre}]]</p>
     <br>
+    <!-- <a href="http://localhost:8080/usuario/linkCambiarContrasena/3" -->
+        <!-- th:attr="href=|http://localhost:8080/usuario/linkCambiarContrasena/{id}(id=usuario.id)|" -->
     <center>
-        <a href="http://localhost:8080/usuario/linkCambiarContrasena/3"
+        <a href="http://localhost:8080/usuario/linkCambiarContrasena/${id}"
+        
             style="background-color: #252526; font-size:20px;color:#ffffff;text-decoration:none;color:#ffffff;text-decoration:none;padding:15px 25px;border-radius:5px;border:1px solid #252526;display:inline-block"
             target="_blank" data-saferedirecturl="">
             Cambiar mi contraseña
@@ -31,8 +38,8 @@
     <br>
     <h4 style="display: flex; text-align: justify; text-indent: 30px;">Si no solicitaste este enlace, por favor ignora
         este email. Tu contraseña no cambiará hasta que accedas al enlace de arriba y crees una nueva.</h4>
-    <h4 style="display: flex; text-align: justify; text-indent: 30px;">Este correo esta dirigido a {nombre de usuario}.
-        Recibiste este correo porque estas registrado en {nombre de la empresa}</h4>
+    <h4 style="display: flex; text-align: justify; text-indent: 30px;">Este correo esta dirigido a <b th:text="${email}"></b>.
+        Recibiste este correo porque estas registrado en <b th:text="${empresa}">.</b></h4>
     <br>
 
 </body>
