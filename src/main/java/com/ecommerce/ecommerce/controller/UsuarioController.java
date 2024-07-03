@@ -312,12 +312,12 @@ public class UsuarioController {
                 return "usuario/cambiarContrasena";
             }
         } else {
-            return "redirect:/";
+            return "redirect:/usuario/login";
         }
 
         // Seteamos estos datos para que no se pierdan
         usuario.setEmail(u.getEmail());
-        usuario.setTipo("USER");
+        usuario.setTipo(u.getTipo());
         usuario.setFoto(u.getFoto());
         usuario.setNombre(u.getNombre());
         usuario.setApellido(u.getApellido());
@@ -332,7 +332,7 @@ public class UsuarioController {
 
         usuarioService.save(usuario);
 
-        return "redirect:/";
+        return "redirect:/usuario/login";
     }
 
     @GetMapping("/linkCambiarContrasena/{id}")
@@ -380,7 +380,7 @@ public class UsuarioController {
 
         // Seteamos estos datos para que no se pierdan
         usuario.setEmail(u.getEmail());
-        usuario.setTipo("USER");
+        usuario.setTipo(u.getTipo());
         usuario.setFoto(u.getFoto());
         usuario.setNombre(u.getNombre());
         usuario.setApellido(u.getApellido());
@@ -395,7 +395,7 @@ public class UsuarioController {
 
         usuarioService.save(usuario);
 
-        return "redirect:/";
+        return "redirect:/usuario/login";
     }
 
 }
