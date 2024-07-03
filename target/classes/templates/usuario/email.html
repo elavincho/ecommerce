@@ -9,9 +9,7 @@
 </head>
 
 <body>
-    <!-- Obtenemos los datos del usuario -->
-    <!-- <input type="hidden" name="id" th:value="${usuario.id}"> -->
-
+   
     <center>
         <img style="width: 150px; height: 150px;" th:src="'cid:imagen'" alt="inicio-sesion">
     </center>
@@ -20,28 +18,32 @@
     </center>
     <hr>
 
-    <h4 style="display: flex; text-align: justify; text-indent: 30px;">¡Hola! [[${nombre}]]  Solicitaste un enlace para cambiar tu
+    <h4 style="display: flex; text-align: justify; text-indent: 30px;">¡Hola! [[${nombre}]]. Solicitaste un enlace para
+        cambiar tu
         contraseña. Puedes hacerlo a través del siguiente botón.</h4>
-        <p th:text="${nombre}">1</p>
-        <p>[[${nombre}]]</p>
+
     <br>
-    <!-- <a href="http://localhost:8080/usuario/linkCambiarContrasena/3" -->
-        <!-- th:attr="href=|http://localhost:8080/usuario/linkCambiarContrasena/{id}(id=usuario.id)|" -->
+   
     <center>
-        <a href="http://localhost:8080/usuario/linkCambiarContrasena/${id}"
-        
+        <!-- <a th:href="@{http://localhost:8080/usuario/linkCambiarContrasena/{id}(id=${id})}" -->
+         <a th:href="@{https://pknwqtzv-8080.brs.devtunnels.ms/usuario/linkCambiarContrasena/{id}(id=${id})}"
             style="background-color: #252526; font-size:20px;color:#ffffff;text-decoration:none;color:#ffffff;text-decoration:none;padding:15px 25px;border-radius:5px;border:1px solid #252526;display:inline-block"
             target="_blank" data-saferedirecturl="">
             Cambiar mi contraseña
         </a>
     </center>
     <br>
-    <h4 style="display: flex; text-align: justify; text-indent: 30px;">Si no solicitaste este enlace, por favor ignora
+    <h4 style="text-align: justify; text-indent: 30px;">Si no solicitaste este enlace, por favor ignorá
         este email. Tu contraseña no cambiará hasta que accedas al enlace de arriba y crees una nueva.</h4>
-    <h4 style="display: flex; text-align: justify; text-indent: 30px;">Este correo esta dirigido a <b th:text="${email}"></b>.
-        Recibiste este correo porque estas registrado en <b th:text="${empresa}">.</b></h4>
+    <h4 style="text-align: justify; text-indent: 30px;">Este correo esta dirigido a <strong
+            th:text="${email}"></strong></h4>
+        <h4 Recibiste este correo porque estas registrado en <strong th:text="${empresa}+'.'"></strong></h4>
     <br>
-
+    <p style="text-align: justify; text-indent: 30px;">La información contenida en este mensaje y/o en sus anexos es estrictamente confidencial. Si usted recibió por
+        error esta comunicación, por favor bórrela puesto que su uso no autorizado acarreará las sanciones y medidas legales a
+        que haya lugar. La empresa no se hace responsable por la presencia en este mensaje o en sus anexos, de algún
+        virus o malware que pueda generar o genere daños en sus equipos, programas o afecte su información.</p>
+    <br>
 </body>
 
 </html>

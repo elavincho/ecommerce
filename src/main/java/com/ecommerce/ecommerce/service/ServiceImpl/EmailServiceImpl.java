@@ -61,6 +61,25 @@ public class EmailServiceImpl implements IEmailService {
 
             context.setVariable("mensaje", emailSender.getMensaje());
 
+            // Obtenemos el usuario para pasar los datos
+            Usuario usuario = new Usuario();
+            Optional<Usuario> optionalUsuario =
+            usuarioService.findByEmail(emailSender.getDestinatario());
+            usuario = optionalUsuario.get();
+
+            //Convertimos el id en string para poder pasarlo al link
+            String idString = usuario.getId().toString();
+            context.setVariable("id", idString);
+            context.setVariable("nombre", usuario.getNombre());
+
+            // Pasamos el nombre de la empresa
+            Empresa empresa = new Empresa();
+            Optional<Empresa> optionalEmpresa = empresaService.findById(7);
+            empresa = optionalEmpresa.get();
+            context.setVariable("empresa", empresa.getRazonSocial());
+
+            context.setVariable("email", emailSender.getDestinatario());
+
             String contentHTML = templateEngine.process("usuario/email", context);
 
             helper.setText(contentHTML, true);
@@ -68,36 +87,6 @@ public class EmailServiceImpl implements IEmailService {
             // Agregamos la imagen en linea
             ClassPathResource imageResource = new ClassPathResource("/static/img/inicio-sesion.png");
             helper.addInline("imagen", imageResource);
-
-            // POR AHORA NO ESTA ENVIANDO EL NOMBRE, MAIL, EMPRESA, ID
-
-            // Obtenemos el usuario para pasar los datos
-            //Usuario usuario = new Usuario();
-
-            //Optional<Usuario> optionalUsuario = usuarioService.findByEmail(emailSender.getDestinatario());
-            //usuario = optionalUsuario.get();
-            // Agregamos el nombre del usuario
-            //helper.addInline("nombre", new ByteArrayResource(usuario.getNombre().getBytes()), "text/plain");
-            // Enviamos el nombre a la plantilla html
-            //helper.setText("nombre", true);
-
-            // Agregar la variable 'nombre'
-            // message.addInline("nombre", new ByteArrayResource("Juan".getBytes()),
-            // "text/plain");
-
-            // // Pasamos el nombre de la empresa
-            // Empresa empresa = new Empresa();
-            // Optional<Empresa> optionalEmpresa = empresaService.findById(1);
-            // empresa = optionalEmpresa.get();
-
-            // context.setVariable("id", usuario.getId());
-            //context.setVariable("nombre", usuario.getNombre());
-            // context.setVariable("empresa", empresa.getRazonSocial());
-            // context.setVariable("email", emailSender.getDestinatario());
-
-            // context.setVariable("mensaje", emailSender.getMensaje());
-            // String contentHTML = templateEngine.process("usuario/email", context);
-            // helper.setText(contentHTML, true);
 
             javaMailSender.send(message);
             javaMailSender.send(helper.getMimeMessage());
