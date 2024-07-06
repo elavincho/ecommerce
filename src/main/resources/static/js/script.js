@@ -214,15 +214,53 @@ function cerrar() {
   document.getElementById("vent").style.display = "none";
 }
 
+
+function abrir2() {
+  document.getElementById("vent2").style.display = "block";
+}
+
+function cerrar2() {
+  document.getElementById("vent2").style.display = "none";
+}
+
+function abrir3() {
+  document.getElementById("vent3").style.display = "block";
+}
+
+function cerrar3() {
+  document.getElementById("vent3").style.display = "none";
+}
+
 // fin Maximizar imagenes
-
-
 
 
 /* Funcion para cambiar la imagen principal del producto*/
 
 function imgSlider(cambiarImg) {
   document.querySelector(".productos").src = cambiarImg;
+  
 }
 
 /* Fin Funcion para cambiar la imagen principal del producto*/
+
+// NO LO USE PORQUE NO ME GUSTA COMO QUEDA
+
+
+// Funcion para maximizar imagenes abriendo otra ventana
+
+// function maximizarImagen() {
+//   const imagen = document.getElementById('imagen');
+//   const ventanaEmergente = window.open('', '_blank', 'width=500,height=500');
+//   ventanaEmergente.document.write(`<img src="${imagen.src}" style="max-width: 100%; max-height: 100%;">`);
+// }
+
+
+function maximizarImagen(src) {
+  const imagen = document.getElementById('imagen');
+  const ventanaEmergente = window.open('', '_blank', 'width=500,height=500');
+  ventanaEmergente.document.write(`<img src="${src}" style="max-width: 100%; max-height: 100%;">`);
+}
+
+
+
+// Fin Funcion para maximizar imagenes abriendo otra ventana
