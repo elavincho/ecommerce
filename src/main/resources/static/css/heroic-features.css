@@ -786,13 +786,36 @@ input[type=file] {
 .ventana {
     display: flex;
     flex-wrap: wrap;
-    background-color: rgba(84, 84, 84);
+    /* background-color: rgba(84, 84, 84); */
+    background-color: rgb(255, 255, 255);
     min-width: 100%;
     color: white;
     align-items: center;
     justify-content: center;
     /* padding: 30px; */
-    min-height: 100%;
+    height: 800px;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: none;
+
+}
+
+.ventana2 {
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: rgba(84, 84, 84); */
+    background-color: rgb(255, 255, 255);
+    min-width: 100%;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    /* padding: 30px; */
+    height: 800px;
     border-radius: 5px;
     position: absolute;
     left: 0;
@@ -817,6 +840,11 @@ input[type=file] {
 .cerrar img {
     width: 35px;
     height: 35px;
+}
+
+.img-max {
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -854,8 +882,8 @@ input[type=file] {
     max-width: 100px;
     min-width: 90%;
     justify-content: center;
-    text-align: justify;
-    padding: 5%;
+    /* text-align: justify; */
+    /* padding: 5%; */
     align-items: center;
 }
 
@@ -871,12 +899,20 @@ input[type=file] {
 
 }
 
+.cont-img-seleccion {
+    /* max-height: 265px;
+    max-width: 120px; */
+    justify-content: center;
+    align-items: center;
+}
+
 /* Pantallas de Celular */
 @media (max-width: 480px) {
     .cont-img-seleccion {
         max-height: 265px;
         max-width: 120px;
         justify-content: center;
+        align-items: center;
     }
 }
 

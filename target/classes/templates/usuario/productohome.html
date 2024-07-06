@@ -28,74 +28,127 @@
     <div th:insert="~{usuario/template_usuario.html::header-user}" th:unless="${sesion==null}"></div>
     <br><br>
     <!-- Page Content -->
-    <div class="container">
+    <!-- <div class="container"> -->
+    <div class="ml30 mr30">
         <br>
 
         <!-- Blog Post -->
         <div class="card mb-4">
             <div class="card-body">
                 <div class="row">
+
+                    <!-- Ventana Maximizar img 1 -->
+                    <div class="ventana" id="vent">
+                        <div class="cerrar">
+                            <img class="w35" onclick="cerrar()" th:src="@{/img/cerrar.png}" alt="cerrar">
+                        </div>
+                        <div class="mrt10">
+                            <img class="img-max" th:src="@{/images/{img} (img=${producto.imagen})}" alt="img">
+                        </div>
+                    </div>
+                    <!-- Fin ventana Maximizar img 1 -->
+
+                    <!-- Ventana Maximizar img 2 -->
+                    <div class="ventana2" id="vent2">
+                        <div class="cerrar">
+                            <img class="w35" onclick="cerrar2()" th:src="@{/img/cerrar.png}" alt="cerrar">
+                        </div>
+                        <div class="mrt10">
+                            <img class="img-max" th:src="@{/images/{img} (img=${producto.imagen2})}" alt="img2">
+                        </div>
+                    </div>
+                    <!-- Fin ventana Maximizar img 2 -->
+
+                    <!-- Ventana Maximizar img 3 -->
+                    <div class="ventana" id="vent3">
+                        <div class="cerrar">
+                            <img class="w35" onclick="cerrar3()" th:src="@{/img/cerrar.png}" alt="cerrar">
+                        </div>
+                        <div class="mrt10">
+                            <img class="img-max" th:src="@{/images/{img} (img=${producto.imagen3})}" alt="img3">
+                        </div>
+                    </div>
+                    <!-- Fin ventana Maximizar img 3 -->
+
                     <div class="col-lg-12">
                         <form th:action="@{/cart}" method="POST">
+                            <!-- Obtenemos los datos del producto -->
+                            <input type="hidden" th:value="${producto.id}" name="id">
+                            <h2 class="card-title center" th:text="${producto.nombre}"></h2>
+                            <br>
+
                             <div class="col-lg-12">
-
-                                <!-- Obtenemos los datos del producto -->
-                                <input type="hidden" th:value="${producto.id}" name="id">
-                                <h2 class="card-title center" th:text="${producto.nombre}"></h2>
-                                <br>
-
-
-                                <div class="dos-columnas">
-                                    <!-- Selector de Imagen del Producto -->
-                                    <div class="overflow-y-scroll cont-img-seleccion">
-                                        <div class="img-seleccion">
-                                            <a href="#cont-img-principal">
-                                                <img id="bottom" th:src="@{/images/{img}(img=${producto.imagen})}"
-                                                    th:attr="onclick=|imgSlider('@{/images/{img}(img=${producto.imagen})}')|" />
-                                            </a>
-                                            <a href="#cont-img-principal">
-                                                <img id="bottom" th:src="@{/images/{img}(img=${producto.imagen2})}"
-                                                    th:attr="onclick=|imgSlider('@{/images/{img}(img=${producto.imagen2})}')|" />
-                                            </a>
-                                            <a href="#cont-img-principal">
-                                                <img id="bottom" th:src="@{/images/{img}(img=${producto.imagen3})}"
-                                                    th:attr="onclick=|imgSlider('@{/images/{img}(img=${producto.imagen3})}')|" />
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Fin Selector de Imagen del Producto -->
-
+                                <div class="col-lg-12">
                                     <!-- Mostrar Imagen Principal Producto -->
-
-                                    <!-- Ventana Maximizar img 1 -->
-                                    <div class="ventana" id="vent">
-                                        <div class="cerrar">
-                                            <img class="w35" onclick="cerrar()" th:src="@{/img/cancelar.png}"
-                                                alt="cerrar">
-                                        </div>
-                                        <div class="mrt10">
-                                            <img class="" th:src="@{/images/{img} (img=${producto.imagen})}" alt="img">
-                                        </div>
-                                    </div>
-                                    <!-- Fin ventana Maximizar img 1 -->
-
-                                    <div class="cont-img-principal">
+                                    <div class="col-lg-12 cont-img-principal">
                                         <div class="img-prod-principal">
-
                                             <!-- Imagen Principal -->
-                                            <img th:src="@{/images/{img}(img=${producto.imagen})}" alt="1"
-                                                class="productos" onclick="abrir()">
+                                            <div id="carouselExampleDark" class="carousel carousel-dark slide">
+                                                <div class="carousel-indicators" style="z-index: 1;">
+                                                    <button type="button" data-bs-target="#carouselExampleDark"
+                                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                                        aria-label="Slide 1"></button>
+                                                    <button type="button" data-bs-target="#carouselExampleDark"
+                                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                    <button type="button" data-bs-target="#carouselExampleDark"
+                                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                </div>
+                                                <div class="carousel-inner">
+                                                    <div class="carousel-item active" data-bs-interval="100">
+                                                        <img id="imagen" class="d-block w-100"
+                                                            th:src="@{/images/{img}(img=${producto.imagen})}"
+                                                            th:attr="onclick=|imgSlider('@{/images/{img}(img=${producto.imagen})}')|"
+                                                            th:onclick="|abrir('@{/images/{img}(img=${producto.imagen})}')|" />
+                                                    </div>
+                                                    <div class="carousel-item" data-bs-interval="100">
+                                                        <img id="imagen" class="d-block w-100"
+                                                            th:src="@{/images/{img}(img=${producto.imagen2})}"
+                                                            th:attr="onclick=|imgSlider('@{/images/{img}(img=${producto.imagen2})}')|"
+                                                            th:onclick="|abrir2('@{/images/{img}(img=${producto.imagen2})}')|" />
+                                                    </div>
+                                                    <div class="carousel-item" data-bs-interval="100">
+                                                        <img id="imagen" class="d-block w-100"
+                                                            th:src="@{/images/{img}(img=${producto.imagen3})}"
+                                                            th:attr="onclick=|imgSlider('@{/images/{img}(img=${producto.imagen3})}')|"
+                                                            th:onclick="|abrir3('@{/images/{img}(img=${producto.imagen3})}')|" />
+                                                    </div>
+                                                </div>
+                                                <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
                                             <!-- Fin Imagen Principal -->
                                         </div>
                                     </div>
-                                    <!-- Fin Imagen Principal Producto -->
+                                    <!-- Fin Mostrar Imagen Principal Producto -->
+
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <h5 th:text=" 'Precio: $' + ${producto.precioFormateado}"></h5>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <h5>
+                                                Cantidad: <input type="number" id="cantidad" name="cantidad"
+                                                    autocomplete="off" min="1" max="5" value="1">
+                                            </h5>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <h5>Descripción</h5>
+                                            <p class="text-indent justify" th:text="${producto.descripcion}"></p>
+                                        </li>
+                                    </ul>
                                 </div>
-
-
-
                             </div>
+
                             <br>
-                            <div class="row w100 center" style="z-index: -1;">
+                            <div class="row w100 center">
                                 <div>
                                     <a th:href="@{/}" class="btn btn-dark"><img class="w25" th:src="@{/img/mas.png}"
                                             alt="mas"> Ver más productos</a>
@@ -105,21 +158,6 @@
                                 </div>
                             </div>
                             <br>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <h5 th:text=" 'Precio: $' + ${producto.precioFormateado}"></h5>
-                                </li>
-                                <li class="list-group-item">
-                                    <h5>
-                                        Cantidad: <input type="number" id="cantidad" name="cantidad" autocomplete="off"
-                                            min="1" max="5" value="1">
-                                    </h5>
-                                </li>
-                                <li class="list-group-item">
-                                    <h5>Descripción</h5>
-                                    <p class="text-indent justify" th:text="${producto.descripcion}"></p>
-                                </li>
-                            </ul>
                         </form>
                         <br>
                         <ul class="list-group">
