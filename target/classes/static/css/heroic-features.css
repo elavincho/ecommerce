@@ -57,6 +57,10 @@ body {
     width: 30px;
 }
 
+.mw-800 {
+    max-width: 800px;
+}
+
 .w300 {
     width: 300px;
 }
@@ -832,9 +836,9 @@ input[type=file] {
     right: 5px;
     top: 5px;
     z-index: 10;
-   /* left: 5px;  */
-   width: 35px;
-   height: 35px;
+    /* left: 5px;  */
+    width: 35px;
+    height: 35px;
 }
 
 .cerrar img {
@@ -935,3 +939,132 @@ input[type=file] {
 } */
 
 /* Fin Estilos de Todos los Productos */
+
+
+/* Estilos Formulario Registro */
+
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 10px 10px 10px 10px;
+}
+
+.formulario-label {
+    display: block;
+    font-weight: 500;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.formulario-grupo-input {
+    position: relative;
+    padding: 0 10px 10px 10px;
+}
+
+.formulario-input {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #bebebe;
+    border-radius: 3px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 40px 0 10px;
+    transition: .3s ease all;
+    font-size: 12px;
+}
+
+.formulario-input:focus {
+    border: 2px solid #000;
+    outline: none;
+}
+
+.formulario-input-error {
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
+}
+
+.formulario-input-error-activo {
+    display: block;
+}
+
+.formulario-validacion-estado {
+    position: absolute;
+    right: 15px;
+    bottom: 25px;
+    z-index: 100;
+    font-size: 16px;
+    /* opacity: 0; */
+}
+
+.formulario-mensaje {
+    height: 45px;
+    line-height: 45px;
+    background-color: #f66068;
+    color: #fff;
+    padding: 0 15px;
+    border-radius: 3px;
+    display: none;
+    text-align: center;
+}
+
+.formulario-mensaje-activo {
+    display: block;
+}
+
+.formulario-mensaje p {
+    margin: 0;
+}
+
+.formulario-mensaje-exito {
+    height: 45px;
+    line-height: 45px;
+    background-color: #62f56e;
+    color: #fff;
+    padding: 0 15px;
+    border-radius: 3px;
+    display: none;
+    text-align: center;
+}
+
+.formulario-mensaje-exito-activo {
+    display: block;
+}
+
+/* Estilos para validaciones */
+
+.formulario-grupo-correcto .formulario-validacion-estado {
+    color: #62f56e;
+    opacity: 1;
+}
+
+.formulario-grupo-incorrecto .formulario-label {
+    color: #db2323;
+}
+
+.formulario-grupo-incorrecto .formulario-validacion-estado {
+    color: #db2323;
+    opacity: 1;
+}
+
+.formulario-grupo-incorrecto .formulario-input {
+    border: 2px solid #db2323;
+}
+
+/* Fin Estilos para validaciones */
+
+/* Mediaqueries */
+@media screen and (max-width: 480px) {
+   .container {
+    width: 90%;
+   }
+   
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* Fin Estilos Formulario Registro */
