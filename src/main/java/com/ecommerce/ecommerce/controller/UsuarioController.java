@@ -145,6 +145,7 @@ public class UsuarioController {
         }
 
         // Seteamos estos datos para que no se pierdan
+        usuario.setUsername(u.getUsername());
         usuario.setEmail(u.getEmail());
         usuario.setPassword(u.getPassword());
         usuario.setTipo("USER");
@@ -316,6 +317,7 @@ public class UsuarioController {
         }
 
         // Seteamos estos datos para que no se pierdan
+        usuario.setUsername(u.getUsername());
         usuario.setEmail(u.getEmail());
         usuario.setTipo(u.getTipo());
         usuario.setFoto(u.getFoto());
@@ -379,6 +381,7 @@ public class UsuarioController {
         }
 
         // Seteamos estos datos para que no se pierdan
+        usuario.setUsername(u.getUsername());
         usuario.setEmail(u.getEmail());
         usuario.setTipo(u.getTipo());
         usuario.setFoto(u.getFoto());

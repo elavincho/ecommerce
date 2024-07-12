@@ -10,6 +10,7 @@
 
     <title>eCommerce</title>
 
+    <!-- <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"> -->
 
     <!-- Bootstrap core CSS -->
     <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
@@ -28,7 +29,6 @@
 
     <!-- Page Content -->
     <div class="container w75">
-
         <div class="card h-100 border">
             <div class="centrado mrt">
                 <img class="card-img-top w150" th:src="@{/img/registrate.png}" alt="login">
@@ -51,135 +51,207 @@
                             </div>
                         </div>
 
-                        <div class="spac-betw">
-                            <div class="card border w50 mr10 ml10 mrt">
-                                <div class="form-group mr10 ml10">
-                                    <label for="email">email</label> <input type="email" class="form-control" id="email"
-                                        name="email" required placeholder="Ingrese su email" autocomplete="off">
+                        <div class="formulario" id="formulario">
+                            <!-- Grupo: Email -->
+                            <div class="card formulario-grupo" id="grupo-email">
+                                <label for="email" class="formulario-label">email</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="email" class="formulario-input" id="email" name="email" required
+                                        placeholder="Ingrese su email" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
                                 </div>
+                                <p class="formulario-input-error">El correo solo puede contener letras, numeros,
+                                    puntos, guiones y guion bajo.</p>
                             </div>
 
-                            <div class="card border w50 mr10 ml10 mrt">
-                                <div class="form-group mr10 ml10">
-                                    <label for="password">Contraseña</label> <input type="password" class="form-control"
-                                        id="password" name="password" required placeholder="Ingrese su Contraseña"
-                                        autocomplete="off">
+                            <!-- Grupo: Username -->
+                            <div class="card formulario-grupo">
+                                <label for="username" class="formulario-label">Nombre Usuario</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="text" class="formulario-input" id="username" name="username" required
+                                        placeholder="Nombre de Usuario" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
                                 </div>
+                                <p class="formulario-input-error">El usuario tiene que ser de 4 a 16 dígitos y solo
+                                    puede contener numeros, letras y guion bajo.</p>
                             </div>
 
-                        </div>
-
-                        <div class="spac-betw">
-                            <div class="card border w50 mr10 ml10 mrt">
-                                <div class="form-group mr10 ml10">
-                                    <label for="nombre">Nombre</label> <input type="text" class="form-control"
-                                        id="nombre" name="nombre" required placeholder="Ingrese su Nombre"
-                                        autocomplete="off">
+                            <!-- Grupo: Password -->
+                            <div class="card formulario-grupo">
+                                <label for="password" class="formulario-label">Contraseña</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="password" class="formulario-input" id="password" name="password"
+                                        required placeholder="Ingrese su Contraseña" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
                                 </div>
+                                <p class="formulario-input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
                             </div>
 
-                            <div class="card border w50 mr10 ml10 mrt">
-                                <div class="form-group mr10 ml10">
-                                    <label for="apellido">Apellido</label> <input type="text" class="form-control"
-                                        id="apellido" name="apellido" required placeholder="Ingrese su Apellido"
-                                        autocomplete="off">
+                            <!-- Grupo: Password 2 -->
+                            <div class="card formulario-grupo">
+                                <label for="password2" class="formulario-label">Confirmar Contraseña</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="password" class="formulario-input" id="password2" name="password2"
+                                        required placeholder="Confirme su Contraseña" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
                                 </div>
+                                <p class="formulario-input-error">Ambas contraseñas deben ser iguales.</p>
                             </div>
-                        </div>
 
-                        <div class="spac-betw mrb">
-                            <div class="card border w50 mr10 ml10 mrt">
-                                <div class="form-group mr10 ml10">
-                                    <label for="documento">DNI / CI / Pasaporte / Otro:</label> <input type="text"
-                                        class="form-control" id="documento" name="documento"
+
+                            <!-- Grupo: Nombre -->
+                            <div class="card formulario-grupo">
+                                <label for="nombre" class="formulario-label">Nombre</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="text" class="formulario-input" id="nombre" name="nombre" required
+                                        placeholder="Ingrese su Nombre" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
+                                </div>
+                                <p class="formulario-input-error">El usuario tiene que ser de 4 a 16 dígitos y solo
+                                    puede contener numeros, letras y guion bajo.</p>
+                            </div>
+
+                            <!-- Grupo: Apellido -->
+                            <div class="card formulario-grupo">
+                                <label for="apellido" class="formulario-label">Apellido</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="text" class="formulario-input" id="apellido" name="apellido" required
+                                        placeholder="Ingrese su Apellido" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
+                                </div>
+                                <p class="formulario-input-error">El usuario tiene que ser de 4 a 16 dígitos y solo
+                                    puede contener numeros, letras y guion bajo.</p>
+                            </div>
+
+
+                            <!-- Grupo: DNI -->
+                            <div class="card formulario-grupo">
+                                <label for="documento" class="formulario-label">DNI / CI / Pasaporte / Otro:</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="text" class="formulario-input" id="documento" name="documento"
                                         placeholder="Ing. su Doc. (opcional)" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
                                 </div>
+                                <p>¡Necesario para entregas a domicilio!</p>
+                                <p class="formulario-input-error">El DNI solo puede contener números y el máximo son 8
+                                    dígitos.</p>
                             </div>
 
-                            <div class="card border w50 mr10 ml10 mrt">
-                                <div class="form-group mr10 ml10">
-                                    <label for="telefono">Teléfono</label> <input type="text" class="form-control"
-                                        id="telefono" name="telefono" required placeholder="(Sin espacios ni guiones)"
-                                        autocomplete="off">
+                            <!-- Grupo: Teléfono -->
+                            <div class="card formulario-grupo">
+                                <label for="telefono" class="formulario-label">Teléfono</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="text" class="formulario-input" id="telefono" name="telefono" required
+                                        placeholder="(Sin espacios ni guiones)" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card border mrt">
-                        <h4 class="mrt ml10">Datos para la Entrega</h4>
-                        <div class="spac-betw">
-                            <div class="card border w50 mr10 ml10 mrt">
-                                <div class="form-group mr10 ml10">
-                                    <label for="direccion">Calle:</label> <input type="text" class="form-control"
-                                        id="direccion" name="direccion" required placeholder="Ingrese su Calle"
-                                        autocomplete="off">
-                                </div>
-                            </div>
-
-                            <div class="card border w50 mr10 ml10 mrt">
-                                <div class="form-group mr10 ml10">
-                                    <label for="altura">Nro:</label> <input type="text" class="form-control" id="altura"
-                                        name="altura" required placeholder="Ingrese el Número" autocomplete="off">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="spac-betw">
-                            <div class="card border w50 mr10 ml10 mrt">
-                                <div class="form-group mr10 ml10">
-                                    <label for="piso">Piso:</label> <input type="text" class="form-control" id="piso"
-                                        name="piso" required placeholder="Ingrese su Piso" autocomplete="off">
-                                </div>
-                            </div>
-
-                            <div class="card border w50 mr10 ml10 mrt">
-                                <div class="form-group mr10 ml10">
-                                    <label for="depto">Depto:</label> <input type="text" class="form-control" id="depto"
-                                        name="depto" required placeholder="Ingrese su Depto" autocomplete="off">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="spac-betw mrb">
-                            <div class="card border w50 mr10 ml10 mrt">
-                                <div class="form-group mr10 ml10">
-                                    <label for="localidad">Localidad:</label> <input type="text" class="form-control"
-                                        id="localidad" name="localidad" required placeholder="Ingrese su Localidad"
-                                        autocomplete="off">
-                                </div>
-                            </div>
-
-                            <div class="card border w50 mr10 ml10 mrt">
-                                <div class="form-group mr10 ml10">
-                                    <label for="provincia">Provincia:</label> <input type="text" class="form-control"
-                                        id="provincia" name="provincia" required placeholder="Ingrese su Provincia"
-                                        autocomplete="off">
-                                </div>
+                                <p class="formulario-input-error">El telefono solo puede contener numeros y el maximo
+                                    son 14 dígitos.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group w100 mrt">
-                        <div class="col-sm-12 center">
-                            <button type="submit" class="btn btn-dark"><img class="w25" th:src="@{/img/guardar.png}" alt="guardar">
-                                Guardar</button>
+            <div class="card border mrt">
+                <h4 class="mrt ml10">Datos para la Entrega</h4>
+
+                <div class="formulario" id="formulario">
+                    <!-- Grupo: Dirección -->
+                    <div class="card formulario-grupo">
+                        <label for="direccion" class="formulario-label">Calle:</label>
+                        <div class="formulario-grupo-input">
+                            <input type="text" class="formulario-input" id="direccion" name="direccion" required
+                                placeholder="Ingrese su Calle" autocomplete="off">
                         </div>
                     </div>
-                </form>
+
+                    <!-- Grupo: Nro -->
+                    <div class="card formulario-grupo">
+                        <label for="altura" class="formulario-label">Nro:</label>
+                        <div class="formulario-grupo-input">
+                            <input type="text" class="formulario-input" id="altura" name="altura" required
+                                placeholder="Ingrese el Número" autocomplete="off">
+                        </div>
+                    </div>
+
+
+                    <!-- Grupo: Piso -->
+                    <div class="card formulario-grupo">
+                        <label for="piso" class="formulario-label">Piso:</label>
+                        <div class="formulario-grupo-input">
+                            <input type="text" class="formulario-input" id="piso" name="piso" required
+                                placeholder="Ingrese su Piso" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <!-- Grupo: Depto -->
+                    <div class="card formulario-grupo">
+                        <label for="depto" class="formulario-label">Depto:</label>
+                        <div class="formulario-grupo-input">
+                            <input type="text" class="formulario-input" id="depto" name="depto" required
+                                placeholder="Ingrese su Depto" autocomplete="off">
+                        </div>
+                    </div>
+
+
+                    <!-- Grupo: Localidad -->
+                    <div class="card formulario-grupo">
+                        <label for="localidad" class="formulario-label">Localidad:</label>
+                        <div class="formulario-grupo-input">
+                            <input type="text" class="formulario-input" id="localidad" name="localidad" required
+                                placeholder="Ingrese su Localidad" autocomplete="off">
+                        </div>
+                    </div>
+                    <!-- Grupo: Provincia -->
+                    <div class="card formulario-grupo">
+                        <label for="provincia" class="formulario-label">Provincia:</label>
+                        <div class="formulario-grupo-input">
+                            <input type="text" class="formulario-input" id="provincia" name="provincia" required
+                                placeholder="Ingrese su Provincia" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <div class="formulario-mensaje mrt" id="formulario-mensaje">
+                <p><i class="fa-solid fa-triangle-exclamation"></i> Error: ¡Por favor completá el
+                    formulario correctamente!</p>
+            </div>
+
+            <div>
+                <p class="formulario-mensaje-exito mrt" id="formulario-mensaje-exito"><i
+                        class="fa-solid fa-circle-check"></i> ¡Ok! ¡El formulario se envió
+                    correctamente!
+                </p>
+            </div>
+
+            <div class="form-group w100 mrt">
+                <div class="col-sm-12 center">
+                    <button type="submit" class="btn btn-dark"><img class="w25" th:src="@{/img/guardar.png}"
+                            alt="guardar">
+                        Guardar</button>
+                </div>
+            </div>
+            </form>
         </div>
+        <!-- </div> -->
 
         <br>
 
     </div>
 
-    <!-- Footer -->
-    <div th:insert="~{usuario/template_usuario.html::footer}"></div>
+
 
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+    <script th:src="@{/js/script.js}"></script>
+    <script src="https://kit.fontawesome.com/80ba51f8fa.js" crossorigin="anonymous"></script>
+
+    <!-- Footer -->
+
+    <div th:insert="~{usuario/template_usuario.html::footer}"></div>
+
 </body>
 
 </html>

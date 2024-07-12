@@ -21,7 +21,7 @@ public class Usuario {
     private String nombre;
     private String apellido;
     private String documento;
-    private String usarname;
+    private String username;
     private String email;
     private String provincia;
     private String localidad;
@@ -43,12 +43,12 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Integer Id, String nombre, String apellido, String documento, String usarname, String email, String provincia, String localidad, String direccion, String altura, String piso, String depto, String telefono, String tipo, String password, String foto) {
+    public Usuario(Integer Id, String nombre, String apellido, String documento, String username, String email, String provincia, String localidad, String direccion, String altura, String piso, String depto, String telefono, String tipo, String password, String foto) {
         this.Id = Id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.documento = documento;
-        this.usarname = usarname;
+        this.username = username;
         this.email = email;
         this.provincia = provincia;
         this.localidad = localidad;
@@ -94,12 +94,12 @@ public class Usuario {
         this.documento = documento;
     }
 
-    public String getUsarname() {
-        return usarname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsarname(String usarname) {
-        this.usarname = usarname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -208,7 +208,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "Id=" + Id + ", nombre=" + nombre + ", apellido=" + apellido + ", documento=" + documento + ", usarname=" + usarname + ", email=" + email + ", provincia=" + provincia + ", localidad=" + localidad + ", direccion=" + direccion + ", altura=" + altura + ", piso=" + piso + ", depto=" + depto + ", telefono=" + telefono + ", tipo=" + tipo + ", password=" + password + ", foto=" + foto + '}';
+        return "Usuario{" + "Id=" + Id + ", nombre=" + nombre + ", apellido=" + apellido + ", documento=" + documento + ", username=" + username + ", email=" + email + ", provincia=" + provincia + ", localidad=" + localidad + ", direccion=" + direccion + ", altura=" + altura + ", piso=" + piso + ", depto=" + depto + ", telefono=" + telefono + ", tipo=" + tipo + ", password=" + password + ", foto=" + foto + '}';
     }
 
 }
