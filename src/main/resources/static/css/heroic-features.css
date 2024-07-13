@@ -983,6 +983,7 @@ input[type=file] {
     font-size: 12px;
     margin-bottom: 0;
     display: none;
+    padding: 10px;
 }
 
 .formulario-input-error-activo {
@@ -995,10 +996,12 @@ input[type=file] {
     bottom: 25px;
     z-index: 100;
     font-size: 16px;
-    /* opacity: 0; */
+    opacity: 0;
+    width: 100%;
 }
 
 .formulario-mensaje {
+    position: relative;
     height: 45px;
     line-height: 45px;
     background-color: #f66068;
@@ -1018,9 +1021,10 @@ input[type=file] {
 }
 
 .formulario-mensaje-exito {
+    position: relative;
     height: 45px;
     line-height: 45px;
-    background-color: #62f56e;
+    background-color: #1cf02e;
     color: #fff;
     padding: 0 15px;
     border-radius: 3px;
@@ -1052,14 +1056,18 @@ input[type=file] {
     border: 2px solid #db2323;
 }
 
+.formulario-grupo-correcto .formulario-input {
+    border: 2px solid #62f56e;
+}
+
 /* Fin Estilos para validaciones */
 
 /* Mediaqueries */
 @media screen and (max-width: 480px) {
-   .container {
-    width: 90%;
-   }
-   
+    .container {
+        width: 90%;
+    }
+
     .formulario {
         grid-template-columns: 1fr;
     }
