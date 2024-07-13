@@ -10,8 +10,6 @@
 
     <title>eCommerce</title>
 
-    <!-- <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"> -->
-
     <!-- Bootstrap core CSS -->
     <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
@@ -28,21 +26,21 @@
     <br><br><br>
 
     <!-- Page Content -->
-    <div class="container w75">
+    <div class="centrado">
         <div class="card h-100 border">
             <div class="centrado mrt">
                 <img class="card-img-top w150" th:src="@{/img/registrate.png}" alt="login">
             </div>
             <h2 class="centrado">¡Registrate!</h2>
             <div class="card-body">
-                <form th:action="@{/usuario/save}" method="post" enctype="multipart/form-data">
+                <form id="formulario" th:action="@{/usuario/save}" method="post" enctype="multipart/form-data">
 
                     <div class="card border">
                         <h4 class="mrt ml10">Datos Personales</h4>
 
                         <div class="card border mr10 ml10 mrt">
                             <div class="form-group w90 mr10 ml10">
-                                <label class="control-label" for="img">Foto: (opcional)</label>
+                                <label class="formulario-label" for="img">Foto: (opcional)</label>
                                 <div class="col-sm-6">
                                     <label for="img" class="btn btn-dark"><img class="w20"
                                             th:src="@{/img/felicidad.png}" alt="emogi"> Subí tu foto</label>
@@ -51,195 +49,244 @@
                             </div>
                         </div>
 
-                        <div class="formulario" id="formulario">
+                        <div class="formulario">
                             <!-- Grupo: Email -->
                             <div class="card formulario-grupo" id="grupo-email">
                                 <label for="email" class="formulario-label">email</label>
                                 <div class="formulario-grupo-input">
                                     <input type="email" class="formulario-input" id="email" name="email" required
                                         placeholder="Ingrese su email" autocomplete="off">
-                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                    <!-- <img class="formulario-validacion-estado error" style="width: 16px; height: 16px;" -->
+                                    <!-- th:src="@{/img/error.png}" alt=""> -->
                                 </div>
                                 <p class="formulario-input-error">El correo solo puede contener letras, numeros,
                                     puntos, guiones y guion bajo.</p>
                             </div>
 
                             <!-- Grupo: Username -->
-                            <div class="card formulario-grupo">
+                            <div class="card formulario-grupo" id="grupo-username">
                                 <label for="username" class="formulario-label">Nombre Usuario</label>
                                 <div class="formulario-grupo-input">
                                     <input type="text" class="formulario-input" id="username" name="username" required
                                         placeholder="Nombre de Usuario" autocomplete="off">
-                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                    <!-- <img class="formulario-validacion-estado error" style="width: 16px; height: 16px; opacity: 0;"
+                                        th:src="@{/img/error.png}" alt="">
+                                    <img class="formulario-validacion-estado aprobado" style="width: 16px; height: 16px; opacity: 0;"
+                                        th:src="@{/img/aprobado.png}" alt=""> -->
                                 </div>
                                 <p class="formulario-input-error">El usuario tiene que ser de 4 a 16 dígitos y solo
                                     puede contener numeros, letras y guion bajo.</p>
                             </div>
 
                             <!-- Grupo: Password -->
-                            <div class="card formulario-grupo">
+                            <div class="card formulario-grupo" id="grupo-password">
                                 <label for="password" class="formulario-label">Contraseña</label>
                                 <div class="formulario-grupo-input">
                                     <input type="password" class="formulario-input" id="password" name="password"
                                         required placeholder="Ingrese su Contraseña" autocomplete="off">
-                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                    <!-- <img class="formulario-validacion-estado" style="width: 16px; height: 16px;"
+                                        th:src="@{/img/error.png}" alt=""> -->
                                 </div>
-                                <p class="formulario-input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+                                <p class="formulario-input-error">La contraseña tiene que ser de 6 a 12 dígitos.</p>
                             </div>
 
                             <!-- Grupo: Password 2 -->
-                            <div class="card formulario-grupo">
+                            <div class="card formulario-grupo" id="grupo-password2">
                                 <label for="password2" class="formulario-label">Confirmar Contraseña</label>
                                 <div class="formulario-grupo-input">
                                     <input type="password" class="formulario-input" id="password2" name="password2"
                                         required placeholder="Confirme su Contraseña" autocomplete="off">
-                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                    <!-- <img class="formulario-validacion-estado" style="width: 16px; height: 16px;"
+                                        th:src="@{/img/error.png}" alt=""> -->
                                 </div>
                                 <p class="formulario-input-error">Ambas contraseñas deben ser iguales.</p>
                             </div>
 
 
                             <!-- Grupo: Nombre -->
-                            <div class="card formulario-grupo">
+                            <div class="card formulario-grupo" id="grupo-nombre">
                                 <label for="nombre" class="formulario-label">Nombre</label>
                                 <div class="formulario-grupo-input">
                                     <input type="text" class="formulario-input" id="nombre" name="nombre" required
                                         placeholder="Ingrese su Nombre" autocomplete="off">
-                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                    <!-- <img class="formulario-validacion-estado" style="width: 16px; height: 16px;"
+                                        th:src="@{/img/error.png}" alt=""> -->
                                 </div>
-                                <p class="formulario-input-error">El usuario tiene que ser de 4 a 16 dígitos y solo
-                                    puede contener numeros, letras y guion bajo.</p>
+                                <p class="formulario-input-error">El nombre tiene que ser de 4 a 16 dígitos y no
+                                    puede contener numeros, signos ni guiones.</p>
                             </div>
 
                             <!-- Grupo: Apellido -->
-                            <div class="card formulario-grupo">
+                            <div class="card formulario-grupo" id="grupo-apellido">
                                 <label for="apellido" class="formulario-label">Apellido</label>
                                 <div class="formulario-grupo-input">
                                     <input type="text" class="formulario-input" id="apellido" name="apellido" required
                                         placeholder="Ingrese su Apellido" autocomplete="off">
-                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                    <!-- <img class="formulario-validacion-estado" style="width: 16px; height: 16px;"
+                                        th:src="@{/img/error.png}" alt=""> -->
                                 </div>
-                                <p class="formulario-input-error">El usuario tiene que ser de 4 a 16 dígitos y solo
-                                    puede contener numeros, letras y guion bajo.</p>
+                                <p class="formulario-input-error">El apellido tiene que ser de 2 a 16 dígitos y no
+                                    puede contener numeros, signos ni guiones.</p>
                             </div>
 
 
-                            <!-- Grupo: DNI -->
-                            <div class="card formulario-grupo">
+                            <!-- Grupo: Documento -->
+                            <div class="card formulario-grupo" id="grupo-documento">
                                 <label for="documento" class="formulario-label">DNI / CI / Pasaporte / Otro:</label>
                                 <div class="formulario-grupo-input">
                                     <input type="text" class="formulario-input" id="documento" name="documento"
                                         placeholder="Ing. su Doc. (opcional)" autocomplete="off">
-                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                    <!-- <img class="formulario-validacion-estado" style="width: 16px; height: 16px;"
+                                        th:src="@{/img/error.png}" alt=""> -->
                                 </div>
-                                <p>¡Necesario para entregas a domicilio!</p>
-                                <p class="formulario-input-error">El DNI solo puede contener números y el máximo son 8
-                                    dígitos.</p>
+                                <!-- <p>¡Necesario para entregas a domicilio!</p> -->
+                                <p class="formulario-input-error">El documento solo puede contener entre 7 y 8 números.</p>
                             </div>
 
                             <!-- Grupo: Teléfono -->
-                            <div class="card formulario-grupo">
+                            <div class="card formulario-grupo" id="grupo-telefono">
                                 <label for="telefono" class="formulario-label">Teléfono</label>
                                 <div class="formulario-grupo-input">
                                     <input type="text" class="formulario-input" id="telefono" name="telefono" required
                                         placeholder="(Sin espacios ni guiones)" autocomplete="off">
-                                    <i class="formulario-validacion-estado fas fa-times-circle"></i>
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                    <!-- <img class="formulario-validacion-estado" style="width: 16px; height: 16px;"
+                                        th:src="@{/img/error.png}" alt=""> -->
                                 </div>
-                                <p class="formulario-input-error">El telefono solo puede contener numeros y el maximo
-                                    son 14 dígitos.</p>
+                                <p class="formulario-input-error">El teléfono solo puede contener entre 10 y 14 numeros.</p>
                             </div>
                         </div>
                     </div>
 
-            <div class="card border mrt">
-                <h4 class="mrt ml10">Datos para la Entrega</h4>
+                    <div class="card border mrt">
+                        <h4 class="mrt ml10">Datos para la Entrega</h4>
 
-                <div class="formulario" id="formulario">
-                    <!-- Grupo: Dirección -->
-                    <div class="card formulario-grupo">
-                        <label for="direccion" class="formulario-label">Calle:</label>
-                        <div class="formulario-grupo-input">
-                            <input type="text" class="formulario-input" id="direccion" name="direccion" required
-                                placeholder="Ingrese su Calle" autocomplete="off">
+                        <div class="formulario" id="">
+                            <!-- Grupo: Dirección -->
+                            <div class="card formulario-grupo" id="grupo-direccion">
+                                <label for="direccion" class="formulario-label">Calle:</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="text" class="formulario-input" id="direccion" name="direccion" required
+                                        placeholder="Ingrese su Calle" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                </div>
+                                <p class="formulario-input-error">La dirección solo puede contener hasta 20 caracteres.</p>
+                            </div>
+
+                            <!-- Grupo: Nro -->
+                            <div class="card formulario-grupo" id="grupo-altura">
+                                <label for="altura" class="formulario-label">Nro:</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="text" class="formulario-input" id="altura" name="altura" required
+                                        placeholder="Ingrese el Número" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                </div>
+                                <p class="formulario-input-error">La altura solo puede contener hasta 5 números.</p>
+                            </div>
+
+
+                            <!-- Grupo: Piso -->
+                            <div class="card formulario-grupo" id="grupo-piso">
+                                <label for="piso" class="formulario-label">Piso:</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="text" class="formulario-input" id="piso" name="piso" required
+                                        placeholder="Ingrese su Piso" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                </div>
+                                <p class="formulario-input-error">El piso solo puede contener 2 caracteres.</p>
+                            </div>
+
+                            <!-- Grupo: Depto -->
+                            <div class="card formulario-grupo" id="grupo-depto">
+                                <label for="depto" class="formulario-label">Depto:</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="text" class="formulario-input" id="depto" name="depto" required
+                                        placeholder="Ingrese su Depto" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                </div>
+                                <p class="formulario-input-error">El depto solo puede contener 2 caracteres.</p>
+                            </div>
+
+
+                            <!-- Grupo: Localidad -->
+                            <div class="card formulario-grupo" id="grupo-localidad">
+                                <label for="localidad" class="formulario-label">Localidad:</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="text" class="formulario-input" id="localidad" name="localidad" required
+                                        placeholder="Ingrese su Localidad" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                </div>
+                                <p class="formulario-input-error">La localidad debe contener entre 4 y 16 letras.</p>
+                            </div>
+                            <!-- Grupo: Provincia -->
+                            <div class="card formulario-grupo" id="grupo-provincia">
+                                <label for="provincia" class="formulario-label">Provincia:</label>
+                                <div class="formulario-grupo-input">
+                                    <input type="text" class="formulario-input" id="provincia" name="provincia" required
+                                        placeholder="Ingrese su Provincia" autocomplete="off">
+                                    <i class="formulario-validacion-estado fas fa-times-circle"
+                                        style="width: 16px; height: 16px;"></i>
+                                </div>
+                                <p class="formulario-input-error">La provincia debe contener entre 5 y 16 letras.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Grupo: Nro -->
-                    <div class="card formulario-grupo">
-                        <label for="altura" class="formulario-label">Nro:</label>
-                        <div class="formulario-grupo-input">
-                            <input type="text" class="formulario-input" id="altura" name="altura" required
-                                placeholder="Ingrese el Número" autocomplete="off">
-                        </div>
+                    <div class="formulario-mensaje mrt" id="formulario-mensaje">
+                        <p><img class="formulario-validacion-estado"
+                                style="width: 25px; height: 25px; left: 20px; bottom: 12px;"
+                                th:src="@{/img/advertencia.png}" alt=""> Error: ¡Por favor completá el
+                            formulario correctamente!</p>
                     </div>
 
-
-                    <!-- Grupo: Piso -->
-                    <div class="card formulario-grupo">
-                        <label for="piso" class="formulario-label">Piso:</label>
-                        <div class="formulario-grupo-input">
-                            <input type="text" class="formulario-input" id="piso" name="piso" required
-                                placeholder="Ingrese su Piso" autocomplete="off">
-                        </div>
+                    <div>
+                        <p class="formulario-mensaje-exito mrt" id="formulario-mensaje-exito"><img
+                                class="formulario-validacion-estado"
+                                style="width: 25px; height: 25px; left: 20px; bottom: 12px;" th:src="@{/img/ok.png}"
+                                alt=""> ¡Ok! ¡El formulario se envió
+                            correctamente!
+                        </p>
                     </div>
 
-                    <!-- Grupo: Depto -->
-                    <div class="card formulario-grupo">
-                        <label for="depto" class="formulario-label">Depto:</label>
-                        <div class="formulario-grupo-input">
-                            <input type="text" class="formulario-input" id="depto" name="depto" required
-                                placeholder="Ingrese su Depto" autocomplete="off">
+                    <div class="form-group w100 mrt">
+                        <div class="col-sm-12 center">
+                            <button type="submit" class="btn btn-dark"><img class="w25" th:src="@{/img/guardar.png}"
+                                    alt="guardar">
+                                Guardar</button>
                         </div>
                     </div>
-
-
-                    <!-- Grupo: Localidad -->
-                    <div class="card formulario-grupo">
-                        <label for="localidad" class="formulario-label">Localidad:</label>
-                        <div class="formulario-grupo-input">
-                            <input type="text" class="formulario-input" id="localidad" name="localidad" required
-                                placeholder="Ingrese su Localidad" autocomplete="off">
-                        </div>
-                    </div>
-                    <!-- Grupo: Provincia -->
-                    <div class="card formulario-grupo">
-                        <label for="provincia" class="formulario-label">Provincia:</label>
-                        <div class="formulario-grupo-input">
-                            <input type="text" class="formulario-input" id="provincia" name="provincia" required
-                                placeholder="Ingrese su Provincia" autocomplete="off">
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
-
-            <div class="formulario-mensaje mrt" id="formulario-mensaje">
-                <p><i class="fa-solid fa-triangle-exclamation"></i> Error: ¡Por favor completá el
-                    formulario correctamente!</p>
-            </div>
-
-            <div>
-                <p class="formulario-mensaje-exito mrt" id="formulario-mensaje-exito"><i
-                        class="fa-solid fa-circle-check"></i> ¡Ok! ¡El formulario se envió
-                    correctamente!
-                </p>
-            </div>
-
-            <div class="form-group w100 mrt">
-                <div class="col-sm-12 center">
-                    <button type="submit" class="btn btn-dark"><img class="w25" th:src="@{/img/guardar.png}"
-                            alt="guardar">
-                        Guardar</button>
-                </div>
-            </div>
-            </form>
         </div>
-        <!-- </div> -->
 
         <br>
 
     </div>
 
+    <br>
+    <!-- Footer -->
 
+    <div th:insert="~{usuario/template_usuario.html::footer}"></div>
 
     <!-- Bootstrap core JavaScript -->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
@@ -248,9 +295,7 @@
     <script th:src="@{/js/script.js}"></script>
     <script src="https://kit.fontawesome.com/80ba51f8fa.js" crossorigin="anonymous"></script>
 
-    <!-- Footer -->
 
-    <div th:insert="~{usuario/template_usuario.html::footer}"></div>
 
 </body>
 
