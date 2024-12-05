@@ -140,16 +140,16 @@
                             <div class="center w70">
                                 <img class="w25 circle" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
                             </div>
-                            <p class="user-name" th:text="${usuario.nombre}"></p>
+                            <p class="user-name" th:text="${usuario.username}"></p>
                         </div>
                         <ul class="dropdown-menu dropdown-menu-dark w220 mr30">
                             <li class="ml10 mr10 mrt-5">
                                 <div class="card border center" style="justify-content: center; align-items: center;">
                                     <div class="w100 h-50"
                                         style="background-color: rgb(57, 57, 57); border-top-left-radius: 3px; border-top-right-radius: 3px;">
-                                        <h6 class="white mrt-5" th:text="${usuario.nombre}"></h6>
+                                        <h6 class="white mrt-5" th:text="${usuario.username}"></h6>
                                     </div>
-                                    <img class="circle w-50 h-50 mrt-5" th:src="@{/images/{img} (img=${usuario.foto})}"
+                                    <img class="circle mrt-5" style="width: 70px; height: 70px;" th:src="@{/images/{img} (img=${usuario.foto})}"
                                         alt="img">
 
                                     <h6 th:text="${usuario.nombre + ' ' + usuario.apellido}"></h6>
