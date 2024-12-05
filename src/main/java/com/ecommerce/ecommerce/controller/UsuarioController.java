@@ -96,7 +96,7 @@ public class UsuarioController {
 
         usuarioService.save(usuario);
 
-        return "redirect:/";
+        return "redirect:/usuario/login";
     }
 
     @GetMapping("/editUser/{id}")
