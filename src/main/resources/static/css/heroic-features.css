@@ -16,7 +16,8 @@ body {
 .content {
     display: flex;
     /* flex-wrap: wrap; */
-    height: 1300px;
+    height: 1250px;
+    /* height: 1300px; */
     justify-content: space-between;
     flex-direction: column;
 }
