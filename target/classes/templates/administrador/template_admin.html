@@ -1,0 +1,151 @@
+<div th:fragment="header">
+
+    <nav class="header-personalizado">
+
+        <div class="contenedor-header">
+
+            <div class="header-logo" th:each="empres:${empresa}">
+                <a th:href="@{/administrador}">
+                    <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
+                    <p th:text="${empres.razonSocial}" style="color: white;"></p>
+                </a>
+            </div>
+
+            <div class="header-menu">
+                <a th:href="@{/promos/show}">
+                    <img class="width-ico" th:src="@{/img/cupon-blanco.png}" alt="promos">
+                    <p>Promos</p>
+                </a>
+                <a th:href="@{/empresa/show}">
+                    <img class="width-ico" th:src="@{/img/maletin-blanco.png}" alt="empresa">
+                    <p>Empresa</p>
+                </a>
+                <a th:href="@{/productos}">
+                    <img class="width-ico" th:src="@{/img/cajas-blanco.png}" alt="productos">
+                    <p>Productos</p>
+                </a>
+                <a th:href="@{/administrador/usuarios}">
+                    <img class="width-ico" th:src="@{/img/users.png}" alt="usuarios">
+                    <p>Usuarios</p>
+                </a>
+                <a th:href="@{/administrador/ordenes}">
+                    <img class="width-ico" th:src="@{/img/lista-blanco.png}" alt="orden">
+                    <p>Ordenes</p>
+                </a>
+                <!-- Usuario con dropdown -->
+                <div class="usersession mrt-10 mr30" th:fragment="header-username">
+                    <div class="dropdown mr30">
+                        <div class="width-ico mr30" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="center w70">
+                                <img class="w25 circle" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
+                            </div>
+                            <p class="user-name" th:text="${usuario.nombre}"></p>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-dark w220 mr30">
+                            <li class="ml10 mr10 mrt-5">
+                                <div class="card border center" style="justify-content: center; align-items: center;">
+                                    <div class="w100 h-50"
+                                        style="background-color: rgb(57, 57, 57); border-top-left-radius: 3px; border-top-right-radius: 3px;">
+                                        <h6 class="white mrt-5" th:text="${usuario.tipo}"></h6>
+                                    </div>
+
+                                    <img class="circle w-50 h-50 mrt-5" th:src="@{/images/{img} (img=${usuario.foto})}"
+                                        alt="img">
+                                    <h6 th:text="${usuario.nombre + ' ' + usuario.apellido}"></h6>
+
+                                    <p th:text="${usuario.email}"></p>
+                                </div>
+                            </li>
+                            <br>
+                            <li class="card border ml10 mr10"><a class="black"
+                                    th:href="@{/administrador/editUser/{id} (id=${usuario.id}) }"><img class="w20"
+                                        th:src="@{/img/sobre-nosotros-negro.png}" alt="usuario">
+                                    Editar Perfil</a>
+                            </li>
+                            <li class="card border ml10 mr10 mrt-5"><a class="black"
+                                    th:href="@{/administrador/cambiarContrasena/{id} (id=${usuario.id}) }"><img
+                                        class="w20" th:src="@{/img/contrasena.png}" alt="usuario">
+                                    Editar Contraseña</a>
+                            </li>
+                            <li class="card border ml10 mr10 mrt-5 left">
+                                <a class="black" th:href="@{/promos/show}">
+                                    <img class="w20" th:src="@{/img/cupon-negro.png}" alt="promos">
+                                    Promociones
+                                </a>
+                            </li>
+                            <li class="card border ml10 mr10 mrt-5">
+                                <a class="black mr20" th:href="@{/empresa/show}">
+                                    <img class="w20" th:src="@{/img/maletin-negro.png}" alt="promos">
+                                    Empresa
+                                </a>
+                            </li>
+                            <li class="card border  ml10 mr10 mrt-5">
+                                <a class="black" th:href="@{/productos}">
+                                    <img class="w20" th:src="@{/img/cajas-negro.png}" alt="promos">
+                                    Productos
+                                </a>
+                            </li>
+                            <li class="card border ml10 mr10 mrt-5">
+                                <a class="black" th:href="@{/administrador/usuarios}">
+                                    <img class="w20" th:src="@{/img/usuarios.png}" alt="promos">
+                                    Usuarios
+                                </a>
+                            </li>
+                            <li class="card border ml10 mr10 mrt-5">
+                                <a class="black mr20" th:href="@{/administrador/ordenes}">
+                                    <img class="w20" th:src="@{/img/lista-negro.png}" alt="promos">
+                                    Ordenes
+                                </a>
+                            </li>
+                            <li class="card border ml10 mr10 mrt-5"><a class="black" th:href="@{/usuario/cerrar}"><img
+                                        class="w20" th:src="@{/img/btn_power.png}" alt="salir"> Cerrar Sesión</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Fin Usuario con dropdown -->
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div th:fragment="header-usuario">
+    <div class="header-user">
+        <h6>Administrador</h6>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div th:fragment="footer">
+    <footer class="footer-personalizado" th:each="empres:${empresa}">
+        <div class="contenedor-footer">
+            <div class="white ml30 interlineado">
+                <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
+                <p th:text="${empres.razonSocial}"></p>
+                <p th:text="${empres.direccion} + ' - ' + ${empres.localidad}"></p>
+                <p th:text="${empres.provincia} + ' - ' + ${empres.pais}"></p>
+            </div>
+            <div class="white mr30 mrt interlineado">
+                <br>
+                <p th:text="${empres.email}"></p>
+                <p th:text="${empres.telefono}"></p>
+                <p th:text="'Copyright &copy; ' + ${empres.razonSocial} + '. All Rigths Reserved'"></p>
+                <div class="">
+                    <a href="" class="mr30">
+                        <img class="width-redes" th:src="@{/img/facebook.png}" alt="facebook">
+                    </a>
+                    <a href="" class="mr30">
+                        <img class="width-redes" th:src="@{/img/instagram.png}" alt="instagram">
+                    </a>
+                    <a href="" class="mr30">
+                        <img class="width-redes" th:src="@{/img/twitter.png}" alt="twitter">
+                    </a>
+                    <a href="" class="mr30">
+                        <img class="width-redes" th:src="@{/img/whatsapp.png}" alt="whatsapp">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>eCommerce</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div th:insert="~{administrador/template_admin.html::header}"></div>
+    <br><br><br>
+    <!-- <div th:insert="~{administrador/template_admin.html::header-usuario}"></div> -->
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="mt-4 mb-3">Editar<small> Promo</small></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form class="form-horizontal" th:action="@{/promos/update}" method="post"
+                            enctype="multipart/form-data">
+
+                            <div class="card-body center" style="border: solid 1px rgb(188, 187, 187); border-radius: 5px;">
+                                
+                                <!-- Obtenemos los datos de la promo -->
+                                <input type="hidden" name="id" th:value="${promo.id}">
+
+                                <h3 th:text="'Promo ' + ${promo.ubicacion}"></h3>
+                                <br>
+                                <div class="form-group w100 centrado">
+                                    <div class="col-sm-8">
+                                        <img class="w75" th:src="@{/images/{img} (img=${promo.promo})}" alt="">
+                                        <p th:text="${promo.promo}"></p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="img" class="btn btn-dark"><img class="w25"
+                                            th:src="@{/img/camara.png}" alt="camara"> Cambiar
+                                        foto</label>
+                                        <input type="file" class="form-control-file btn" id="img" name="img">
+                                        <p id="fichero"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group w100 centrado">
+                                    <div class="col-sm-8">
+                                        <img class="w75" th:src="@{/images/{img} (img=${promo.promo2})}" alt="">
+                                        <p th:text="${promo.promo2}"></p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="img2" class="btn btn-dark"><img class="w25"
+                                            th:src="@{/img/camara.png}" alt="camara"> Cambiar
+                                        foto</label>
+                                        <input type="file" class="form-control-file btn" id="img2" name="img2">
+                                        <p id="fichero2"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group w100 centrado">
+                                    <div class="col-sm-8">
+                                        <img class="w75" th:src="@{/images/{img} (img=${promo.promo3})}" alt="">
+                                        <p th:text="${promo.promo3}"></p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="img3" class="btn btn-dark"><img class="w25"
+                                            th:src="@{/img/camara.png}" alt="camara"> Cambiar
+                                        foto</label>
+                                        <input type="file" class="form-control-file btn" id="img3" name="img3">
+                                        <p id="fichero3"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row w100 centrado">
+                                <div class="center">
+                                    <a class="btn btn-secondary mr30" th:href="@{/promos/show}"><img class="w25" th:src="@{/img/cancelar.png}" alt="cancelar"> Cancelar </a>
+                                    <button type="submit" class="btn btn-dark"><img class="w25" th:src="@{/img/guardar.png}" alt="guardar"> Guardar </button>
+                                    
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:insert="~{administrador/template_admin.html::footer}"></div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js}"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <script th:src="@{/js/script.js}"></script>
+
+</body>
+
+</html>
