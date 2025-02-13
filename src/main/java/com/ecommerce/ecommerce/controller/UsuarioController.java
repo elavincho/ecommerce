@@ -176,7 +176,7 @@ public class UsuarioController {
         // logger.info("Usuario de la bd: {}", user.get());
 
         // validacion momentanea
-        if (user.isPresent()) {
+        if (user.isPresent() && (user.get().getPassword().equals(usuario.getPassword()))) {
 
             // Obtenemos el id del usuario para usarlo en cualquier lugar de la app
             session.setAttribute("idusuario", user.get().getId());
