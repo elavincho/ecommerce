@@ -370,8 +370,7 @@ public class UsuarioController {
 
         Usuario u = new Usuario();
         u = usuarioService.get(usuario.getId()).get();
-       
-       
+      
         // Cambiamos el password del usuario
 
         if (password2.equals(password3)) {
