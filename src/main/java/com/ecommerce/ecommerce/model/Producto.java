@@ -325,5 +325,4 @@ public class Producto {
     public String toString() {
         return "Producto{" + "Id=" + Id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen + ", imagen2=" + imagen2 + ", imagen3=" + imagen3 + ", precio=" + precio + ", precioFormateado=" + precioFormateado + ", cantidad=" + cantidad + ", categoria=" + categoria + ", ubicacion=" + ubicacion + ", dato1=" + dato1 + ", datoTecnico1=" + datoTecnico1 + ", dato2=" + dato2 + ", datoTecnico2=" + datoTecnico2 + ", dato3=" + dato3 + ", datoTecnico3=" + datoTecnico3 + ", dato4=" + dato4 + ", datoTecnico4=" + datoTecnico4 + ", dato5=" + dato5 + ", datoTecnico5=" + datoTecnico5 + ", dato6=" + dato6 + ", datoTecnico6=" + datoTecnico6 + ", dato7=" + dato7 + ", datoTecnico7=" + datoTecnico7 + ", dato8=" + dato8 + ", datoTecnico8=" + datoTecnico8 + ", dato9=" + dato9 + ", datoTecnico9=" + datoTecnico9 + '}';
     }
-
 }
