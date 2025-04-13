@@ -210,5 +210,4 @@ public class Usuario {
     public String toString() {
         return "Usuario{" + "Id=" + Id + ", nombre=" + nombre + ", apellido=" + apellido + ", documento=" + documento + ", username=" + username + ", email=" + email + ", provincia=" + provincia + ", localidad=" + localidad + ", direccion=" + direccion + ", altura=" + altura + ", piso=" + piso + ", depto=" + depto + ", telefono=" + telefono + ", tipo=" + tipo + ", password=" + password + ", foto=" + foto + '}';
     }
-
 }
