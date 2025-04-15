@@ -58,7 +58,7 @@
                     <input type="file" class="form-control-file btn" id="img" name="img" th:value="${usuario.foto}">
                 </div>
             </div>
-            
+
             <div class="form-group hidden h-1">
                 <label for="nombre">Nombre:</label> <input type="text" class="form-control" id="nombre" name="nombre"
                     required placeholder="Ingrese su Nombre" autocomplete="off" th:value="${usuario.nombre}">
@@ -125,8 +125,10 @@
             </div>
 
             <div class="col-sm-12 center">
-                <button type="submit" class="btn btn-danger"><img class="w25" th:src="@{/img/bloquear.png}" alt="bloquear"> Bloquear</button>
-                <a class="btn btn-secondary ml30" th:href="@{/administrador/usuarios}"><img class="w25" th:src="@{/img/cancelar.png}" alt="cancelar"> Cancelar</a>
+                <button type="submit" class="btn btn-danger"><img class="w25" th:src="@{/img/bloquear.png}"
+                        alt="bloquear"> Bloquear</button>
+                <a class="btn btn-secondary ml30" th:href="@{/administrador/usuarios}"><img class="w25"
+                        th:src="@{/img/cancelar.png}" alt="cancelar"> Cancelar</a>
             </div>
         </form>
         <br>
@@ -139,8 +141,8 @@
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
     <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js}"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
