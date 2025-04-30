@@ -1,0 +1,224 @@
+<!-- Header usuario sin logueo-->
+<div th:fragment="header">
+    <nav class="header-personalizado">
+        <div class="contenedor-header">
+            <!-- Logo -->
+            <div class="header-logo" th:each="empres:${empresa}">
+                <a th:href="@{/}">
+                    <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
+                    <p th:text="${empres.razonSocial}" style="color: white;"></p>
+                </a>
+            </div>
+            <!-- Fin logo -->
+            <div class="header-menu mr30">
+                <!-- Buscador -->
+                <a>
+                    <div class="dropdown">
+                        <div class="width-ico" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="width-ico" th:src="@{/img/lupa.png}" alt="lupa">
+                            <p class="white">Buscar</p>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
+                                <input class="form-control mr-sm-3 ml10" type="search" placeholder="Buscar productos"
+                                    aria-label="Search" name="nombre" autocomplete="off">
+                            </form>
+
+                        </ul>
+                    </div>
+                </a>
+                <!-- Fin buscador -->
+
+                <a th:href="@{/allProducts}">
+                    <img class="width-ico" th:src="@{/img/comprar.png}" alt="allproductos">
+                    <p>Productos</p>
+                </a>
+                <a th:href="@{/usuario/login}">
+                    <img class="width-ico" th:src="@{/img/login.png}" alt="login">
+                    <p>Iniciar Sesión</p>
+                </a>
+                <a th:href="@{/usuario/registro}">
+                    <img class="width-ico" th:src="@{/img/registro.png}" alt="registro">
+                    <p>Registrate</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Fin usuario sin logueo -->
+
+<!-- Header usuario login-->
+<div th:fragment="header-login">
+    <nav class="header-personalizado">
+        <div class="contenedor-header">
+            <!-- Logo -->
+            <div class="header-logo" th:each="empres:${empresa}">
+                <a th:href="@{/}">
+                    <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
+                    <p th:text="${empres.razonSocial}" style="color: white;"></p>
+                </a>
+            </div>
+            <!-- Fin logo -->
+            <div class="header-menu mr30">
+                <a th:href="@{/usuario/registro}">
+                    <img class="w35" th:src="@{/img/registro.png}" alt="registro">
+                    <p>Registrate</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Fin usuario login -->
+
+<!-- Header usuario registro-->
+<div th:fragment="header-registro">
+    <nav class="header-personalizado">
+        <div class="contenedor-header">
+            <!-- Logo -->
+            <div class="header-logo" th:each="empres:${empresa}">
+                <a th:href="@{/}">
+                    <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
+                    <p th:text="${empres.razonSocial}" style="color: white;"></p>
+                </a>
+            </div>
+            <!-- Fin logo -->
+            <div class="header-menu mr30">
+                <a th:href="@{/usuario/login}">
+                    <img class="w35" th:src="@{/img/login.png}" alt="login">
+                    <p>Iniciar Sesión</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Fin usuario registro -->
+
+<!-- Header usuario logueado -->
+<div th:fragment="header-user">
+    <nav class="header-personalizado">
+        <div class="contenedor-header">
+            <div class="header-logo" th:each="empres:${empresa}">
+                <a th:href="@{/}">
+                    <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
+                    <p th:text="${empres.razonSocial}" style="color: white;"></p>
+                </a>
+            </div>
+            <div class="header-menu">
+                <!-- Buscador -->
+                <a>
+                    <div class="dropdown">
+                        <div class="width-ico" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="width-ico" th:src="@{/img/lupa.png}" alt="lupa">
+                            <p class="white">Buscar</p>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
+                                <input class="form-control mr-sm-3 ml10" type="search" placeholder="Buscar productos"
+                                    aria-label="Search" name="nombre" autocomplete="off">
+                            </form>
+                        </ul>
+                    </div>
+                </a>
+                <!-- Fin buscador -->
+                <a th:href="@{/allProducts}">
+                    <img class="width-ico" th:src="@{/img/comprar.png}" alt="allproductos">
+                    <p>Productos</p>
+                </a>
+                <a th:href="@{/usuario/compras}">
+                    <img class="width-ico" th:src="@{/img/compras.png}" alt="compras">
+                    <p>Mis Compras</p>
+                </a>
+                <a th:href="@{/getCart}">
+                    <img class="width-ico" th:src="@{/img/carrito.png}" alt="usuarios">
+                    <p>Carrito</p>
+                </a>
+
+                <!-- Usuario con dropdown -->
+                <div class="usersession mrt-10 mr30" th:fragment="header-username">
+                    <div class="dropdown">
+                        <div class="width-ico mr30" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                            <div class="center w70">
+                                <img class="w25 circle" th:src="@{/images/{img} (img=${usuario.foto})}" alt="img">
+                            </div>
+                            <p class="user-name" th:text="${usuario.username}"></p>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-dark w220 mr30">
+                            <li class="ml10 mr10 mrt-5">
+                                <div class="card border center" style="justify-content: center; align-items: center;">
+                                    <div class="w100 h-50"
+                                        style="background-color: rgb(57, 57, 57); border-top-left-radius: 3px; border-top-right-radius: 3px;">
+                                        <h6 class="white mrt-5" th:text="${usuario.username}"></h6>
+                                    </div>
+                                    <img class="circle mrt-5" style="width: 70px; height: 70px;" th:src="@{/images/{img} (img=${usuario.foto})}"
+                                        alt="img">
+
+                                    <h6 th:text="${usuario.nombre + ' ' + usuario.apellido}"></h6>
+                                    <p th:text="${usuario.email}"></p>
+                                </div>
+                            </li>
+                            <br>
+                            <li class="card border ml10 mr10"><a class="black"
+                                    th:href="@{/usuario/editUser/{id} (id=${usuario.id}) }"><img class="w20"
+                                        th:src="@{/img/sobre-nosotros-negro.png}" alt="usuario">
+                                    Editar Perfil</a>
+                            </li>
+                            <li class="card border ml10 mr10 mrt-5"><a class="black"
+                                    th:href="@{/usuario/cambiarContrasena/{id} (id=${usuario.id}) }"><img
+                                        class="w20" th:src="@{/img/contrasena.png}" alt="usuario">
+                                    Cambiar Contraseña</a>
+                            </li>
+                            <li class="card border ml10 mr10 mr10 mrt-5">
+                                <a th:href="@{/usuario/compras}">
+                                    <img class="w20" style="width: 20px; height: 20px;" th:src="@{/img/mis-compras.png}"
+                                        alt="compras">
+                                    Mis Compras
+                                </a>
+                            </li>
+                            <li class="card border ml10 mr10 mrt-5"><a class="black" th:href="@{/usuario/cerrar}"><img
+                                        class="w20" style="width: 20px; height: 20px;" th:src="@{/img/btn_power.png}"
+                                        alt="salir"> Cerrar Sesión</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Fin Usuario con dropdown -->
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- Footer -->
+<div th:fragment="footer">
+    <footer class="footer-personalizado" th:each="empres:${empresa}">
+        <div class="contenedor-footer">
+            <div class="white ml30 interlineado">
+                <img class="width-logo" th:src="@{/images/{img} (img=${empres.logo})}" alt="logo">
+                <p th:text="${empres.razonSocial}"></p>
+                <p th:text="${empres.direccion} + ' - ' + ${empres.localidad}"></p>
+                <p th:text="${empres.provincia} + ' - ' + ${empres.pais}"></p>
+
+            </div>
+            <div class="white mr30 mrt interlineado">
+
+                <p th:text="${empres.email}"></p>
+                <p th:text="${empres.telefono}"></p>
+                <p th:text="'Copyright &copy; ' + ${empres.razonSocial} + '. All Rigths Reserved'"></p>
+                <div class="">
+                    <a href="" class="mr30">
+                        <img class="width-redes" th:src="@{/img/facebook.png}" alt="facebook">
+                    </a>
+                    <a href="" class="mr30">
+                        <img class="width-redes" th:src="@{/img/instagram.png}" alt="instagram">
+                    </a>
+                    <a href="" class="mr30">
+                        <img class="width-redes" th:src="@{/img/twitter.png}" alt="twitter">
+                    </a>
+                    <a href="" class="mr30">
+                        <img class="width-redes" th:src="@{/img/whatsapp.png}" alt="whatsapp">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<!-- Fin footer -->
