@@ -74,12 +74,6 @@ public class PromoController {
     @PostMapping("/saveUploadMultiple")
     public String saveUploadMultiple(Model model, Promo promo, @RequestParam("img") MultipartFile file,
             @RequestParam("img2") MultipartFile file2, @RequestParam("img3") MultipartFile file3,
-            // @RequestParam("img4") MultipartFile file4, @RequestParam("img5")
-            // MultipartFile file5,
-            // @RequestParam("img6") MultipartFile file6, @RequestParam("img7")
-            // MultipartFile file7,
-            // @RequestParam("img8") MultipartFile file8, @RequestParam("img9")
-            // MultipartFile file9,
             HttpSession session)
             throws IOException {
 

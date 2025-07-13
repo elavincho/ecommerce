@@ -342,8 +342,9 @@ document.getElementById("img3").onchange = function () {
   document.getElementById("fichero3").innerHTML = this.files[0].name;
 };
 
-document.getElementById("img").onchange = function () {
-  document.getElementById("foto").innerHTML = this.files[0].name;
+// cambie getElementById img por fot
+document.getElementById("foto").onchange = function () {
+  document.getElementById("nombre_foto").innerHTML = this.files[0].name;
 };
 
 // Fin Mostrar el nombre del archivo seleccionado
