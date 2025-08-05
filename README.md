@@ -1,6 +1,6 @@
 # Sistema completo para un ecommerce
 
-Este proyecto desarrollado para gestionar un ecommerce de forma completa, desde el login de usuarios y administradores, la posibilidad de realizar compras de forma online a travez de usuarios registrados con un carrito de compras y un seguimiento de la entrega del producto por parte del cliente. En cuanto a la administración ofrece la capacidad de emitir facturas proforma, un CRUD de los productos y la ubicación de los mismos en la página principal, la administración de usuarios, datos de la empresa, creación de promociones y un seguimiento de las ventas y entrega de productos.
+Este proyecto desarrollado para gestionar un ecommerce de forma completa, desde el login de usuarios y administradores, la posibilidad de realizar compras de forma online a través de usuarios registrados con un carrito de compras y un seguimiento de la entrega del producto por parte del cliente. En cuanto a la administración ofrece la capacidad de emitir facturas proforma, un CRUD de los productos y la ubicación de los mismos en la página principal, la administración de usuarios, datos de la empresa, creación de promociones y un seguimiento de las ventas y entrega de productos.
 
 ## Tecnologías utilizadas
 - **Backend**:
@@ -18,55 +18,46 @@ Este proyecto desarrollado para gestionar un ecommerce de forma completa, desde 
 
 ## Objetivo del Proyecto
 
-Este sistema tiene como finalidad gestionar las inscripciones de egresados en actividades como un acelerador, asignando mentores técnicos de acuerdo a configuraciones de equipo, como:
-- Tamaño máximo de los equipos
-- Perfiles de egresados por equipo
-- Mentores técnicos asignados por tecnología
+Este sistema tiene la finalidad de administrar un ecommerce de forma completa, tanto desde el lado del cliente como desde la administración. Teniendo las siguientes caracteristicas:
 
-El sistema también permite manejar la comunicación vía e-mail entre los **candidatos** (egresados) y los **mentores** para hacer un seguimiento efectivo durante la mentoría.
+- Home sin necesidad del login
+- Home para clientes registrados
+- Home para el administrador
+
+El sistema también permite la recuperación de la contraseña via e-mail.
 
 ## Funcionalidades principales
-- Gestión de inscripciones y vinculación automática de mentores a los egresados
-- ABM (Alta, Baja, Modificación) de egresados, mentores, actividades y configuraciones
-- Control de los equipos según el tamaño y perfiles específicos
-- Envío de e-mails automáticos para coordinar entre candidatos y mentores
-- Seguimiento de la mentoría de los egresados
-- Documentación de la API mediante OpenAPI/Swagger
 
-## Requisitos del Sistema
-- Java 11 o superior
-- MySQL
-- Node.js y npm (para el frontend)
+### Clientes
 
-## Instrucciones de instalación
+- Registro
+- Login
+- Recuperación de la contraseña via e-mail
+- Home usuario
+- Editar perfil
+- Editar contraseña
+- Carrito de compras
+- Mis compras
+- Detalla de la compra
+- Estado de la entrega
+- Impresión del detalle de la compra
 
-1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/Frere-Luz/squad11-2024-gestion-inscripciones
-   ```
+### Administración
 
-2. **Backend**:
-   - Configurar la base de datos MySQL y modificar las propiedades en `application.properties` para establecer la conexión.
-   - Ejecutar el backend:
-     ```bash
-     mvn spring-boot:run
-     ```
-
-3. **Frontend**:
-   - Navegar a la carpeta del frontend:
-     ```bash
-     cd frontend
-     ```
-   - Instalar las dependencias:
-     ```bash
-     npm install
-     ```
-   - Ejecutar el frontend:
-     ```bash
-     npm start
-     ```
-
-4. Acceder a la aplicación  ` Front-end http://localhost:5173/ o ApiRest http://localhost:3000` y la API desde `http://localhost:8080/swagger-ui.html`.
+- Registro
+- Login
+- Recuperacion de la contraseña via e-mail
+- Home administrador
+- Editar perfil
+- Editar contraseña
+- CRUD de promociones
+- CRUD de datos de la empresa
+- CRUD de productos
+- Gestión de Usuarios
+- Ordenes de compra
+- Entrega de compras
+- Emisión de factura proforma
+- Impresión de la factura proforma
 
 ## Mejores Prácticas
 - Uso de **buenas prácticas UX/UI** para facilitar la experiencia del usuario.
