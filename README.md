@@ -65,12 +65,12 @@ El sistema también permite la recuperación de la contraseña via e-mail.
 
 ## Imagenes del proyecto
 
-<img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_1.png" width="200" height="200" alt="img"/>                      <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_2.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_3.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_4.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_5.png" width="200" height="200" alt="img"/>
-                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_6.png" width="200" height="200" alt="img"/>
-                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_7.png" width="200" height="200" alt="img"/>
-                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_8.png" width="200" height="200" alt="img"/>
-                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_9.png" width="200" height="200" alt="img"/>
-                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_10.png" width="200" height="200" alt="img"/>
-                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_11.png" width="200" height="200" alt="img"/>
-                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_12.png" width="200" height="200" alt="img"/>
+<img src="https://github.com/elavincho/RecepcionEquipos/blob/master/images/Captura_de_pantalla_1.png" width="200" height="200" alt="img"/>                      <img src="https://github.com/elavincho/RecepcionEquipos/blob/master/images/Captura_de_pantalla_2.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/RecepcionEquipos/blob/master/images/Captura_de_pantalla_3.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/RecepcionEquipos/blob/master/images/Captura_de_pantalla_4.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_5.png" width="200" height="200" alt="img"/>
+                          <img src="https://github.com/elavincho/RecepcionEquipos/blob/master/images/Captura_de_pantalla_6.png" width="200" height="200" alt="img"/>
+                          <img src="https://github.com/elavincho/RecepcionEquipos/blob/master/images/Captura_de_pantalla_7.png" width="200" height="200" alt="img"/>
+                          <img src="https://github.com/elavincho/RecepcionEquipos/blob/master/images/Captura_de_pantalla_8.png" width="200" height="200" alt="img"/>
+                          <img src="https://github.com/elavincho/RecepcionEquipos/blob/master/images/Captura_de_pantalla_9.png" width="200" height="200" alt="img"/>
+                          <img src="https://github.com/elavincho/RecepcionEquipos/blob/master/images/Captura_de_pantalla_10.png" width="200" height="200" alt="img"/>
+                          <img src="https://github.com/elavincho/RecepcionEquipos/blob/master/images/Captura_de_pantalla_11.png" width="200" height="200" alt="img"/>
+                          <img src="https://github.com/elavincho/RecepcionEquipos/blob/master/images/Captura_de_pantalla_12.png" width="200" height="200" alt="img"/>
 
