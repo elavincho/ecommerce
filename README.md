@@ -74,4 +74,8 @@ El sistema también permite la recuperación de la contraseña via e-mail.
                           <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_11.png" width="200" height="200" alt="img"/>
                           <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_12.png" width="200" height="200" alt="img"/>
 
+## Video del proyecto
+
+[![Video tutorial](https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_1.png =200x200px)](https://youtu.be/I5PJ5B-3OZ8)
+
 
