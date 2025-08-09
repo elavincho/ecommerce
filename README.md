@@ -76,6 +76,6 @@ El sistema también permite la recuperación de la contraseña via e-mail.
 
 ## Video del proyecto
 
-[![Video tutorial](https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_1.png)](https://youtu.be/I5PJ5B-3OZ8)
+[![Video tutorial](https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_1.png =200x200px)](https://youtu.be/I5PJ5B-3OZ8)
 
 
