@@ -59,10 +59,6 @@ El sistema también permite la recuperación de la contraseña via e-mail.
 - Emisión de factura proforma
 - Impresión de la factura proforma
 
-## Mejores Prácticas
-- Uso de **buenas prácticas UX/UI** para facilitar la experiencia del usuario.
-- Implementación de **técnicas de QA** necesarias para garantizar la calidad del producto.
-
 ## Imagenes del proyecto
 
 <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_1.png" width="200" height="200" alt="img"/>                      <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_2.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_3.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_4.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_5.png" width="200" height="200" alt="img"/>
