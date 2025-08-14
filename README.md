@@ -15,6 +15,7 @@ Este proyecto desarrollado para gestionar un ecommerce de forma completa, desde 
   - JavaScript
   - Bootstrap
   - Thymeleaf
+  - jQuery
 
 ## Objetivo del Proyecto
 
