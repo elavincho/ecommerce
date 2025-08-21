@@ -19,13 +19,13 @@ Este proyecto desarrollado para gestionar un ecommerce de forma completa, desde 
 
 ## Objetivo del Proyecto
 
-Este sistema tiene la finalidad de administrar un ecommerce de forma completa, tanto desde el lado del cliente como desde la administración. Teniendo las siguientes caracteristicas:
+Este sistema tiene la finalidad de administrar un ecommerce de forma completa, tanto desde el lado del cliente como desde la administración. Teniendo las siguientes características:
 
 - Home sin necesidad del login
 - Home para clientes registrados
 - Home para el administrador
 
-El sistema también permite la recuperación de la contraseña via e-mail.
+El sistema también permite la recuperación de la contraseña vía e-mail.
 
 ## Funcionalidades principales
 
@@ -33,7 +33,7 @@ El sistema también permite la recuperación de la contraseña via e-mail.
 
 - Registro
 - Login
-- Recuperación de la contraseña via e-mail
+- Recuperación de la contraseña vía e-mail
 - Home usuario
 - Editar perfil
 - Editar contraseña
@@ -47,7 +47,7 @@ El sistema también permite la recuperación de la contraseña via e-mail.
 
 - Registro
 - Login
-- Recuperacion de la contraseña via e-mail
+- Recuperación de la contraseña vía e-mail
 - Home administrador
 - Editar perfil
 - Editar contraseña
@@ -55,12 +55,12 @@ El sistema también permite la recuperación de la contraseña via e-mail.
 - CRUD de datos de la empresa
 - CRUD de productos
 - Gestión de Usuarios
-- Ordenes de compra
+- Órdenes de compra
 - Entrega de compras
 - Emisión de factura proforma
 - Impresión de la factura proforma
 
-## Imagenes del proyecto
+## Imágenes del proyecto
 
 <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_1.png" width="200" height="200" alt="img"/>                      <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_2.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_3.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_4.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_5.png" width="200" height="200" alt="img"/>
                           <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_6.png" width="200" height="200" alt="img"/>
