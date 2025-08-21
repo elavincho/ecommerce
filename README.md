@@ -39,7 +39,7 @@ El sistema también permite la recuperación de la contraseña vía e-mail.
 - Editar contraseña
 - Carrito de compras
 - Mis compras
-- Detalla de la compra
+- Detalle de la compra
 - Estado de la entrega
 - Impresión del detalle de la compra
 
