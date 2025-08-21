@@ -1,3 +1,6 @@
+<img src="https://github.com/elavincho/ecommerce/blob/master/images/bolso-logo.png" width="80" height="80" alt="img"/> 
+
+
 # Sistema completo para un ecommerce
 
 Este proyecto desarrollado para gestionar un ecommerce de forma completa, desde el registro y login de usuarios y administradores, la posibilidad de realizar compras de forma online a través de usuarios registrados con un carrito de compras y un seguimiento de la entrega del producto por parte del cliente. En cuanto a la administración ofrece la capacidad de emitir facturas proforma, un CRUD de los productos y la ubicación de los mismos en la página principal, la administración de usuarios, datos de la empresa, creación de promociones y un seguimiento de las ventas y entrega de productos.
