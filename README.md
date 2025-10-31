@@ -1,4 +1,4 @@
-<!-- <img src="https://github.com/elavincho/ecommerce/blob/master/images/bolso-logo.png" width="80" height="80" alt="img"/>  -->
+<img src="https://github.com/elavincho/ecommerce/blob/master/images/bolso-logo.png" width="80" height="80" alt="img"/>
 
 
 # Sistema completo para un ecommerce
@@ -62,7 +62,7 @@ El sistema también permite la recuperación de la contraseña vía e-mail.
 - Entrega de compras
 - Emisión de factura proforma
 - Impresión de la factura proforma
-<!--
+
 ## Imágenes del proyecto
 
 <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_1.png" width="200" height="200" alt="img"/>                      <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_2.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_3.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_4.png" width="200" height="200" alt="img"/>                          <img src="https://github.com/elavincho/ecommerce/blob/master/images/Captura_de_pantalla_5.png" width="200" height="200" alt="img"/>
@@ -78,4 +78,4 @@ El sistema también permite la recuperación de la contraseña vía e-mail.
 
 [![Video tutorial](https://github.com/elavincho/ecommerce/blob/master/images/img_video.png)](https://youtu.be/I5PJ5B-3OZ8)
 
--->
+
